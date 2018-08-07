@@ -1,0 +1,14 @@
+.classpath
+.project
+/.settings
+/bin
+*.dat
+/config
+/crash-reports
+/generated
+/saves
+*.log
+*.gz
+usercache.json
+usernamecache.json
+options.txt
