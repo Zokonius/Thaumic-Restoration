@@ -1,0 +1,26 @@
+#Creative Tab
+itemGroup.tabreadopted=Thaumic Readoption
+
+#Items
+item.item_wand_0.name=Novice Wand
+item.item_wand_1.name=Adept Wand
+item.item_wand_2.name=Grandmasters Wand
+
+item_ingot_0.name=Air Infused Thaumium
+item_ingot_1.name=Fire Infused Thaumium
+item_ingot_2.name=Water Infused Thaumium
+item_ingot_3.name=Earth Infused Thaumium
+item_ingot_4.name=Order Infused Thaumium
+item_ingot_5.name=Entropy Infused Thaumium
+
+#Blocks
+tile.block_reinforced.name=Thaumium Plated Stone
+tile.block_infuser.name=Crystal Infuser
+tile.block_adv_recharge_pedestal.name=Advanced Vis Recharge Pedestal
+
+# --- Research ---
+#Readoption
+research_stage.thaumicreadoption:readoption.0=Hmm... This chapter seems to be interesting, it contains ancient magical devices, maybe I should investigate it further.
+#Wand
+research_stage.thaumicreadoption:basicwand.0= 
+research_stage.thaumicreadoption:basicwand.1=I found a way to make this portable aura manipulator called "Wand", it seems to do exacly the same as salis mudus, what a waste of time, but maybe if I enhance it further...

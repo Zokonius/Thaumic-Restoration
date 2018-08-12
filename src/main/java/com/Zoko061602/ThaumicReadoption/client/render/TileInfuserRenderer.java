@@ -40,6 +40,8 @@ public class TileInfuserRenderer extends TileEntitySpecialRenderer<TileInfuser>{
 	  }
 
 
+
+
 	  private void renderAnimation(TileInfuser ped, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
 	      float ticks = Minecraft.getMinecraft().getRenderViewEntity().ticksExisted + partialTicks;
 	        GL11.glPushMatrix();

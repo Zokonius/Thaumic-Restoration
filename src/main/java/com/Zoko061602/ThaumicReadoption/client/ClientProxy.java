@@ -1,8 +1,10 @@
 package com.Zoko061602.ThaumicReadoption.client;
 
 import com.Zoko061602.ThaumicReadoption.client.event.RenderEventHandler;
+import com.Zoko061602.ThaumicReadoption.client.render.TileAdvRechargePedestalRenderer;
 import com.Zoko061602.ThaumicReadoption.client.render.TileInfuserRenderer;
 import com.Zoko061602.ThaumicReadoption.main.CommonProxy;
+import com.Zoko061602.ThaumicReadoption.tile.TileAdvRechargePedestal;
 import com.Zoko061602.ThaumicReadoption.tile.TileInfuser;
 
 import net.minecraftforge.common.MinecraftForge;

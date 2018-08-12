@@ -10,21 +10,25 @@ public class ReadoptedItems {
 
 	public static Item itemWand;
 	public static Item itemIngot;
+	public static Item itemTRBucket;
 
 	public static void initItems() {
 		itemWand = new ItemWand();
 		itemIngot = new ItemIngot();
+		itemTRBucket = new ItemTRBucket();
 	}
 
 	public static void registerItems(RegistryEvent.Register<Item> e){
 		e.getRegistry().registerAll(itemWand);
 		e.getRegistry().registerAll(itemIngot);
+		e.getRegistry().register(itemTRBucket);
 
 	}
 
 	public static void registerRenders(ModelRegistryEvent event) {
-		registerRender(itemWand);
+		registerRender(itemWand, 2);
 		registerRender(itemIngot, 5);
+		registerRender(itemTRBucket);
 	}
 
 	private static void registerRender(Item item, int Maxmeta) {

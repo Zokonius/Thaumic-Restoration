@@ -1,12 +1,12 @@
 package com.Zoko061602.ThaumicReadoption.client.gui;
 
-import com.Zoko061602.ThaumicReadoption.items.ItemWand;
 import com.Zoko061602.ThaumicReadoption.main.ThaumicReadoption;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
+import thaumcraft.api.items.RechargeHelper;
 
 public class GuiWandHud extends Gui {
 
@@ -30,8 +30,8 @@ public class GuiWandHud extends Gui {
 		GlStateManager.enableBlend();
 		drawTexturedModalRect(xPos, yPos, 0, 0, 80, 8);
 
-		int manabarwidth = (int)(ItemWand.getVis(mc.player.getHeldItemMainhand()) / ItemWand.getMaxVis(mc.player.getHeldItemMainhand()) * 80);
-		drawTexturedModalRect(xPos, yPos, 0, 8, manabarwidth, 16);
+		int visbarwidth = (int)(RechargeHelper.getChargePercentage(mc.player.getHeldItemMainhand(), mc.player) * 80);
+		drawTexturedModalRect(xPos, yPos, 0, 8, visbarwidth, 16);
 		GlStateManager.popAttrib();
 
 	}

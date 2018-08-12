@@ -1,9 +1,11 @@
 .classpath
 .project
+/.gradle
 /.settings
 /bin
 *.dat
 /config
+/build
 /crash-reports
 /generated
 /saves

@@ -19,6 +19,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.lib.utils.InventoryUtils;
 
 public class BlockInfuser extends Block implements ITileEntityProvider {
@@ -74,9 +75,9 @@ public class BlockInfuser extends Block implements ITileEntityProvider {
 	        }
 	        if(!ped.getStackInSlot(0).isEmpty()){
 	        	if(!player.inventory.getCurrentItem().isEmpty()&&player.inventory.getCurrentItem().getItem() instanceof ItemWand) {
-	        		if(ItemWand.getVis(player.inventory.getCurrentItem())>=50) {
+	        		if(RechargeHelper.getCharge(player.inventory.getCurrentItem())>=50) {
 	        			if(ped.activate(player))
-	        			ItemWand.consumeVis(player.inventory.getCurrentItem(), 50);
+	        			RechargeHelper.consumeCharge(player.inventory.getCurrentItem(), player, 50);
 	        			return true;
 	        		}
 	        	}
