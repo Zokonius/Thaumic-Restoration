@@ -9,11 +9,12 @@ public class BlockBase extends Block {
 
 	public BlockBase(Material material, String tool, int tier, float hardness, float resistance, String name){
 		super(material);
-		this.setHarvestLevel(tool, tier);
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
-		this.setCreativeTab(ReadoptedTab.tabReadopted);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
+		setHarvestLevel(tool, tier);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		setCreativeTab(ReadoptedTab.tabReadopted);
+		setHardness(hardness);
+		setResistance(resistance);
 	}
+
 }

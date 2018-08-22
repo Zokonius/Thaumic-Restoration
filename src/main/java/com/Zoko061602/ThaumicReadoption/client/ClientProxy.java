@@ -1,12 +1,17 @@
 package com.Zoko061602.ThaumicReadoption.client;
 
+import com.Zoko061602.ThaumicReadoption.blocks.BlockCrystal;
+import com.Zoko061602.ThaumicReadoption.blocks.ReadoptedBlocks;
 import com.Zoko061602.ThaumicReadoption.client.event.RenderEventHandler;
 import com.Zoko061602.ThaumicReadoption.client.render.TileAdvRechargePedestalRenderer;
 import com.Zoko061602.ThaumicReadoption.client.render.TileInfuserRenderer;
+import com.Zoko061602.ThaumicReadoption.items.ItemBlockCrystal;
 import com.Zoko061602.ThaumicReadoption.main.CommonProxy;
+import com.Zoko061602.ThaumicReadoption.main.ThaumicReadoption;
 import com.Zoko061602.ThaumicReadoption.tile.TileAdvRechargePedestal;
 import com.Zoko061602.ThaumicReadoption.tile.TileInfuser;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -23,6 +28,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent e) {
 		super.init(e);
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new BlockCrystal(), ReadoptedBlocks.blockCrystal);
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemBlockCrystal(ReadoptedBlocks.blockCrystal), ReadoptedBlocks.blockCrystal);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileInfuser.class, new TileInfuserRenderer());
 
 	}

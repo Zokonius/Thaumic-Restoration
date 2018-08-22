@@ -1,6 +1,7 @@
 .classpath
 .project
 /.gradle
+/screenshots
 /.settings
 /bin
 *.dat

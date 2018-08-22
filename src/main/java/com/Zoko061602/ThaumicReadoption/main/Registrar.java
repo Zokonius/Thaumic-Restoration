@@ -27,8 +27,8 @@ public class Registrar {
 	  }
 
 	  @SubscribeEvent
-	  public static void registerVanillaRecipes(RegistryEvent.Register<IRecipe> e){
-	    ReadoptedRecipes.addRecipes();
+	  public static void registerRecipes(RegistryEvent.Register<IRecipe> e){
+	    ReadoptedRecipes.addRecipes(e);
 	  }
 
 	  @SubscribeEvent
@@ -36,5 +36,4 @@ public class Registrar {
 		  ReadoptedItems.registerRenders(e);
 		  ReadoptedBlocks.registerRenders(e);
 	  }
-
 }

@@ -1,10 +1,8 @@
 package com.Zoko061602.ThaumicReadoption.blocks;
 
 import com.Zoko061602.ThaumicReadoption.items.ItemWand;
-import com.Zoko061602.ThaumicReadoption.main.ReadoptedTab;
 import com.Zoko061602.ThaumicReadoption.tile.TileInfuser;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,16 +20,10 @@ import net.minecraft.world.World;
 import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.lib.utils.InventoryUtils;
 
-public class BlockInfuser extends Block implements ITileEntityProvider {
+public class BlockInfuser extends BlockBase implements ITileEntityProvider {
 
 	public BlockInfuser() {
-		super(Material.IRON);
-		this.setHarvestLevel("pickaxe", 1);
-		this.setUnlocalizedName("block_infuser");
-		this.setRegistryName("block_infuser");
-		this.setCreativeTab(ReadoptedTab.tabReadopted);
-		this.setHardness(3F);
-		this.setResistance(3F);
+		super(Material.IRON, "pickaxe", 1, 3F, 3F, "block_infuser");
 	}
 
 	  public boolean isOpaqueCube(IBlockState state){

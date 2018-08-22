@@ -2,6 +2,8 @@ package com.Zoko061602.ThaumicReadoption.blocks;
 
 import java.util.ArrayList;
 
+import com.Zoko061602.ThaumicReadoption.items.ItemBlockCrystal;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -18,8 +20,10 @@ public class ReadoptedBlocks {
 	public static Block blockGreatwoodFramed;
 	public static Block blockInfuser;
 	public static Block blockAdvRechargePed;
+	public static Block blockCrystal;
 
 	private static ArrayList<Block> blocks = new ArrayList<Block>();
+
 
 	public static void initBlocks() {
 		blocks.add(blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced"));
@@ -27,22 +31,26 @@ public class ReadoptedBlocks {
 		blocks.add(blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed"));
 		blocks.add(blockInfuser = new BlockInfuser());
 		blocks.add(blockAdvRechargePed = new BlockAdvRechargePedestal());
+		blockCrystal = new BlockCrystal();
 
 	}
 
 	public static void registerBlocks(RegistryEvent.Register<Block> e){
 	 for(Block b:blocks)
-     e.getRegistry().registerAll(b);
+      e.getRegistry().registerAll(b);
+	 e.getRegistry().register(blockCrystal);
 	}
 
 	public static void registerItemBlocks(RegistryEvent.Register<Item> e) {
 	  for(Block b:blocks)
 	   e.getRegistry().registerAll(new ItemBlock(b).setRegistryName(b.getRegistryName()));
+	  e.getRegistry().register(new ItemBlockCrystal(blockCrystal).setRegistryName(blockCrystal.getRegistryName()));
 	 }
 
 	public static void registerRenders(ModelRegistryEvent e) {
 	 for(Block b:blocks)
 	 registerRender(Item.getItemFromBlock(b));
+	 registerRender(Item.getItemFromBlock(blockCrystal));
 	}
 
 	private static void registerRender(Item item) {

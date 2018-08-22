@@ -1,9 +1,7 @@
 package com.Zoko061602.ThaumicReadoption.blocks;
 
-import com.Zoko061602.ThaumicReadoption.main.ReadoptedTab;
 import com.Zoko061602.ThaumicReadoption.tile.TileAdvRechargePedestal;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,17 +19,10 @@ import net.minecraft.world.World;
 import thaumcraft.api.items.IRechargable;
 import thaumcraft.common.lib.utils.InventoryUtils;
 
-public class BlockAdvRechargePedestal extends Block implements ITileEntityProvider {
+public class BlockAdvRechargePedestal extends BlockBase implements ITileEntityProvider {
 
    public BlockAdvRechargePedestal() {
-		super(Material.IRON);
-		this.setHarvestLevel("pickaxe", 1);
-		this.setUnlocalizedName("block_adv_recharge_pedestal");
-		this.setRegistryName("block_adv_recharge_pedestal");
-		this.setCreativeTab(ReadoptedTab.tabReadopted);
-		this.setHardness(3F);
-		this.setResistance(3F);
-
+		super(Material.IRON, "pickaxe", 1, 3F, 3F, "block_adv_recharge_pedestal");
    }
 
    public boolean isOpaqueCube(IBlockState state){

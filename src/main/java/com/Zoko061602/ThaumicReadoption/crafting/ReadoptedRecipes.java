@@ -6,14 +6,21 @@ import com.Zoko061602.ThaumicReadoption.lib.crafting.RecipeCrystalInfusion;
 import com.Zoko061602.ThaumicReadoption.lib.crafting.WandTriggerMultiblock;
 import com.Zoko061602.ThaumicReadoption.lib.crafting.WandTriggerOre;
 import com.Zoko061602.ThaumicReadoption.lib.crafting.WandTriggerSimple;
+import com.Zoko061602.ThaumicReadoption.main.ThaumicReadoption;
 
+import crafttweaker.api.recipes.ShapedRecipe;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.aspects.Aspect;
@@ -25,13 +32,22 @@ import thaumcraft.common.config.ConfigItems;
 
 public class ReadoptedRecipes {
 
-	public static void addRecipes(){
+	public static void addRecipes(Register<IRecipe> e){
 		WandTriggers.addWandTriggers();
 		addCrystalInfuserRecipes();
+		CrystalTypes.registerCrystals();
+       // addNormalRecipes(e);
 
+	}
 
-
-
+	private static void addNormalRecipes(Register<IRecipe> e) {
+		IForgeRegistry<IRecipe> r = e.getRegistry();
+		r.register(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(Blocks.DIAMOND_BLOCK),
+				"XC",
+				"CX",
+				"CX",
+				'X', "gemEmerald",
+				'C',new ItemStack(Items.STICK)));
 	}
 
 	private static void addCrystalInfuserRecipes() {

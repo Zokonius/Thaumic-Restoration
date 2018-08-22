@@ -10,7 +10,7 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 
-@JEIPlugin
+//@JEIPlugin
 public class JEITRPlugin implements IModPlugin {
 
 	@Override

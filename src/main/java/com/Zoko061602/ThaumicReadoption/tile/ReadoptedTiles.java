@@ -10,6 +10,7 @@ public class ReadoptedTiles {
 	public static void initTiles(){
 		GameRegistry.registerTileEntity(TileInfuser.class, new ResourceLocation(ThaumicReadoption.ModID, "tileInfuser"));
 		GameRegistry.registerTileEntity(TileAdvRechargePedestal.class, new ResourceLocation(ThaumicReadoption.ModID, "tileAdvRechargePedestal"));
+		GameRegistry.registerTileEntity(TileCrystal.class, new ResourceLocation(ThaumicReadoption.ModID,"tileCrystal"));
 
 	}
 

@@ -2,9 +2,9 @@
 itemGroup.tabreadopted=Thaumic Readoption
 
 #Items
-item.item_wand_0.name=Novice Wand
-item.item_wand_1.name=Adept Wand
-item.item_wand_2.name=Grandmasters Wand
+item_wand_0.name=Novice Wand
+item_wand_1.name=Adept Wand
+item_wand_2.name=Grandmasters Wand
 
 item_ingot_0.name=Air Infused Thaumium
 item_ingot_1.name=Fire Infused Thaumium
@@ -13,10 +13,16 @@ item_ingot_3.name=Earth Infused Thaumium
 item_ingot_4.name=Order Infused Thaumium
 item_ingot_5.name=Entropy Infused Thaumium
 
+item.item_bucket.name=Infinite Water Bucket
+
 #Blocks
 tile.block_reinforced.name=Thaumium Plated Stone
 tile.block_infuser.name=Crystal Infuser
 tile.block_adv_recharge_pedestal.name=Advanced Vis Recharge Pedestal
+tile.block_greatwood.name=Greatwood Block
+tile.block_greatwood_framed.name=Thaumium Framed Greatwood
+
+tile.block_crystal.name=Obsidian Edged Essentia Crystal
 
 # --- Research ---
 #Readoption
