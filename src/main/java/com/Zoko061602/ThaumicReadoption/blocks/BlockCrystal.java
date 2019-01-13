@@ -1,6 +1,6 @@
 package com.Zoko061602.ThaumicReadoption.blocks;
 
-import com.Zoko061602.ThaumicReadoption.items.ItemBlockCrystal;
+import com.Zoko061602.ThaumicReadoption.items.block.ItemBlockCrystal;
 import com.Zoko061602.ThaumicReadoption.tile.TileCrystal;
 
 import net.minecraft.block.ITileEntityProvider;

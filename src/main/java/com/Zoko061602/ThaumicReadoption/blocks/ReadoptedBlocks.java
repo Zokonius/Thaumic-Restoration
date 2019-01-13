@@ -2,7 +2,7 @@ package com.Zoko061602.ThaumicReadoption.blocks;
 
 import java.util.ArrayList;
 
-import com.Zoko061602.ThaumicReadoption.items.ItemBlockCrystal;
+import com.Zoko061602.ThaumicReadoption.items.block.ItemBlockCrystal;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,6 +21,7 @@ public class ReadoptedBlocks {
 	public static Block blockInfuser;
 	public static Block blockAdvRechargePed;
 	public static Block blockCrystal;
+	public static Block blockObsidian;
 
 	private static ArrayList<Block> blocks = new ArrayList<Block>();
 
@@ -29,6 +30,7 @@ public class ReadoptedBlocks {
 		blocks.add(blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced"));
 		blocks.add(blockGreatwoodPlank = new BlockBase(Material.WOOD, "axe", 0, 2F, 2F, "block_greatwood"));
 		blocks.add(blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed"));
+		blocks.add(blockObsidian = new BlockBase(Material.ROCK, "pickaxe", 3, 50F, 1200F, "block_obsidian"));
 		blocks.add(blockInfuser = new BlockInfuser());
 		blocks.add(blockAdvRechargePed = new BlockAdvRechargePedestal());
 		blockCrystal = new BlockCrystal();

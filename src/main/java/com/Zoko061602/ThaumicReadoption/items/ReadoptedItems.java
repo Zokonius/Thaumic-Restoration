@@ -11,24 +11,42 @@ public class ReadoptedItems {
 	public static Item itemWand;
 	public static Item itemIngot;
 	public static Item itemTRBucket;
+	public static Item itemToast;
+	public static Item itemWandCap;
+	public static Item itemWandRod;
+	public static Item itemWitherRing;
 
 	public static void initItems() {
 		itemWand = new ItemWand();
 		itemIngot = new ItemIngot();
 		itemTRBucket = new ItemTRBucket();
+		itemToast = new ItemToast();
+		itemWandCap = new ItemBase("item_wandcap");
+		itemWandRod = new ItemBase("item_wandrod");
+		itemWitherRing = new ItemRingWither();
 	}
 
 	public static void registerItems(RegistryEvent.Register<Item> e){
 		e.getRegistry().registerAll(itemWand);
+		e.getRegistry().register(itemWandCap);
+		e.getRegistry().register(itemWandRod);
 		e.getRegistry().registerAll(itemIngot);
 		e.getRegistry().register(itemTRBucket);
+		e.getRegistry().register(itemToast);
+        e.getRegistry().register(itemWitherRing);
 
 	}
 
 	public static void registerRenders(ModelRegistryEvent event) {
 		registerRender(itemWand, 2);
 		registerRender(itemIngot, 5);
+		registerRender(itemWandCap);
+		registerRender(itemWandRod);
 		registerRender(itemTRBucket);
+		registerRender(itemToast);
+		registerRender(itemWitherRing);
+
+
 	}
 
 	private static void registerRender(Item item, int Maxmeta) {

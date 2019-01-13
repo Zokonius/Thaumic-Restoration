@@ -5,7 +5,7 @@ import com.Zoko061602.ThaumicReadoption.blocks.ReadoptedBlocks;
 import com.Zoko061602.ThaumicReadoption.client.event.RenderEventHandler;
 import com.Zoko061602.ThaumicReadoption.client.render.TileAdvRechargePedestalRenderer;
 import com.Zoko061602.ThaumicReadoption.client.render.TileInfuserRenderer;
-import com.Zoko061602.ThaumicReadoption.items.ItemBlockCrystal;
+import com.Zoko061602.ThaumicReadoption.items.block.ItemBlockCrystal;
 import com.Zoko061602.ThaumicReadoption.main.CommonProxy;
 import com.Zoko061602.ThaumicReadoption.main.ThaumicReadoption;
 import com.Zoko061602.ThaumicReadoption.tile.TileAdvRechargePedestal;

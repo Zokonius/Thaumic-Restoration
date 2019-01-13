@@ -29,7 +29,6 @@ public class BlockAdvRechargePedestal extends BlockBase implements ITileEntityPr
      return false;
    }
 
-
    public boolean isFullCube(IBlockState state){
      return false;
    }
@@ -77,7 +76,5 @@ public class BlockAdvRechargePedestal extends BlockBase implements ITileEntityPr
   public TileEntity createNewTileEntity(World worldIn, int meta) {
 	return new TileAdvRechargePedestal();
   }
-
-
 
 }
