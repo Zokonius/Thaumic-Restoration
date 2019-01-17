@@ -10,6 +10,7 @@
 /crash-reports
 /generated
 /saves
+/run
 *.log
 *.gz
 usercache.json

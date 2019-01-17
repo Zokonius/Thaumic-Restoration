@@ -1,2 +1,2 @@
-import mods.thaumicreadoption.CrystalInfusion;
+import mods.thaumicrestoration.CrystalInfusion;
 CrystalInfusion.addRecipe("",<minecraft:dirt>,"aer",<minecraft:apple>);
