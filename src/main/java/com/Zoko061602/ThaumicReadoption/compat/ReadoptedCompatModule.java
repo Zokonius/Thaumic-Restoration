@@ -11,22 +11,27 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class ReadoptedCompatModule {
 
-	public static HashMap<String,ReadoptedCompatModule> compat = new HashMap<>();
+	public static HashMap<String,Class> compat = new HashMap<>();
 	public static ArrayList<ReadoptedCompatModule> modules = new ArrayList<ReadoptedCompatModule>();
 
 
 	static {
-		compat.put("tconstruct", new TConstructCompat());
+		compat.put("tconstruct", TConstructCompat.class);
 
 	}
 
 	public static void loadPreInit(){
 		for(String s:compat.keySet()) {
 			if(Loader.isModLoaded(s)) {
-				modules.add(compat.get(s));
-				compat.get(s).preInit();
+				try {
+				modules.add((ReadoptedCompatModule) compat.get(s).newInstance());
+				}
+				catch(Exception ex){}
 			}
 		}
+
+		for(ReadoptedCompatModule m:modules)
+			m.preInit();
 
 	}
 
