@@ -23,14 +23,14 @@ public class ReadoptedBlocks {
 	public static Block blockCrystal;
 	public static Block blockObsidian;
 
-	private static ArrayList<Block> blocks = new ArrayList<Block>();
+	static ArrayList<Block> blocks = new ArrayList<Block>();
 
 
 	public static void initBlocks() {
 		blocks.add(blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced"));
 		blocks.add(blockGreatwoodPlank = new BlockBase(Material.WOOD, "axe", 0, 2F, 2F, "block_greatwood"));
 		blocks.add(blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed"));
-		blocks.add(blockObsidian = new BlockBase(Material.ROCK, "pickaxe", 3, 50F, 1200F, "block_obsidian"));
+		blocks.add(blockObsidian = new BlockObsidian());
 		blocks.add(blockInfuser = new BlockInfuser());
 		blocks.add(blockAdvRechargePed = new BlockAdvRechargePedestal());
 		blockCrystal = new BlockCrystal();
@@ -58,5 +58,6 @@ public class ReadoptedBlocks {
 	private static void registerRender(Item item) {
 	 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation( item.getRegistryName(), "inventory"));
 	}
+
 
 }

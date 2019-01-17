@@ -67,10 +67,10 @@ public class BlockStorageUnit extends BlockBase implements ITileEntityProvider {
 	          world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.6F);
 	          return true;
 	        }
-	        if(!ped.getStackInSlot(0).isEmpty()){
+	        if(!sto.getStackInSlot(0).isEmpty()){
 	        	if(!player.inventory.getCurrentItem().isEmpty()&&player.inventory.getCurrentItem().getItem() instanceof ItemWand) {
 	        		if(RechargeHelper.getCharge(player.inventory.getCurrentItem())>=50) {
-	        			if(ped.activate(player))
+	        			if(sto.activate(player))
 	        			RechargeHelper.consumeCharge(player.inventory.getCurrentItem(), player, 50);
 	        			return true;
 	        		}

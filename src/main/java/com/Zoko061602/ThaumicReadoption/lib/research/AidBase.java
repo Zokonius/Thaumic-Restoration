@@ -22,6 +22,6 @@ public class AidBase implements ITheorycraftAid {
 	@Override
 	public Class<TheorycraftCard>[] getCards() {
 		return cards;
-	}	
-	
+	}
+
 }

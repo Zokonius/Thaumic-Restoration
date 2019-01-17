@@ -1,7 +1,7 @@
 package com.Zoko061602.ThaumicReadoption.crafting;
 
+import com.Zoko061602.ThaumicReadoption.api.ICrystalEffect;
 import com.Zoko061602.ThaumicReadoption.lib.tiles.CrystalPotionEffect;
-import com.Zoko061602.ThaumicReadoption.lib.tiles.ICrystalEffect;
 
 import net.minecraft.init.MobEffects;
 import thaumcraft.api.aspects.Aspect;

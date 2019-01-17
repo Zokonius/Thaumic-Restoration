@@ -2,12 +2,13 @@ package com.Zoko061602.ThaumicReadoption.crafting;
 
 import java.util.HashMap;
 
+import com.Zoko061602.ThaumicReadoption.api.IWandTrigger;
 import com.Zoko061602.ThaumicReadoption.blocks.ReadoptedBlocks;
 import com.Zoko061602.ThaumicReadoption.items.ReadoptedItems;
-import com.Zoko061602.ThaumicReadoption.lib.crafting.IWandTrigger;
 import com.Zoko061602.ThaumicReadoption.lib.crafting.RecipeCrystalInfusion;
-import com.Zoko061602.ThaumicReadoption.lib.crafting.WandTriggerDust;
-import com.Zoko061602.ThaumicReadoption.lib.crafting.WandTriggerSimple;
+import com.Zoko061602.ThaumicReadoption.lib.wands.WandTriggerDust;
+import com.Zoko061602.ThaumicReadoption.lib.wands.WandTriggerFire;
+import com.Zoko061602.ThaumicReadoption.lib.wands.WandTriggerSimple;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -98,6 +99,9 @@ public class ReadoptedRecipes {
 
 		aspects = new AspectList().add(Aspect.ORDER, 15).add(Aspect.MAGIC, 10).add(Aspect.VOID, 20).add(Aspect.DARKNESS,10);
 		recipes.put("TR_ENDER.1",addCrucibleRecipe("TR_ENDER", new ItemStack(Items.ENDER_PEARL,2,0), aspects, new ItemStack(Items.ENDER_PEARL,1,0)));
+
+		aspects = new AspectList().add(Aspect.LIFE, 5).add(Aspect.MAGIC, 5).add(Aspect.MAN, 5).add(Aspect.ALCHEMY,5);
+		recipes.put("THAUMICTOAST.1",addCrucibleRecipe("THAUMICTOAST@1", new ItemStack(ReadoptedItems.itemToast,1,0), aspects, new ItemStack(Items.BREAD,1,0)));
 	}
 
 	private static void addCrystalInfuserRecipes() {
@@ -113,8 +117,9 @@ public class ReadoptedRecipes {
 	private static void addWandTriggers() {
 		for(IDustTrigger t : IDustTrigger.triggers)
 			IWandTrigger.registerWandTrigger(new WandTriggerDust(t));
-	    IWandTrigger.registerWandTrigger(new WandTriggerSimple("WANDTRANS@1", Blocks.SEA_LANTERN, new ItemStack(BlocksTC.amberBlock),0));
-
+	    IWandTrigger.registerWandTrigger(new WandTriggerSimple("WANDTRANS@1", Blocks.SEA_LANTERN, new ItemStack(BlocksTC.amberBlock),5));
+	    IWandTrigger.registerWandTrigger(new WandTriggerSimple("WANDTRANS@1", Blocks.PUMPKIN, new ItemStack(Blocks.MELON_BLOCK),5));
+	    IWandTrigger.registerWandTrigger(new WandTriggerFire("WANDFIRE@1"));
 	}
 
 		public static ResourceLocation getNameForRecipe(ItemStack output) {

@@ -2,15 +2,18 @@ package com.Zoko061602.ThaumicReadoption.crafting;
 
 import com.Zoko061602.ThaumicReadoption.blocks.ReadoptedBlocks;
 import com.Zoko061602.ThaumicReadoption.items.ReadoptedItems;
+import com.Zoko061602.ThaumicReadoption.lib.research.AidBase;
 import com.Zoko061602.ThaumicReadoption.lib.research.ResearchHelper;
 import com.Zoko061602.ThaumicReadoption.main.ThaumicReadoption;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType;
 import thaumcraft.api.items.ItemsTC;
@@ -20,7 +23,7 @@ import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.api.research.ResearchEntry.EnumResearchMeta;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.api.research.ResearchStage.Knowledge;
-import thaumcraft.common.config.ConfigBlocks;
+import thaumcraft.api.research.theorycraft.TheorycraftCard;
 
 public class ReadoptedResearch {
 
@@ -30,9 +33,11 @@ public class ReadoptedResearch {
 	public static final ResourceLocation iconWither = new ResourceLocation(ThaumicReadoption.ModID, "textures/research/icon_wither.png");
 	public static final ResourceLocation iconAlchemy = new ResourceLocation(ThaumicReadoption.ModID, "textures/research/icon_alchemy.png");
 	public static final ResourceLocation iconTrans = new ResourceLocation(ThaumicReadoption.ModID, "textures/research/icon_trans.png");
+	public static final ResourceLocation iconFire = new ResourceLocation(ThaumicReadoption.ModID, "textures/research/icon_fire.png");
 	public static final ResourceLocation backReadoption = new ResourceLocation(ThaumicReadoption.ModID, "textures/research/tab_readoption.jpg");
 
     private static ResearchCategory catReadoption;
+
 
     private static final EnumKnowledgeType OBSERVATION = EnumKnowledgeType.OBSERVATION;
     private static final EnumKnowledgeType THEORY = EnumKnowledgeType.THEORY;
@@ -112,7 +117,7 @@ public class ReadoptedResearch {
 
 		 parents = new String[] {"NOVICEWAND"};
 
-		ResearchHelper.makeReadoptionResearch("Master", "Magic Transmutations", -3, -4, iconTrans, stages, parents,EnumResearchMeta.HIDDEN);
+		ResearchHelper.makeReadoptionResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents,EnumResearchMeta.HIDDEN);
 
 
 		// Adept Wand
@@ -186,23 +191,6 @@ public class ReadoptedResearch {
 		 parents = new String[] {"METALLURGY@3","BASEINFUSION","BASICWAND","READOPTION"};
 
 		ResearchHelper.makeReadoptionResearch("CRYSTALINFUSION", "Crystal Infuser", -2, 2, new ItemStack(ReadoptedBlocks.blockInfuser), stages, parents);
-
-
-		/*Block Infusion
-		 stages = new ResearchStage[]{
-				  new ResearchHelper.RSB()
-				  .setText("research_stage."+ThaumicReadoption.ModID+":blockinfusion.0")
-				  .build(),
-				 new ResearchHelper.RSB()
-				  .setText("research_stage."+ThaumicReadoption.ModID+":blockinfusion.1")
-	              .build()
-
-		};
-
-		 parents = new String[] {"CRYSTALINFUSION","ADEPTWAND"};
-
-		ResearchHelper.makeReadoptionResearch("BLOCKINFUSION", "Block Infusion", 1, -4, new ItemStack(ReadoptedBlocks.blockInfuser), stages, parents);
-        */
 
 		//Infused Thaumium
 		 stages = new ResearchStage[]{
@@ -314,7 +302,7 @@ public class ReadoptedResearch {
 
 
 
-	//Steel
+	/*/Steel
 	if(OreDictionary.doesOreNameExist("nuggetSteel")){
 	 stages = new ResearchStage[]{
 			  new ResearchHelper.RSB()
@@ -332,6 +320,7 @@ public class ReadoptedResearch {
 
 	ResearchHelper.makeReadoptionResearch("TR_STEEL", "Steel Transmutation", 4, -3, OreDictionary.getOres("nuggetSteel").get(1), stages, parents);
 	}
+	*/
 
 	//Ender Pearl
 	 stages = new ResearchStage[]{
@@ -350,7 +339,7 @@ public class ReadoptedResearch {
 
 	ResearchHelper.makeReadoptionResearch("TR_ENDER", "Ender Pearl Duplication", 4, -5, new ItemStack(Items.ENDER_PEARL), stages, parents);
 
-	//Wither Skull
+	//Alchemy
 	 stages = new ResearchStage[]{
 			  new ResearchHelper.RSB()
 			  .setText("research_stage."+ThaumicReadoption.ModID+":tr_wither.0")
@@ -389,7 +378,52 @@ public class ReadoptedResearch {
 
 	ResearchHelper.makeReadoptionResearch("WITHERRING", "Ring of Wither Protection", -4, 3, new ItemStack(ReadoptedItems.itemWitherRing), stages, parents);
 
-}
+	//Wand Fire
+	 stages = new ResearchStage[]{
+			  new ResearchHelper.RSB()
+			  .setText("research_stage."+ThaumicReadoption.ModID+":wandfire.0")
+			  .setKnow(new Knowledge(THEORY, getCategory("AUROMANCY"), 2))
+			  .setConsumedItems(new ItemStack(Items.FLINT_AND_STEEL,1,0))
+			  .build(),
+			 new ResearchHelper.RSB()
+			  .setText("research_stage."+ThaumicReadoption.ModID+":wandfire.1")
+              .build(),
+
+	};
+
+	 parents = new String[] {"NOVICEWAND"};
+	 new ResearchHelper.RAB();
+
+	ResearchHelper.makeReadoptionResearch("WANDFIRE", "Hellfire Overlord", -2, -1, iconFire, stages, parents,EnumResearchMeta.HEX);
+
+
+	//Toast
+	 stages = new ResearchStage[]{
+			  new ResearchHelper.RSB()
+			  .setText("research_stage."+ThaumicReadoption.ModID+":toast.0")
+			  .setKnow(new Knowledge(THEORY, getCategory("AUROMANCY"), 2))
+			  .setConsumedItems(new ItemStack(Items.BREAD,1,64))
+			  .build(),
+			 new ResearchHelper.RSB()
+			  .setText("research_stage."+ThaumicReadoption.ModID+":toast.1")
+			  .setRecipes(ReadoptedRecipes.recipes.get("THAUMICTOAST.1"))
+             .build(),
+
+	};
+
+	 parents = new String[] {"TR_ALCHEMY"};
+	 new ResearchHelper.RAB();
+
+	ResearchHelper.makeReadoptionResearch("THAUMICTOAST", "Thaumic Toast", 3, -3, new ItemStack(ReadoptedItems.itemToast), stages, parents);
+
+   }
+
+	/*private static void createAid() {
+	 TheorycraftCard[] cards = new TheorycraftCard[]{
+      Card
+	 };
+		new AidBase(ReadoptedBlocks.blockInfuser, cards);
+	}*/
 
 	public static ResearchCategory getCategory(String cat) {
 		return ResearchCategories.getResearchCategory(cat);

@@ -2,6 +2,7 @@ package com.Zoko061602.ThaumicReadoption.lib.tiles;
 
 import java.util.List;
 
+import com.Zoko061602.ThaumicReadoption.api.ICrystalEffect;
 import com.Zoko061602.ThaumicReadoption.tile.TileCrystal;
 
 import net.minecraft.entity.player.EntityPlayerMP;

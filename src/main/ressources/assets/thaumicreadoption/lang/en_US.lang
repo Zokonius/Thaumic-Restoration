@@ -31,12 +31,23 @@ tile.block_obsidian.name=Terra Infused Obsidian
 
 tile.block_crystal.name=Obsidian Edged Essentia Crystal
 
+# --- TConstruct ---
+material.aer_thaumium.name=Air Infused Thaumium
+material.ignis_thaumium.name=Fire Infused Thaumium
+material.aqua_thaumium.name=Water Infused Thaumium
+material.terra_thaumium.name=Earth Infused Thaumium
+material.ordo_thaumium.name=Order Infused Thaumium
+material.perditio_thaumium.name=Entropy Infused Thaumium
+
+modifier.tr_entropic.name=Entropic
+modifier.tr_entropic.desc=Ordinary Materials can't resist the entropic vibes of your Tool. [NYI]
+
 # --- Research ---
 tc.research_category.READOPTION=Thaumic Readoption
 
 #Readoption
-research_stage.thaumicreadoption:readoption.0=
-research_stage.thaumicreadoption:readoption.1=Hmm... This chapter seems to be interesting, it contains ancient magical devices, maybe I should investigate it further.
+research_stage.thaumicreadoption:readoption.0=Hmm... This chapter seems to be interesting, it contains ancient magical devices, maybe I should investigate it further.
+research_stage.thaumicreadoption:readoption.1=Well, this chapter deals with the creation of thaumic devices, what have I actually exspected.
 
 #Deco
 research_stage.thaumicreadoption:trdeco.0=This magical Wood seems to be very sturdy.It's just perfect to turn it into some highly decorative blocks.
@@ -98,4 +109,10 @@ research_stage.thaumicreadoption:tr_ender.1=In fact you can duplicate them, sadl
 research_stage.thaumicreadoption:wither_ring.0=Nobody likes to be poisoned, and even less people like to be withered, maybe I could design some kind of bauble that nullifies the wither effect.
 research_stage.thaumicreadoption:wither_ring.1=There it is, a ring that nullifies the wither effect, and it only requires some milk (and a nether star, and some skulls), fairly easy.
 
+#Fire Wand
+research_stage.thaumicreadoption:wand_fire.0=The nether is a dangerous place, but it gets even worse if you get stranded there, maybe I could use my newly crafted wand to ignite the obsidian again.
+research_stage.thaumicreadoption:wand_fire.1=I knew that it was possible, the dry climate and the high magical potential in the nether make it possible to use some vis sparks to ignite obsidian, strangely it works only on obsidian.
 
+#Fire Wand
+research_stage.thaumicreadoption:toast.0=Food can be a huge problem in the life of a thaumoturge, he would rather go out to make a new discovery, than going huning animals or harvesting food, maybe thaumaturgy has a solution.
+research_stage.thaumicreadoption:toast.1=I was able to create a new type of bread, just by cooking regular bread in my crucible with various types of essentia, it tastes kinda weired, but that probably just a sign of quality.

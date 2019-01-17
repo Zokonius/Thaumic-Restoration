@@ -1,6 +1,6 @@
 package com.Zoko061602.ThaumicReadoption.tile;
 
-import com.Zoko061602.ThaumicReadoption.lib.tiles.ICrystalEffect;
+import com.Zoko061602.ThaumicReadoption.api.ICrystalEffect;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;

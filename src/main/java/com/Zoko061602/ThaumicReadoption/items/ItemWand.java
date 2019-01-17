@@ -1,6 +1,6 @@
 package com.Zoko061602.ThaumicReadoption.items;
 
-import com.Zoko061602.ThaumicReadoption.lib.crafting.IWandTrigger;
+import com.Zoko061602.ThaumicReadoption.api.IWandTrigger;
 import com.Zoko061602.ThaumicReadoption.main.ReadoptedTab;
 import com.Zoko061602.ThaumicReadoption.main.ThaumicReadoption;
 
