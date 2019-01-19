@@ -2,18 +2,13 @@ package com.Zoko061602.ThaumicRestoration.crafting;
 
 import com.Zoko061602.ThaumicRestoration.blocks.TR_Blocks;
 import com.Zoko061602.ThaumicRestoration.items.TR_Items;
-import com.Zoko061602.ThaumicRestoration.lib.research.AidBase;
 import com.Zoko061602.ThaumicRestoration.lib.research.ResearchHelper;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.oredict.OreDictionary;
-import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType;
 import thaumcraft.api.items.ItemsTC;
@@ -23,7 +18,6 @@ import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.api.research.ResearchEntry.EnumResearchMeta;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.api.research.ResearchStage.Knowledge;
-import thaumcraft.api.research.theorycraft.TheorycraftCard;
 
 public class TR_Research {
 
@@ -188,7 +182,7 @@ public class TR_Research {
 
 		};
 
-		 parents = new String[] {"METALLURGY@3","BASEINFUSION","BASICWAND","READOPTION"};
+		 parents = new String[] {"METALLURGY@3","BASEINFUSION","~NOVICEWAND","RESTORATION"};
 
 		ResearchHelper.makeReadoptionResearch("CRYSTALINFUSION", "Crystal Infuser", -2, 2, new ItemStack(TR_Blocks.blockInfuser), stages, parents);
 
@@ -373,7 +367,7 @@ public class TR_Research {
 
 	};
 
-	 parents = new String[] {"READOPTION","INFUSION","METALLURGY@2"};
+	 parents = new String[] {"RESTORATION","INFUSION","METALLURGY@2"};
 	 new ResearchHelper.RAB();
 
 	ResearchHelper.makeReadoptionResearch("WITHERRING", "Ring of Wither Protection", -4, 3, new ItemStack(TR_Items.itemWitherRing), stages, parents);
@@ -417,13 +411,6 @@ public class TR_Research {
 	ResearchHelper.makeReadoptionResearch("THAUMICTOAST", "Thaumic Toast", 3, -3, new ItemStack(TR_Items.itemToast), stages, parents);
 
    }
-
-	/*private static void createAid() {
-	 TheorycraftCard[] cards = new TheorycraftCard[]{
-      Card
-	 };
-		new AidBase(ReadoptedBlocks.blockInfuser, cards);
-	}*/
 
 	public static ResearchCategory getCategory(String cat) {
 		return ResearchCategories.getResearchCategory(cat);

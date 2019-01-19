@@ -2,7 +2,9 @@
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
         "0": "thaumicrestoration:blocks/block_crystal",
-        "1": "thaumicrestoration:blocks/block_crystal_base"
+        "1": "thaumicrestoration:blocks/block_crystal_base",
+        "particle": "thaumicrestoration:blocks/block_crystal_base"
+
     },
     "elements": [
         {

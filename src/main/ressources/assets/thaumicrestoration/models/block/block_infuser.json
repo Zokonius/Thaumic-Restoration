@@ -4,7 +4,7 @@
         "0": "thaumicrestoration:blocks/block_infuser",
         "1": "thaumicrestoration:blocks/block_infuser_base",
         "2": "thaumicrestoration:blocks/block_infuser_top",
-        "particle": "thaumicreadoption:blocks/block_infuser_base"
+        "particle": "thaumicrestoration:blocks/block_infuser_base"
     },
     "elements": [
         {

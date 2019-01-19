@@ -10,7 +10,6 @@ import com.Zoko061602.ThaumicRestoration.tile.TileCrystal;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -21,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import thaumcraft.api.aspects.Aspect;
 
-public class ItemBlockCrystal extends ItemBlock implements IItemColor {
+public class ItemBlockCrystal extends ItemBlock {
 
 	public ItemBlockCrystal(Block b) {
 		super(b);
@@ -66,17 +65,6 @@ public class ItemBlockCrystal extends ItemBlock implements IItemColor {
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		tooltip.add(Aspect.getAspect(ItemNBTHelper.getString(stack, "aspect", "aer")).getName());
-	}
-
-	@Override
-	public int colorMultiplier(ItemStack stack, int tintIndex) {
-		if(tintIndex == 1) {
-			String s = ItemNBTHelper.getString(stack, "aspect", "aer");
-			Aspect a = Aspect.getAspect(s);
-			if(a != null)
-			 return a.getColor();
-		}
-		return Aspect.AIR.getColor();
 	}
 
 }

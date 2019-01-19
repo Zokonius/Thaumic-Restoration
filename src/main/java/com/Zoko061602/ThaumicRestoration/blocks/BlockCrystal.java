@@ -6,7 +6,6 @@ import com.Zoko061602.ThaumicRestoration.tile.TileCrystal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import thaumcraft.api.aspects.Aspect;
 
-public class BlockCrystal extends BlockBase implements ITileEntityProvider, IBlockColor {
+public class BlockCrystal extends BlockBase implements ITileEntityProvider {
 
 	ItemStack drop;
 
@@ -56,18 +55,6 @@ public class BlockCrystal extends BlockBase implements ITileEntityProvider, IBlo
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
       drops.add(drop);
     }
-
-	@Override
-	public int colorMultiplier(IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) {
-		if(worldIn.getTileEntity(pos) instanceof TileCrystal) {
-		TileCrystal tile = (TileCrystal) worldIn.getTileEntity(pos);
-		Aspect a = tile.getAspect();
-		if(a==null)a = Aspect.AIR;
-		if(tintIndex==1)
-		return a.getColor();
-		}
-		return 0;
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {

@@ -21,12 +21,12 @@ public class CommonProxy {
 		TR_Items.initItems();
 		TR_Blocks.initBlocks();
 		TR_Tiles.initTiles();
-		TR_OreDict.addOreDict();
 		RestoredCompatModule.loadPreInit();
 	}
 
 
 	public void init(FMLInitializationEvent e){
+		TR_OreDict.addOreDict();
 		RestoredCompatModule.loadInit();
 
 	}
