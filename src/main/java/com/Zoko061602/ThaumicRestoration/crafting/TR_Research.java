@@ -9,6 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType;
 import thaumcraft.api.items.ItemsTC;
@@ -29,6 +31,8 @@ public class TR_Research {
 	public static final ResourceLocation iconTrans = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_trans.png");
 	public static final ResourceLocation iconFire = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_fire.png");
 	public static final ResourceLocation backRestoration = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/tab_restoration.jpg");
+    public static final AspectList tabAspects = new AspectList().add(Aspect.MAGIC,20).add(Aspect.MECHANISM,20).add(Aspect.CRAFT,15).add(Aspect.AURA, 15).add(Aspect.ALCHEMY, 10).add(Aspect.CRYSTAL,10).add(Aspect.ENERGY,10);
+
 
     private static ResearchCategory catRestoration;
 
@@ -39,7 +43,8 @@ public class TR_Research {
 
 	public static void createResearch(){
 
-		catRestoration = ResearchCategories.registerCategory("RESTORATION", "FIRSTSTEPS", null, iconRestoration, backRestoration, backoverlay);
+
+		catRestoration = ResearchCategories.registerCategory("RESTORATION", "FIRSTSTEPS", tabAspects, iconRestoration, backRestoration, backoverlay);
 
 		ResearchStage[] stages;
 		String[] parents;
@@ -233,6 +238,7 @@ public class TR_Research {
 			  .build(),
 			 new ResearchHelper.RSB()
 			  .setText("research_stage."+ThaumicRestoration.ModID+":potioncrystals.1")
+			  .setRecipes(TR_Recipes.recipes.get("POTIONCRYSTALS.1"))
            .build()
 
 	};

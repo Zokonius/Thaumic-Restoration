@@ -3,6 +3,7 @@ package com.Zoko061602.ThaumicRestoration.main;
 import com.Zoko061602.ThaumicRestoration.blocks.TR_Blocks;
 import com.Zoko061602.ThaumicRestoration.compat.RestoredCompatModule;
 import com.Zoko061602.ThaumicRestoration.compat.crafttweaker.CraftTweakerCompat;
+import com.Zoko061602.ThaumicRestoration.crafting.TR_Aspects;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_OreDict;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_Research;
 import com.Zoko061602.ThaumicRestoration.items.TR_Items;
@@ -34,6 +35,7 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent e) {
 		RestoredCompatModule.loadPostInit();
+		TR_Aspects.addAspects();
 		TR_Research.createResearch();
 
 	}

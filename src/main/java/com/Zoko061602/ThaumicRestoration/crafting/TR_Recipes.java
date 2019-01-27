@@ -10,6 +10,7 @@ import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerDust;
 import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerFire;
 import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerSimple;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -76,7 +77,10 @@ public class TR_Recipes {
 	 crystals = new AspectList().add(Aspect.EARTH, 5).add(Aspect.ENTROPY, 2);
      recipes.put("TERRAOBSIDIAN.1", addShapedArcaneRecipe("TERRAOBSIDIAN@1",new ItemStack(TR_Blocks.blockObsidian,5), 25, crystals, "OIO","IOI","OIO",'I',new ItemStack(TR_Items.itemIngot,1,3),'O',new ItemStack(Blocks.OBSIDIAN)));
 
-    }
+     crystals = new AspectList().add(Aspect.AIR,10).add(Aspect.FIRE,10).add(Aspect.WATER,10).add(Aspect.EARTH,10).add(Aspect.ORDER,10).add(Aspect.ENTROPY,10);
+     recipes.put("POTIONCRYSTALS.1", addShapedArcaneCrystalRecipe("POTIONCRYSTALS@1", new ItemStack(TR_Blocks.blockCrystal), 50, crystals, " C ","CRC","OOO",'C',new ItemStack(ItemsTC.crystalEssence),'R',new ItemStack(ItemsTC.visResonator),'O',new ItemStack(TR_Blocks.blockObsidian)));
+
+	}
 
 	private static void addInfusionRecipes() {
 		AspectList aspects = new AspectList().add(Aspect.MAGIC,32).add(Aspect.ENERGY,24).add(Aspect.ORDER,16).add(Aspect.AURA, 8);
@@ -154,6 +158,14 @@ public class TR_Recipes {
 		public static ResourceLocation addShapedArcaneRecipe(String research,ItemStack output,int vis,AspectList crystals,Object... input) {
 			ResourceLocation location = getNameForRecipe(output);
 			ShapedArcaneRecipe recipe = new ShapedArcaneRecipe(location, research, vis, crystals, output, input);
+			ThaumcraftApi.addArcaneCraftingRecipe(location,recipe);
+			return location;
+
+		}
+
+		public static ResourceLocation addShapedArcaneCrystalRecipe(String research,ItemStack output,int vis,AspectList crystals,Object... input) {
+			ResourceLocation location = getNameForRecipe(output);
+			ShapedArcaneRecipe recipe = new RecipeCrystal(location, research, vis, crystals, output, input);
 			ThaumcraftApi.addArcaneCraftingRecipe(location,recipe);
 			return location;
 

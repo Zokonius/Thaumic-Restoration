@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.Zoko061602.ThaumicRestoration.compat.tconstruct.TConstructCompat;
+import com.Zoko061602.ThaumicRestoration.compat.twilightforest.TwilightCompat;
 
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,6 +18,7 @@ public abstract class RestoredCompatModule {
 
 	static {
 		compat.put("tconstruct", TConstructCompat.class);
+		compat.put("twilightforest", TwilightCompat.class);
 
 	}
 
