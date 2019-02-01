@@ -246,7 +246,7 @@ public class TR_Research {
 	 parents = new String[] {"TERRAOBSIDIAN"};
 
 
-	ResearchHelper.makeReadoptionResearch("POTIONCRYSTALS", "Edged Crystals [WIP]", 2, 6, new ItemStack(TR_Blocks.blockCrystal), stages, parents);
+	ResearchHelper.makeReadoptionResearch("POTIONCRYSTALS", "Edged Crystals", 2, 6, new ItemStack(TR_Blocks.blockCrystal), stages, parents);
 
 	//Aqua Bucket
 	 stages = new ResearchStage[]{
