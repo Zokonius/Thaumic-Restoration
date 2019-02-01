@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.blocks.BlocksTC;
-import thaumcraft.api.items.IRechargable;
 import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.tiles.devices.TileRechargePedestal;
 
@@ -16,7 +15,6 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
 
 	private int counter = 0;
 	private int multi = 2;
-	private boolean active;
 	Block[] metals = new Block[] {
 			BlocksTC.metalBlockBrass,
 			BlocksTC.metalBlockThaumium,
@@ -37,24 +35,26 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
 		}
 
 		else multi=2;
-
-	    if(!getWorld().isRemote){
-		 if(counter++ % 10 == 0)
+	   if(!getWorld().isRemote)
+		if(counter++ % 10 == 0)
 		  if(getStackInSlot(0) != null)
 		   if(RechargeHelper.rechargeItem(getWorld(), getStackInSlot(0), this.pos, null, 5) > 0.0F)
-			if(multi==2)
 		    if(RechargeHelper.rechargeItemBlindly(getStackInSlot(0), null, 5*(multi-1)) > 0.0F){
-		      active= RechargeHelper.getCharge(getStackInSlot(0))!=((IRechargable)getStackInSlot(0).getItem()).getMaxCharge(getStackInSlot(0), null);
 		      syncTile(false);
 		      markDirty();
 		      ArrayList<Aspect> al = Aspect.getPrimalAspects();
 		      world.addBlockEvent(this.pos, getBlockType(), 5*multi, ((Aspect)al.get(getWorld().rand.nextInt(al.size()))).getColor());
 		    }
-	    }
+
+	}
+
+	public boolean doParticles() {
+		return counter % 40 == 0;
 	}
 
 	public boolean isActive() {
-		return active;
+		float r = RechargeHelper.getChargePercentage(getSyncedStackInSlot(0), null);
+		return r>=0 && r<1;
 	}
 
 	@Override
@@ -69,10 +69,6 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
 
 	public int getMulti() {
 		return multi;
-	}
-
-	public void setMulti(int multi) {
-		this.multi = multi;
 	}
 
 	private boolean checkStructure() {
@@ -109,4 +105,5 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
          }
 		 return true;
 	}
+
 }

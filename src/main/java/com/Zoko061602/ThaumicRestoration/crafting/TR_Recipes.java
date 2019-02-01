@@ -11,6 +11,7 @@ import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerFire;
 import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerSimple;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockQuartz;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -30,6 +31,7 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.IDustTrigger;
 import thaumcraft.api.crafting.InfusionRecipe;
+import thaumcraft.api.crafting.Part;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
 
@@ -117,6 +119,7 @@ public class TR_Recipes {
 		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.ENTROPY, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,5)).register();
 
 	}
+
 
 	private static void addWandTriggers() {
 		for(IDustTrigger t : IDustTrigger.triggers)

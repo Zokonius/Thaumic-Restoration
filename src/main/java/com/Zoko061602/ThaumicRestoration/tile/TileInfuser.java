@@ -45,6 +45,8 @@ public class TileInfuser extends TileThaumcraftInventory {
 			if(getPedestals().get(rounds-1).getStackInSlot(0).getItem() instanceof ItemCrystalEssence){
 			 if(((IEssentiaContainerItem)getPedestals().get(rounds-1).getStackInSlot(0).getItem()).getAspects(getPedestals().get(rounds-1).getStackInSlot(0)).getAspects()[0]==recipe.getAspect()) {
 			  getPedestals().get(rounds-1).decrStackSize(0, 1);
+			  BlockPos pos = getPedestals().get(rounds-1).getPos();
+			  FXDispatcher.INSTANCE.visSparkle(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY()+1, pos.getZ(), recipe.getAspect().getColor());
 			 }
 			 rotate=true;
              if(rounds==6){

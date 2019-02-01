@@ -13,7 +13,7 @@ public class ThaumicRestoration {
 
 	public static final String ModID = "thaumicrestoration";
 	public static final String ModName = "Thaumic Restoration";
-	public static final String Version = "1.1.0b";
+	public static final String Version = "1.2.1";
 	public static final String Dependencies = "required-after:thaumcraft;"+
 	                                          "after:tconstruct;"+
 	                                          "after:crafttweaker";

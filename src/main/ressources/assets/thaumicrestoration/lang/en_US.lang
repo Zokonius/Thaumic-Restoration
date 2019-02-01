@@ -40,7 +40,7 @@ material.ordo_thaumium.name=Order Infused Thaumium
 material.perditio_thaumium.name=Entropy Infused Thaumium
 
 modifier.tr_entropic.name=Entropic
-modifier.tr_entropic.desc=Ordinary Materials can't resist the entropic vibes of your Tool. [NYI]
+modifier.tr_entropic.desc=Ordinary Materials can't resist the entropic vibes of your Tool.
 
 # --- Research ---
 tc.research_category.RESTORATION=Thaumic Restoration
@@ -67,7 +67,7 @@ research_stage.thaumicrestoration:adeptwand.1=With that newly attached vis reson
 
 #Advanced Research Pedestal
 research_stage.thaumicrestoration:recharger.0=My Recharge Pedestal is kinda slow, maybe I should try to augment it a bit so it get faster.
-research_stage.thaumicrestoration:recharger.1=I was able to come up with the ultimate Recharge Pedestal, I'm kinda proud honestly. Not only does it recharge my Items twice as fast, but it also seems to resonate with the enviroment. I found out that if you use four pillars of Quartz with a top of a strong magicly conducting metal, the Recharge Pedestal seems to get even faster.
+research_stage.thaumicrestoration:recharger.1=<IMG>thaumicrestoration:textures/research/research.png:0:0:127:127:.6</IMG> I was able to come up with the ultimate Recharge Pedestal, I'm kinda proud honestly. Not only does it recharge my Items twice as fast, but it also seems to resonate with the enviroment. I found out that if you use four pillars of Quartz with a top of a strong magicly conducting metal, the Recharge Pedestal seems to get even faster.<IMG>thaumicrestoration:textures/research/img_Charger.png:128:128:128:128:.5</IMG>
 
 #Master Wand
 research_stage.thaumicrestoration:masterwand.0=I feel like the concept of a wand has not reached it full potential, it's probalbly because it's capacity is to small, maybe it can upgrade it a second time.
@@ -75,14 +75,14 @@ research_stage.thaumicrestoration:masterwand.1=So I tried my best and it seems t
 
 #Crystal Infusion
 research_stage.thaumicrestoration:crystalinfusion.0=The Infusion Matrix feels pretty complicated, all these jars and items and also that instability, why isn't the a easier solution?
-research_stage.thaumicrestoration:crystalinfusion.1=It might be that this was a bad idea, one the one hand the process is know much simpler, but also fairly limited and I was unable to get rid of the essentia, it's now required in crystal form. The new Infusion Pillar needs exacly 6 Pedestals in a 5x5 Area around it. Each of these Pedestals has to contain an essentia crystal, all of the same type, and matching to the recipe. The Thaumium Pillar contains the catalyst Item as usual. And it has to be activated with a fairly high potition of vis, 50 should be sufficent. I have no idea what this thing is useful for.
+research_stage.thaumicrestoration:crystalinfusion.1=<IMG>thaumicrestoration:textures/research/research.png:128:0:127:127:.6</IMG>It might be that this was a bad idea, one the one hand the process is know much simpler, but also fairly limited and I was unable to get rid of the essentia, it's now required in crystal form. The new Infusion Pillar needs exacly 6 Pedestals in a 5x5 Area around it. Each of these Pedestals has to contain an essentia crystal, all of the same type, and matching to the recipe. The Thaumium Pillar contains the catalyst Item as usual. And it has to be activated with a fairly high potition of vis, 50 should be sufficent. I have no idea what this thing is useful for.
 
 #Infused Thaumium
 research_stage.thaumicrestoration:infusedthaumium.0=The Thaumium Pedestal seems to attract very small portions of crystal dust, maybe I should do some research about this.
 research_stage.thaumicrestoration:infusedthaumium.1=It seems that this dust comes from Primal Crystals from a unsuccesful infusion attempt. So I tried to create a larger portion of it using some thaumium metal.Astounishinly the Infusion worked and I was left with an Ingot of pure Primal power. Now I've got many ideas... 
 
 #Terra Obsidian
-research_stage.thaumicrestoration:terraobsidian.0=Let's see what can I do with a terra ingot, it seems very strong and robust, perfect to rinforce something.
+research_stage.thaumicrestoration:terraobsidian.0=Let's see what can I do with a terra ingot, it seems very strong and robust, perfect to reinforce something.
 research_stage.thaumicrestoration:terraobsidian.1=Terra Infused Obsidian, maybe a litte uncreative, but at least something, I feel this can stand some very destructive explosions. Well at least it perfect for a wither.
 
 #Edged Crystals 
