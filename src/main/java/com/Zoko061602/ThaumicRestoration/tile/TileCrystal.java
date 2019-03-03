@@ -10,7 +10,7 @@ import thaumcraft.common.tiles.TileThaumcraft;
 
 public class TileCrystal extends TileThaumcraft implements ITickable {
 
-	Aspect a ;
+	Aspect a;
 
 	public TileCrystal() {}
 

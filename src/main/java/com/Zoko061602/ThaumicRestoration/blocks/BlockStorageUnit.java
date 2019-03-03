@@ -1,12 +1,11 @@
 package com.Zoko061602.ThaumicRestoration.blocks;
 
-import com.Zoko061602.ThaumicRestoration.items.ItemWand;
-import com.Zoko061602.ThaumicRestoration.tile.TileInfuser;
-import com.Zoko061602.ThaumicRestoration.tile.TileStorage;
+import com.Zoko061602.ThaumicRestoration.tile.TileStorageUnit;
 
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.IInventory;
@@ -18,13 +17,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import thaumcraft.api.items.RechargeHelper;
-import thaumcraft.common.lib.utils.InventoryUtils;
 
 public class BlockStorageUnit extends BlockBase implements ITileEntityProvider {
 
-	public BlockStorageUnit(Material material, String tool, int tier, float hardness, float resistance, String name) {
-		super(Material.WOOD, "axe", 0, 3.0F, 10F, "blockStorageUnit");
+	public BlockStorageUnit() {
+		super(Material.WOOD, "axe", 0, 3.0F, 10F, "block_storage_unit");
 	}
 
 
@@ -34,14 +31,16 @@ public class BlockStorageUnit extends BlockBase implements ITileEntityProvider {
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileStorage();
+		return new TileStorageUnit();
 	}
+
+
 
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
         if (!hasTileEntity){
             TileEntity tile = worldIn.getTileEntity(pos);
-            if (tile instanceof TileStorage){
+            if (tile instanceof TileStorageUnit){
                 InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory) tile);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
@@ -51,38 +50,70 @@ public class BlockStorageUnit extends BlockBase implements ITileEntityProvider {
     }
 
 	@Override
+	public void onBlockClicked(World world, BlockPos pos, EntityPlayer player) {
+	    if(!world.isRemote) return;
+	    TileEntity tile = world.getTileEntity(pos);
+	    if(tile == null || !(tile instanceof TileStorageUnit)) return;
+	    	TileStorageUnit sto = (TileStorageUnit)tile;
+	    	ItemStack is;
+	    if(sto.getSyncedStackInSlot(0).isEmpty()) return;
+
+	    if(player.isSneaking()){
+	    	is = sto.getSyncedStackInSlot(0).copy();
+	    	if(is.getCount()>=64){
+	    	 sto.decrStackSize(0, 64);
+	    	 is.setCount(64);
+	    	}
+		    else sto.decrStackSize(0, is.getCount());
+		    EntityItem entityItem = new EntityItem(world, player.posX, player.posY + player.getEyeHeight() / 2.0F, player.posZ, is.copy());
+		    world.spawnEntity(entityItem);
+		    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.5F);
+	    	}
+
+	    else {
+	    	is = sto.getSyncedStackInSlot(0).copy();
+	    	if(is.getCount()>=1){
+		     sto.decrStackSize(0, 1);
+	    	 is.setCount(1);
+	    	}
+		    else sto.decrStackSize(0, is.getCount());
+		    EntityItem entityItem = new EntityItem(world, player.posX, player.posY + player.getEyeHeight() / 2.0F, player.posZ, is.copy());
+		    world.spawnEntity(entityItem);
+		    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.5F);
+
+	    }
+	    player.inventory.markDirty();
+	    sto.markDirty();
+	   }
+
+
+	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
 	    if(world.isRemote) return true;
 	    TileEntity tile = world.getTileEntity(pos);
-	    if((tile != null) && ((tile instanceof TileStorage))){
-	    	TileInfuser sto = (TileInfuser)tile;
-	        if((sto.getStackInSlot(0).isEmpty()) && (!player.inventory.getCurrentItem().isEmpty()) && (player.inventory.getCurrentItem().getCount() > 0)){
-	          ItemStack i = player.getHeldItem(hand).copy();
-	          i.setCount(1);
-	          sto.setInventorySlotContents(0, i);
-	          player.getHeldItem(hand).shrink(1);
-	          if(player.getHeldItem(hand).getCount() == 0)
-	             player.setHeldItem(hand, ItemStack.EMPTY);
+	    if(tile == null || !(tile instanceof TileStorageUnit))return false;
+	    	TileStorageUnit sto = (TileStorageUnit)tile;
+
+	        if(sto.getStackInSlot(0).isEmpty()) {
+	         if(!player.getHeldItem(hand).isEmpty()) {
+	          ItemStack is = player.getHeldItem(hand).copy();
+	          sto.setInventorySlotContents(0, is);
+	          player.setHeldItem(hand, ItemStack.EMPTY);
 	          player.inventory.markDirty();
 	          world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.6F);
 	          return true;
+	          }
 	        }
-	        if(!sto.getStackInSlot(0).isEmpty()){
-	        	if(!player.inventory.getCurrentItem().isEmpty()&&player.inventory.getCurrentItem().getItem() instanceof ItemWand) {
-	        		if(RechargeHelper.getCharge(player.inventory.getCurrentItem())>=50) {
-	        			if(sto.activate(player))
-	        			RechargeHelper.consumeCharge(player.inventory.getCurrentItem(), player, 50);
-	        			return true;
-	        		}
-	        	}
-	        else {
-	        InventoryUtils.dropItemsAtEntity(world, pos, player);
-	        world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.5F);
-	        }
-	        return true;
-	        }
-	    }
-
+	        if(player.inventory.getCurrentItem().isEmpty())
+	         for(int i = 0;!(i==player.inventory.mainInventory.size());i++) {
+	        	 ItemStack is = player.inventory.mainInventory.get(i);
+	          if(!is.isEmpty())
+	           if(is.getItem() == sto.getStackInSlot(0).getItem()) {
+	        	  ItemStack s = new ItemStack(is.getItem(),is.getCount()+sto.getStackInSlot(0).getCount());
+	        	  player.inventory.mainInventory.set(i, ItemStack.EMPTY);
+	        	  sto.setInventorySlotContents(0, s);
+	           }
+	          }
 	    return super.onBlockActivated(world, pos, state, player, hand, side, hitX, hitY, hitZ);
 	  }
 

@@ -46,7 +46,6 @@ public class ItemWand extends Item implements IRechargable {
 		  items.add(is);
 		 }
 
-
 	}
 
 

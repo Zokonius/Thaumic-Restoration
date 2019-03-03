@@ -5,35 +5,26 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import thaumcraft.common.tiles.TileThaumcraftInventory;
 
-public class TileStorage extends TileThaumcraftInventory {
+public class TileStorageUnit extends TileThaumcraftInventory {
 
-	private int rotation=0;
-
-	public TileStorage() {
+	public TileStorageUnit() {
 		super(1);
 		syncedSlots = new int[]{0};
 	}
 
 	@Override
-	public void update() {
-		if(rotation>=360)rotation=0;
-		rotation++;
-
-	}
-
-	@Override
-	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		return true;
-	}
-
-	@Override
-	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+	public boolean canInsertItem(int par1, ItemStack stack2, EnumFacing par3) {
+		if(par1!=0)return false;
+		if(stack2.getCount()+getSyncedStackInSlot(0).getCount()>Integer.MAX_VALUE)return false;
 		return true;
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int par1, ItemStack stack2){
-	    return (stack2.isEmpty()) || (getStackInSlot(par1).isEmpty());
+		if(getSyncedStackInSlot(0).isEmpty())return true;
+	    if(getSyncedStackInSlot(0).getItem() != stack2.getItem()) return false;
+	    if(getSyncedStackInSlot(0).getCount()+stack2.getCount()<=Integer.MAX_VALUE)return true;
+	    return false;
 	}
 
 	@Override
@@ -50,11 +41,5 @@ public class TileStorage extends TileThaumcraftInventory {
 	public int getInventoryStackLimit() {
 		return Integer.MAX_VALUE;
 	}
-
-	public int getRotation() {
-		return rotation;
-	}
-
-
 
 }

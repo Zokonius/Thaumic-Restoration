@@ -4,11 +4,11 @@ import com.Zoko061602.ThaumicRestoration.client.event.RenderEventHandler;
 import com.Zoko061602.ThaumicRestoration.client.handlers.ColorHandler;
 import com.Zoko061602.ThaumicRestoration.client.render.TileAdvRechargePedestalRenderer;
 import com.Zoko061602.ThaumicRestoration.client.render.TileInfuserRenderer;
-import com.Zoko061602.ThaumicRestoration.client.render.TileStorageRenderer;
+import com.Zoko061602.ThaumicRestoration.client.render.TileStorageUnitRenderer;
 import com.Zoko061602.ThaumicRestoration.main.CommonProxy;
 import com.Zoko061602.ThaumicRestoration.tile.TileAdvRechargePedestal;
 import com.Zoko061602.ThaumicRestoration.tile.TileInfuser;
-import com.Zoko061602.ThaumicRestoration.tile.TileStorage;
+import com.Zoko061602.ThaumicRestoration.tile.TileStorageUnit;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -30,9 +30,7 @@ public class ClientProxy extends CommonProxy {
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileInfuser.class, new TileInfuserRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileAdvRechargePedestal.class, new TileAdvRechargePedestalRenderer());
-
-		//NYI
-		//ClientRegistry.bindTileEntitySpecialRenderer(TileStorage.class, new TileStorageRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileStorageUnit.class, new TileStorageUnitRenderer());
 
 	}
 

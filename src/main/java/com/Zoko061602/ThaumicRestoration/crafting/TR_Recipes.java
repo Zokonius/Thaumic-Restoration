@@ -95,13 +95,13 @@ public class TR_Recipes {
 		recipes.put("MASTERWAND.1", addInfusionRecipe("MASTERWAND@1", new ItemStack(TR_Items.itemWand,1,2), 8, new ItemStack(TR_Items.itemWand,1,1), aspects, new ItemStack(Items.NETHER_STAR),new ItemStack(TR_Items.itemIngot,1,0),new ItemStack(TR_Items.itemIngot,1,1),new ItemStack(TR_Items.itemIngot,1,2),new ItemStack(Items.NETHER_STAR),new ItemStack(TR_Items.itemIngot,1,3),new ItemStack(TR_Items.itemIngot,1,4),new ItemStack(TR_Items.itemIngot,1,5)));
 
 		aspects = new AspectList().add(Aspect.MAGIC,30).add(Aspect.LIFE,20).add(Aspect.PROTECT,15).add(Aspect.ORDER, 10);
-		recipes.put("WITHERRING.1", addInfusionRecipe("WITHERRING@1", new ItemStack(TR_Items.itemWitherRing), 5, new ItemStack(ItemsTC.baubles,1,1), aspects, new ItemStack(Items.NETHER_STAR),new ItemStack(Blocks.SKULL,1,1),new ItemStack(Items.MILK_BUCKET),new ItemStack(Blocks.SKULL,1,1),new ItemStack(Items.MILK_BUCKET)));
+		recipes.put("WITHERRING.1", addInfusionRecipe("WITHERRING@1", new ItemStack(TR_Items.itemWitherRing), 5, new ItemStack(ItemsTC.baubles,1,1), aspects, new ItemStack(Items.NETHER_STAR),new ItemStack(Items.SKULL,1,1),new ItemStack(Items.MILK_BUCKET),new ItemStack(Items.SKULL,1,1),new ItemStack(Items.MILK_BUCKET)));
 
 	}
 
 	private static void addCucibleRecipes() {
 		AspectList aspects = new AspectList().add(Aspect.ENTROPY, 30).add(Aspect.DEATH, 20).add(Aspect.UNDEAD, 40).add(Aspect.DARKNESS,20);
-		recipes.put("TR_WITHER.1",addCrucibleRecipe("TR_WITHER", new ItemStack(Blocks.SKULL,1,1), aspects, new ItemStack(Blocks.SKULL,1,0)));
+		recipes.put("TR_WITHER.1",addCrucibleRecipe("TR_WITHER", new ItemStack(Items.SKULL,1,1), aspects, new ItemStack(Items.SKULL,1,0)));
 
 		aspects = new AspectList().add(Aspect.ORDER, 15).add(Aspect.MAGIC, 10).add(Aspect.VOID, 20).add(Aspect.DARKNESS,10);
 		recipes.put("TR_ENDER.1",addCrucibleRecipe("TR_ENDER", new ItemStack(Items.ENDER_PEARL,2,0), aspects, new ItemStack(Items.ENDER_PEARL,1,0)));

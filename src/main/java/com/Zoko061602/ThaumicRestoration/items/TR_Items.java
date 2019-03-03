@@ -27,7 +27,7 @@ public class TR_Items {
 		itemWandCap = new ItemBase("item_wandcap");
 		itemWandRod = new ItemBase("item_wandrod");
 		itemWitherRing = new ItemRingWither();
-		//itemLighter = new ItemLighter();
+	//	itemLighter = new ItemLighter();
 	}
 
 	public static void registerItems(RegistryEvent.Register<Item> e){
@@ -50,7 +50,7 @@ public class TR_Items {
 		registerRender(itemTRBucket);
 		registerRender(itemToast);
 		registerRender(itemWitherRing);
-		//registerRender(itemLighter);
+	//	registerRender(itemLighter);
 
 
 	}

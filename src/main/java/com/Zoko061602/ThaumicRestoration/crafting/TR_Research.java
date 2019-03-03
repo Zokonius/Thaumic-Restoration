@@ -356,7 +356,7 @@ public class TR_Research {
 	 parents = new String[] {"TR_ALCHEMY"};
 	 new ResearchHelper.RAB();
 
-	ResearchHelper.makeReadoptionResearch("TR_WITHER", "Skull Corruption", 0, -5, iconWither, stages, parents);
+	ResearchHelper.makeReadoptionResearch("TR_WITHER", "Skull Corruption", 0, -5, new ItemStack(Items.SKULL,1,1), stages, parents);
 
 	//Wither Ring
 	 stages = new ResearchStage[]{

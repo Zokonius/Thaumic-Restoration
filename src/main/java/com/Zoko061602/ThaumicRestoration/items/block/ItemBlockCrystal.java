@@ -43,7 +43,6 @@ public class ItemBlockCrystal extends ItemBlock {
 		return placed;
 	}
 
-
 	public static ItemStack ofType(Aspect a) {
 	 return ofType(new ItemStack(TR_Blocks.blockCrystal), a);
 	}

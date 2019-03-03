@@ -1,7 +1,5 @@
 package com.Zoko061602.ThaumicRestoration.blocks;
 
-import java.util.ArrayList;
-
 import com.Zoko061602.ThaumicRestoration.items.block.ItemBlockCrystal;
 
 import net.minecraft.block.Block;
@@ -22,41 +20,62 @@ public class TR_Blocks {
 	public static Block blockAdvRechargePed;
 	public static Block blockCrystal;
 	public static Block blockObsidian;
-
-	static ArrayList<Block> blocks = new ArrayList<Block>();
-
+	public static Block blockStorageUnit;
 
 	public static void initBlocks() {
-		blocks.add(blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced"));
-		blocks.add(blockGreatwoodPlank = new BlockBase(Material.WOOD, "axe", 0, 2F, 2F, "block_greatwood"));
-		blocks.add(blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed"));
-		blocks.add(blockObsidian = new BlockObsidian());
-		blocks.add(blockInfuser = new BlockInfuser());
-		blocks.add(blockAdvRechargePed = new BlockAdvRechargePedestal());
+		blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced");
+		blockGreatwoodPlank = new BlockBase(Material.WOOD, "axe", 0, 2F, 2F, "block_greatwood");
+		blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed");
+		blockObsidian = new BlockObsidian();
+		blockInfuser = new BlockInfuser();
+		blockAdvRechargePed = new BlockAdvRechargePedestal();
 		blockCrystal = new BlockCrystal();
-
+		//blockStorageUnit = new BlockStorageUnit();
 	}
 
 	public static void registerBlocks(RegistryEvent.Register<Block> e){
-	 for(Block b:blocks)
-      e.getRegistry().registerAll(b);
-	 e.getRegistry().register(blockCrystal);
+      registerBlock(e, blockReinforced);
+      registerBlock(e, blockGreatwoodPlank);
+      registerBlock(e, blockGreatwoodFramed);
+      registerBlock(e, blockInfuser);
+      registerBlock(e, blockAdvRechargePed);
+      registerBlock(e, blockObsidian);
+      registerBlock(e, blockCrystal);
+    //  registerBlock(e, blockStorageUnit);
 	}
 
 	public static void registerItemBlocks(RegistryEvent.Register<Item> e) {
-	  for(Block b:blocks)
-	   e.getRegistry().registerAll(new ItemBlock(b).setRegistryName(b.getRegistryName()));
-	  e.getRegistry().register(new ItemBlockCrystal(blockCrystal).setRegistryName(blockCrystal.getRegistryName()));
+		registerItemBlock(e, blockReinforced);
+		registerItemBlock(e, blockGreatwoodPlank);
+		registerItemBlock(e, blockGreatwoodFramed);
+		registerItemBlock(e, blockInfuser);
+		registerItemBlock(e, blockAdvRechargePed);
+		registerItemBlock(e, blockObsidian);
+	//	registerItemBlock(e, blockStorageUnit);
+	    e.getRegistry().register(new ItemBlockCrystal(blockCrystal).setRegistryName(blockCrystal.getRegistryName()));
 	 }
 
 	public static void registerRenders(ModelRegistryEvent e) {
-	 for(Block b:blocks)
-	 registerRender(Item.getItemFromBlock(b));
-	 registerRender(Item.getItemFromBlock(blockCrystal));
+	 registerRender(blockReinforced);
+	 registerRender(blockGreatwoodPlank);
+	 registerRender(blockGreatwoodFramed);
+	 registerRender(blockInfuser);
+	 registerRender(blockAdvRechargePed);
+	 registerRender(blockObsidian);
+	 registerRender(blockCrystal);
+	// registerRender(blockStorageUnit);
 	}
 
-	private static void registerRender(Item item) {
-	 ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation( item.getRegistryName(), "inventory"));
+	private static void registerBlock(RegistryEvent.Register<Block> e, Block b){
+	 e.getRegistry().register(b);
+	}
+
+	private static void registerItemBlock(RegistryEvent.Register<Item> e, Block b){
+	 e.getRegistry().registerAll(new ItemBlock(b).setRegistryName(b.getRegistryName()));
+	}
+
+	private static void registerRender(Block b) {
+	 ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(b), 0, new ModelResourceLocation( Item.getItemFromBlock(b).getRegistryName(), "inventory"));
 	}
 
 
