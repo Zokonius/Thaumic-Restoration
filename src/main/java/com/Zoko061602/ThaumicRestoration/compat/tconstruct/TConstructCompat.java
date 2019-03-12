@@ -10,13 +10,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.tools.ToolPart;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.tools.TinkerTraits;
@@ -47,7 +48,7 @@ public class TConstructCompat extends RestoredCompatModule {
 	public static Block blockFluidPerditio = new BlockBaseFluid("block_molten_perditio", fluidPerditio, net.minecraft.block.material.Material.LAVA);;
 
 	@Override
-	public void preInit() {
+	public void preInit(FMLPreInitializationEvent e) {
 
 		FMLInterModComms.sendMessage("tconstruct", "blacklistMelting", new ItemStack(TR_Items.itemTRBucket, 1, 0));
 
@@ -110,7 +111,7 @@ public class TConstructCompat extends RestoredCompatModule {
 	}
 
 	@Override
-	public void init() {
+	public void init(FMLInitializationEvent e) {
 		aer_thaumium.setCastable(true).addItem("ingotThaumiumAer", 1, Material.VALUE_Ingot);
 		aer_thaumium.addTrait(TinkerTraits.lightweight);
 
@@ -131,21 +132,16 @@ public class TConstructCompat extends RestoredCompatModule {
 
 	}
 
-	@Override
-	public void postInit() {
-
-	}
-
 	public static class FluidColouredMetal extends Fluid {
 
 		public static ResourceLocation ICON_MetalStill = new ResourceLocation("tconstruct:blocks/fluids/molten_metal");
 		public static ResourceLocation ICON_MetalFlowing = new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow");
 
-		int colour;
+		int color;
 
-		public FluidColouredMetal(String name, int colour, int temp){
+		public FluidColouredMetal(String name, int color, int temp){
 			super(name, ICON_MetalStill, ICON_MetalFlowing);
-			this.colour = colour;
+			this.color = color;
 			this.setTemperature(temp);
 			this.setDensity(2000);
 			this.setViscosity(10000);
@@ -153,7 +149,7 @@ public class TConstructCompat extends RestoredCompatModule {
 
 		@Override
 		public int getColor(){
-			return colour|0xff000000;
+			return color|0xff000000;
 		}
 	}
 

@@ -5,6 +5,7 @@ import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.lib.research.ResearchHelper;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
+import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,8 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType;
+import thaumcraft.api.golems.EnumGolemTrait;
+import thaumcraft.api.golems.parts.GolemMaterial;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchAddendum;
 import thaumcraft.api.research.ResearchCategories;
@@ -33,16 +36,13 @@ public class TR_Research {
 	public static final ResourceLocation backRestoration = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/tab_restoration.jpg");
     public static final AspectList tabAspects = new AspectList().add(Aspect.MAGIC,20).add(Aspect.MECHANISM,20).add(Aspect.CRAFT,15).add(Aspect.AURA, 15).add(Aspect.ALCHEMY, 10).add(Aspect.CRYSTAL,10).add(Aspect.ENERGY,10);
 
-
     private static ResearchCategory catRestoration;
-
 
     private static final EnumKnowledgeType OBSERVATION = EnumKnowledgeType.OBSERVATION;
     private static final EnumKnowledgeType THEORY = EnumKnowledgeType.THEORY;
 
 
 	public static void createResearch(){
-
 
 		catRestoration = ResearchCategories.registerCategory("RESTORATION", "FIRSTSTEPS", tabAspects, iconRestoration, backRestoration, backoverlay);
 
@@ -81,10 +81,10 @@ public class TR_Research {
 				   .build()
 		 };
 
-		 parents = new String[] {"RESTORATION","!PLANTWOOD"};
+		 parents = new String[] {"!PLANTWOOD"};
 
 
-		ResearchHelper.makeReadoptionResearch("TR_DECO", "Decorative Blocks", 2, -1, new ItemStack(TR_Blocks.blockGreatwoodFramed), stages, parents, addenda,EnumResearchMeta.HEX);
+		ResearchHelper.makeReadoptionResearch("TR_DECO", "Decorative Blocks", 2, -1, new ItemStack(TR_Blocks.blockGreatwoodFramed), stages, parents, addenda, EnumResearchMeta.ROUND, EnumResearchMeta.HIDDEN);
 
 
 		// Novice Wand
@@ -206,6 +206,41 @@ public class TR_Research {
 		 parents = new String[] {"METALLURGY@3","CRYSTALINFUSION"};
 
 		ResearchHelper.makeReadoptionResearch("INFUSEDTHAUMIUM", "Infused Thaumium", 1, 2, new ItemStack(TR_Items.itemIngot,1,2), stages, parents);
+
+		//Material Studies Infused Thaumium
+		 stages = new ResearchStage[]{
+				  new ResearchHelper.RSB()
+				  .setText("research_stage."+ThaumicRestoration.ModID+":mat_infusedthaumium.0")
+				  .build()
+		};
+
+		 parents = new String[] {"INFUSEDTHAUMIUM","MATSTUDTHAUMIUM"};
+
+		ResearchHelper.makeReadoptionResearch("MATSTUD_INFUSEDTHAUMIUM", "Material Studies: Infused Thaumium", 2, 1, new ItemStack(TR_Items.itemIngot,1,3), stages, parents,EnumResearchMeta.HIDDEN,EnumResearchMeta.ROUND);
+
+		//Material Studies Tallow
+		 stages = new ResearchStage[]{
+				  new ResearchHelper.RSB()
+				  .setText("research_stage."+ThaumicRestoration.ModID+":mat_tallow.0")
+				  .build()
+
+		};
+
+		 parents = new String[] {"MATSTUDWOOD","HEDGEALCHEMY@2"};
+
+		ResearchHelper.makeReadoptionResearch("MATSTUD_TALLOW", "Material Studies: Tallow", 5, -2, new ItemStack(ItemsTC.tallow), stages, parents,EnumResearchMeta.HIDDEN,EnumResearchMeta.ROUND);
+
+		//Material Studies Silverwood
+		 stages = new ResearchStage[]{
+				  new ResearchHelper.RSB()
+				  .setText("research_stage."+ThaumicRestoration.ModID+":mat_silverwood.0")
+				  .build()
+
+		};
+
+		 parents = new String[] {"MATSTUDWOOD","!PLANTWOOD"};
+
+		ResearchHelper.makeReadoptionResearch("MATSTUD_SILVERWOOD", "Material Studies: Silverwood", 5, -1, new ItemStack(BlocksTC.logSilverwood), stages, parents,EnumResearchMeta.HIDDEN,EnumResearchMeta.ROUND);
 
 
 

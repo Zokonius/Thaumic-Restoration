@@ -25,21 +25,18 @@ import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.utils.EntityUtils;
 
-public class ItemWand extends Item implements IRechargable {
+public class ItemWand extends ItemBaseMeta implements IRechargable {
 
 
-	public ItemWand() {
-		this.setMaxStackSize(1);
-		this.setRegistryName(ThaumicRestoration.ModID, "item_wand");
-		this.setUnlocalizedName("item_wand");
-		this.setCreativeTab(TR_Tab.tabRestoration);
-		this.setHasSubtypes(true);
+	public ItemWand(){
+	 super("item_wand","novice","adept","master");
+	 setMaxStackSize(1);
 	}
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if(tab==TR_Tab.tabRestoration)
-		 for(int i=0;!(i==3);i++) {
+		 for(int i=0;!(i==getVariants().length);i++) {
 		  ItemStack is = new ItemStack(this, 1, i);
 		  RechargeHelper.rechargeItemBlindly(is, null, getMaxCharge(is, null));
 		  items.add(new ItemStack(this, 1, i));

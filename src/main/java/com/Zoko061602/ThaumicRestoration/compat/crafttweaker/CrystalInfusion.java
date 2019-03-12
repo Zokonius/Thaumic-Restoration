@@ -16,7 +16,6 @@ public class CrystalInfusion {
 
     public static final String name = "Thaumic Restoration Crystal Infusion";
 
-
 	@ZenMethod
 	public static void addRecipe(String key, IItemStack output, String aspect, IItemStack input) {
 	 if(parseAspects(aspect) == null)return;
@@ -31,8 +30,7 @@ public class CrystalInfusion {
     }
 
     public static ItemStack toStack(IItemStack iStack) {
-        if(iStack == null)
-          return ItemStack.EMPTY;
+      if(iStack == null)return ItemStack.EMPTY;
         Object internal = iStack.getInternal();
         return (ItemStack)internal;
     }

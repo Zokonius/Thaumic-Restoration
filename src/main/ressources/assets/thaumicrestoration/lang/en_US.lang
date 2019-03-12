@@ -16,6 +16,13 @@ item_ingot_3.name=Earth Infused Thaumium
 item_ingot_4.name=Order Infused Thaumium
 item_ingot_5.name=Entropy Infused Thaumium
 
+item_plate_0.name=Air Infused Thaumium Plate
+item_plate_1.name=Fire Infused Thaumium Plate
+item_plate_2.name=Water Infused Thaumium Plate
+item_plate_3.name=Earth Infused Thaumium Plate
+item_plate_4.name=Order Infused Thaumium Plate
+item_plate_5.name=Entropy Infused Thaumium Plate
+
 item.item_bucket.name=Infinite Water Bucket
 
 item.item_toast.name=Thaumic Toast
@@ -31,6 +38,24 @@ tile.block_obsidian.name=Terra Infused Obsidian
 
 tile.block_crystal.name=Obsidian Edged Essentia Crystal
 
+#Golems
+golem.material.tr_tallow=Tallow
+golem.material.text.tr_tallow=The Golem is crafted from tallow. Therefore it's not very sturdy and moves very weired. But at least it's light.
+golem.material.tr_silverwood=Silverwood
+golem.material.text.tr_silverwood=The Golem is crafted from silverwood. It's light, relatively sturdy and even capable of performing some advanced tasks. Even though it's not fire resistend. 
+golem.material.tr_thaumium_aer=Air Infused Thaumium
+golem.material.text.tr_thaumium_aer=The Golem is crafted form Air Infused Thaumium. It's very light, in fact so light that it can fly. It also shares the same properties of thaumium.
+golem.material.tr_thaumium_ignis=Fire Infused Thaumium
+golem.material.text.tr_thaumium_ignis=The Golem is crafted form Fire Infused Thaumium. It's very similar to thaumium. However it burnes with Rage.
+golem.material.tr_thaumium_aqua=Water Infused Thaumium
+golem.material.text.tr_thaumium_aqua=The Golem is crafted form Water Infused Thaumium. Due to it's attraction to water it's able to regenerate itself. It's also quite similar to thaumium.
+golem.material.tr_thaumium_terra=Earth Infused Thaumium
+golem.material.text.tr_thaumium_terra=The Golem is crafted form Terra Infused Thaumium. Therefore it's more armored than all the other types. Otherwise it's similar to thaumium.
+golem.material.tr_thaumium_ordo=Order Infused Thaumium
+golem.material.text.tr_thaumium_ordo=The Golem is crafted form Order Infused Thaumium. Due to additional knowledge it's capable of hadling a bigger area
+golem.material.tr_thaumium_perditio=Entropy Infused Thaumium
+golem.material.text.tr_thaumium_perditio=The Golem is crafted form Entropy Infused Thaumium. It's very much like thaumium.
+
 # --- TConstruct ---
 material.aer_thaumium.name=Air Infused Thaumium
 material.ignis_thaumium.name=Fire Infused Thaumium
@@ -38,6 +63,13 @@ material.aqua_thaumium.name=Water Infused Thaumium
 material.terra_thaumium.name=Earth Infused Thaumium
 material.ordo_thaumium.name=Order Infused Thaumium
 material.perditio_thaumium.name=Entropy Infused Thaumium
+
+fluid.fluid_molten_aer=Molten Air Infused Thaumium
+fluid.fluid_molten_ignis=Molten Fire Infused Thaumium
+fluid.fluid_molten_aqua=Molten Water Infused Thaumium
+fluid.fluid_molten_terra=Molten Earth Infused Thaumium
+fluid.fluid_molten_ordo=Molten Order Infused Thaumium
+fluid.fluid_molten_perditio=Molten Entropy Infused Thaumium
 
 modifier.tr_entropic.name=Entropic
 modifier.tr_entropic.desc=Ordinary Materials can't resist the entropic vibes of your Tool.
@@ -113,6 +145,12 @@ research_stage.thaumicrestoration:wither_ring.1=There it is, a ring that nullifi
 research_stage.thaumicrestoration:wandfire.0=The nether is a dangerous place, but it gets even worse if you get stranded there, maybe I could use my newly crafted wand to ignite the obsidian again.
 research_stage.thaumicrestoration:wandfire.1=I knew that it was possible, the dry climate and the high magical potential in the nether make it possible to use some vis sparks to ignite obsidian, strangely it works only on obsidian.
 
-#Fire Wand
+#Thaumic Toast
 research_stage.thaumicrestoration:toast.0=Food can be a huge problem in the life of a thaumoturge, he would rather go out to make a new discovery, than going huning animals or harvesting food, maybe thaumaturgy has a solution.
 research_stage.thaumicrestoration:toast.1=I was able to create a new type of bread, just by cooking regular bread in my crucible with various types of essentia, it tastes kinda weired, but that is probably just a sign of quality.
+
+#Material Studies
+research_stage.thaumicrestoration:mat_tallow.0=Tallow is quite soft and therfore easy to shape, perfect for a golem. It just seems to be quite clumsy (modeling ain't easy), but at least it's preaty light.  
+research_stage.thaumicrestoration:mat_silverwood.0=Silverwood has far stronger magical properties than greatwood, which makes it even more interresting for golems. This kind of magic seems to make the golem able to perform more complex tasks.
+research_stage.thaumicrestoration:mat_infusedthaumium.0=Infused Thaumium is quite similar to thaumium, but slightly stronger. <PAGE/> Infused Thaumium realy shines when it comes to special properties:<BR> §eAER§r - Golem is much lighter and also able to fly.<BR> §4IGNIS§r - Golem has a brutal attitude. <BR> §3AQUA§r - Golem pulls water from the air to heal itself. <BR> §2TERRA§r - Golem has additional Armor. <BR> §7ORDO§r - Golem is able to overview a bigger area. <BR> §8PERDITIO§r - Meh... 
+

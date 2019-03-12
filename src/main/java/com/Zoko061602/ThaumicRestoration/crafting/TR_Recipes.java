@@ -10,8 +10,6 @@ import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerDust;
 import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerFire;
 import com.Zoko061602.ThaumicRestoration.lib.wands.WandTriggerSimple;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockQuartz;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -31,7 +29,6 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.IDustTrigger;
 import thaumcraft.api.crafting.InfusionRecipe;
-import thaumcraft.api.crafting.Part;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
 
@@ -46,6 +43,7 @@ public class TR_Recipes {
 		addCrystalInfuserRecipes();
 		addInfusionRecipes();
 		addWandTriggers();
+		TR_Golems.addGolems();
 		CrystalTypes.registerCrystals();
 
 	}
@@ -56,7 +54,8 @@ public class TR_Recipes {
      recipes.put("TR_DECO.2",addShapedOreRecipe(new ItemStack(TR_Blocks.blockGreatwoodFramed)," N ","NGN"," N ",'N',"nuggetThaumium",'G',new ItemStack(TR_Blocks.blockGreatwoodPlank)));
      recipes.put("TR_DECO.3",addShapedOreRecipe(new ItemStack(TR_Blocks.blockReinforced,5), "TST","SSS","TST",'T',"ingotThaumium",'S',new ItemStack(Blocks.COBBLESTONE)));
      addShapelessOreRecipe(new ItemStack(BlocksTC.plankGreatwood), new ItemStack(TR_Blocks.blockGreatwoodPlank));
-
+     for(int i=0;!(i==6);i++)
+     recipes.put("INFUSEDTHAUMIUM."+i, addShapedOreRecipe(new ItemStack(TR_Items.itemPlate, 3, i), "III",'I',new ItemStack(TR_Items.itemIngot,1,i)));
 	}
 
 	private static void addArcaneRecipes(){
