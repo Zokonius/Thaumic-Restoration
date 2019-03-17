@@ -2,12 +2,10 @@ package com.Zoko061602.ThaumicRestoration.items;
 
 import com.Zoko061602.ThaumicRestoration.api.IWandTrigger;
 import com.Zoko061602.ThaumicRestoration.main.TR_Tab;
-import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;

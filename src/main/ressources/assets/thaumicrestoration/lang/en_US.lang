@@ -35,6 +35,7 @@ tile.block_adv_recharge_pedestal.name=Advanced Vis Recharge Pedestal
 tile.block_greatwood.name=Greatwood Block
 tile.block_greatwood_framed.name=Thaumium Framed Greatwood
 tile.block_obsidian.name=Terra Infused Obsidian
+tile.block_paving_aer.name=Paving Stone of Permeability
 
 tile.block_crystal.name=Obsidian Edged Essentia Crystal
 
@@ -124,6 +125,11 @@ research_stage.thaumicrestoration:potioncrystals.1=By inserting some essentia cr
 #Aqua Bucket
 research_stage.thaumicrestoration:aquabucket.0=Aqua Ingots are Strange, they simply attract water, there is only one possible device I could think of to build... 
 research_stage.thaumicrestoration:aquabucket.1=It's Bucket, a never emptying bucket, what did you exspect?
+
+#Aqua Bucket
+research_stage.thaumicrestoration:paving_aer.0=Aer Ingots seem to be translucent. I wonder if I could turn these into something useful.
+research_stage.thaumicrestoration:paving_aer.1=It seems that these kind of blocks are not only translucent, but also seem to be passable when provided with the tiniest amount of vis or simply a redstone signal. Even a nano-vis is able to keep these blocks for two seconds passable, this amount of vis is so small that it can be draind from the smallest fluctuations of the vis field and therefore does not consume any vis from the wand or the aura arround it.    
+
 
 #Alchemy
 research_stage.thaumicrestoration:tr_alchemy.0=Alchemy is a well studied field, it's got to be hard to revolutionise it completely.

@@ -24,40 +24,14 @@ public class TR_Golems {
 
 	public static void addGolems() {
 
-	   String[] res = new String[]{"MATSTUD_TALLOW"};
-	   ResourceLocation tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_tallow.png");
-	   EnumGolemTrait[] tags = new EnumGolemTrait[]{CLUMSY,LIGHT};
-       materialTallow = new GolemMaterial("tr_tallow", res, tex, 0xDEA340, 20, 6, 2, new ItemStack(ItemsTC.tallow,3), new ItemStack(ItemsTC.mechanismSimple), tags);
-
-       res = new String[]{"MATSTUD_SILVERWOOD"};
-	   tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_silverwood.png");
-	   tags = new EnumGolemTrait[]{LIGHT, DEFT};
-       materialSilverwood = new GolemMaterial("tr_silverwood", res, tex, 0xE7DBC4, 20, 9, 1, new ItemStack(BlocksTC.plankSilverwood), new ItemStack(ItemsTC.mechanismSimple), tags);
-
-       res = new String[]{"MATSTUD_INFUSEDTHAUMIUM"};
-	   tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_thaumium_aer.png");
-	   tags = new EnumGolemTrait[]{LIGHT,BLASTPROOF,FIREPROOF,FLYER};
-       materialAer = new GolemMaterial("tr_thaumium_aer", res, tex, 0xF3F45F, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,0), new ItemStack(ItemsTC.mechanismComplex), tags);
-
-       tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_thaumium_ignis.png");
-	   tags = new EnumGolemTrait[]{HEAVY, BLASTPROOF, FIREPROOF, BRUTAL};
-       materialIgnis = new GolemMaterial("tr_thaumium_ignis", res, tex, 0xF45000, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,1), new ItemStack(ItemsTC.mechanismComplex), tags);
-
-       tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_thaumium_aqua.png");
-	   tags = new EnumGolemTrait[]{HEAVY, BLASTPROOF, FIREPROOF, REPAIR};
-       materialAqua = new GolemMaterial("tr_thaumium_aqua", res, tex, 0x31CAE0, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,2), new ItemStack(ItemsTC.mechanismComplex), tags);
-
-       tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_thaumium_terra.png");
-	   tags = new EnumGolemTrait[]{HEAVY, BLASTPROOF, FIREPROOF, ARMORED};
-       materialTerra = new GolemMaterial("tr_thaumium_terra", res, tex, 0x4BB600, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,3), new ItemStack(ItemsTC.mechanismComplex), tags);
-
-       tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_thaumium_ordo.png");
-	   tags = new EnumGolemTrait[]{HEAVY, BLASTPROOF, FIREPROOF, SCOUT};
-       materialOrdo = new GolemMaterial("tr_thaumium_ordo", res, tex, 0xEBECFF, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,4), new ItemStack(ItemsTC.mechanismComplex), tags);
-
-       tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_thaumium_perditio.png");
-	   tags = new EnumGolemTrait[]{HEAVY, BLASTPROOF, FIREPROOF};
-       materialPerditio = new GolemMaterial("tr_thaumium_perditio", res, tex, 0x5A5A5A, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,5), new ItemStack(ItemsTC.mechanismComplex), tags);
+       materialTallow = makeGolemMaterial("tallow", "MATSTUD_TALLOW", 0xDEA340, 20, 6, 2, new ItemStack(ItemsTC.tallow,3), new ItemStack(ItemsTC.mechanismSimple), CLUMSY,LIGHT);
+       materialSilverwood = makeGolemMaterial("silverwood", "MATSTUD_SILVERWODO", 0xE7DBC4, 20, 9, 1, new ItemStack(BlocksTC.plankSilverwood), new ItemStack(ItemsTC.mechanismComplex),LIGHT,DEFT);
+       materialAer = makeGolemMaterial("thaumium_aer", "MATSTUD_INFUSEDTHAUMIUM", 0xF3F45F, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,0), new ItemStack(ItemsTC.mechanismComplex), LIGHT,BLASTPROOF,FIREPROOF,FLYER);
+       materialIgnis = makeGolemMaterial("thaumium_ignis", "MATSTUD_INFUSEDTHAUMIUM", 0xF45000, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,1), new ItemStack(ItemsTC.mechanismComplex), HEAVY, BLASTPROOF, FIREPROOF, BRUTAL);
+       materialAqua = makeGolemMaterial("thaumium_aqua", "MATSTUD_INFUSEDTHAUMIUM", 0x31CAE0, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,2), new ItemStack(ItemsTC.mechanismComplex), HEAVY, BLASTPROOF, FIREPROOF, REPAIR);
+       materialTerra = makeGolemMaterial("thaumium_terra", "MATSTUD_INFUSEDTHAUMIUM", 0x4BB600, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,3), new ItemStack(ItemsTC.mechanismComplex), HEAVY, BLASTPROOF, FIREPROOF, ARMORED);
+       materialOrdo = makeGolemMaterial("thaumium_ordo", "MATSTUD_INFUSEDTHAUMIUM", 0xEBECFF, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,4), new ItemStack(ItemsTC.mechanismComplex), HEAVY, BLASTPROOF, FIREPROOF, SCOUT);
+       materialPerditio = makeGolemMaterial("thaumium_perditio", "MATSTUD_INFUSEDTHAUMIUM", 0x5A5A5A, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,5), new ItemStack(ItemsTC.mechanismComplex), HEAVY, BLASTPROOF, FIREPROOF);
 
        GolemMaterial.register(materialTallow);
        GolemMaterial.register(materialSilverwood);
@@ -68,6 +42,11 @@ public class TR_Golems {
        GolemMaterial.register(materialOrdo);
        GolemMaterial.register(materialPerditio);
 
+	}
+
+	private static GolemMaterial makeGolemMaterial(String name, String research, int color, int hp, int armor, int damage, ItemStack item, ItemStack core, EnumGolemTrait... traits){
+	 ResourceLocation tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_"+name+".png");
+	 return new GolemMaterial("tr_"+name, new String[]{research}, tex, color, hp, armor, damage, item, core, traits);
 	}
 
 }

@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+   "variants":{
+    "collision": {
+        "true": {
+         "model": "thaumicrestoration:block_paving_aer_0"
+        },
+        "false": {
+         "model": "thaumicrestoration:block_paving_aer_1"
+        }
+    }
+   }
+}

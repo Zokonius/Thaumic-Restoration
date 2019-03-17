@@ -21,6 +21,7 @@ public class TR_Blocks {
 	public static Block blockCrystal;
 	public static Block blockObsidian;
 	public static Block blockStorageUnit;
+	public static Block blockPavingAer;
 
 	public static void initBlocks() {
 		blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced");
@@ -29,6 +30,7 @@ public class TR_Blocks {
 		blockObsidian = new BlockObsidian();
 		blockInfuser = new BlockInfuser();
 		blockAdvRechargePed = new BlockAdvRechargePedestal();
+		blockPavingAer = new BlockPavingAer();
 		blockCrystal = new BlockCrystal();
 		//blockStorageUnit = new BlockStorageUnit();
 	}
@@ -40,6 +42,7 @@ public class TR_Blocks {
       registerBlock(e, blockInfuser);
       registerBlock(e, blockAdvRechargePed);
       registerBlock(e, blockObsidian);
+      registerBlock(e, blockPavingAer);
       registerBlock(e, blockCrystal);
     //  registerBlock(e, blockStorageUnit);
 	}
@@ -51,6 +54,7 @@ public class TR_Blocks {
 		registerItemBlock(e, blockInfuser);
 		registerItemBlock(e, blockAdvRechargePed);
 		registerItemBlock(e, blockObsidian);
+		registerItemBlock(e, blockPavingAer);
 	//	registerItemBlock(e, blockStorageUnit);
 	    e.getRegistry().register(new ItemBlockCrystal(blockCrystal).setRegistryName(blockCrystal.getRegistryName()));
 	 }
@@ -62,6 +66,7 @@ public class TR_Blocks {
 	 registerRender(blockInfuser);
 	 registerRender(blockAdvRechargePed);
 	 registerRender(blockObsidian);
+	 registerRender(blockPavingAer);
 	 registerRender(blockCrystal);
 	// registerRender(blockStorageUnit);
 	}

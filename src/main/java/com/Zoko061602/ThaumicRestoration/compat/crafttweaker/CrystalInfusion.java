@@ -36,22 +36,17 @@ public class CrystalInfusion {
     }
 
     private static class Add implements IAction {
-	RecipeCrystalInfusion r;
 
-	public Add(RecipeCrystalInfusion r) {
-		this.r = r;
-	}
+	public Add(RecipeCrystalInfusion r){}
 
 	@Override
-	public void apply() {
-		r.register();
-	}
+	public void apply(){}
 
 	@Override
 	public String describe() {
 		return "";
 	}
 
-}
+  }
 
 }

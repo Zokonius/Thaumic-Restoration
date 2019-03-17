@@ -5,7 +5,9 @@ import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.lib.research.ResearchHelper;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
+import static thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType.*;
+import static thaumcraft.api.research.ResearchEntry.EnumResearchMeta.*;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -13,14 +15,10 @@ import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
-import thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType;
-import thaumcraft.api.golems.EnumGolemTrait;
-import thaumcraft.api.golems.parts.GolemMaterial;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.research.ResearchAddendum;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
-import thaumcraft.api.research.ResearchEntry.EnumResearchMeta;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.api.research.ResearchStage.Knowledge;
 
@@ -37,10 +35,6 @@ public class TR_Research {
     public static final AspectList tabAspects = new AspectList().add(Aspect.MAGIC,20).add(Aspect.MECHANISM,20).add(Aspect.CRAFT,15).add(Aspect.AURA, 15).add(Aspect.ALCHEMY, 10).add(Aspect.CRYSTAL,10).add(Aspect.ENERGY,10);
 
     private static ResearchCategory catRestoration;
-
-    private static final EnumKnowledgeType OBSERVATION = EnumKnowledgeType.OBSERVATION;
-    private static final EnumKnowledgeType THEORY = EnumKnowledgeType.THEORY;
-
 
 	public static void createResearch(){
 
@@ -63,7 +57,7 @@ public class TR_Research {
 
 		 parents = new String[] {"FIRSTSTEPS"};
 
-		ResearchHelper.makeReadoptionResearch("RESTORATION", "Thaumic Restoration", 0, 0, iconRestoration, stages, parents, EnumResearchMeta.ROUND);
+		ResearchHelper.makeReadoptionResearch("RESTORATION", "Thaumic Restoration", 0, 0, iconRestoration, stages, parents, ROUND);
 
 		// Deco
 		 stages = new ResearchStage[]{
@@ -84,7 +78,7 @@ public class TR_Research {
 		 parents = new String[] {"!PLANTWOOD"};
 
 
-		ResearchHelper.makeReadoptionResearch("TR_DECO", "Decorative Blocks", 2, -1, new ItemStack(TR_Blocks.blockGreatwoodFramed), stages, parents, addenda, EnumResearchMeta.ROUND, EnumResearchMeta.HIDDEN);
+		ResearchHelper.makeReadoptionResearch("TR_DECO", "Decorative Blocks", 2, -1, new ItemStack(TR_Blocks.blockGreatwoodFramed), stages, parents, addenda, ROUND, HIDDEN);
 
 
 		// Novice Wand
@@ -116,7 +110,7 @@ public class TR_Research {
 
 		 parents = new String[] {"NOVICEWAND"};
 
-		ResearchHelper.makeReadoptionResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents,EnumResearchMeta.HIDDEN);
+		ResearchHelper.makeReadoptionResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents,HIDDEN);
 
 
 		// Adept Wand
@@ -205,7 +199,7 @@ public class TR_Research {
 
 		 parents = new String[] {"METALLURGY@3","CRYSTALINFUSION"};
 
-		ResearchHelper.makeReadoptionResearch("INFUSEDTHAUMIUM", "Infused Thaumium", 1, 2, new ItemStack(TR_Items.itemIngot,1,2), stages, parents);
+		ResearchHelper.makeReadoptionResearch("INFUSEDTHAUMIUM", "Infused Thaumium", 1, 3, new ItemStack(TR_Items.itemIngot,1,2), stages, parents);
 
 		//Material Studies Infused Thaumium
 		 stages = new ResearchStage[]{
@@ -216,7 +210,7 @@ public class TR_Research {
 
 		 parents = new String[] {"INFUSEDTHAUMIUM","MATSTUDTHAUMIUM"};
 
-		ResearchHelper.makeReadoptionResearch("MATSTUD_INFUSEDTHAUMIUM", "Material Studies: Infused Thaumium", 2, 1, new ItemStack(TR_Items.itemIngot,1,3), stages, parents,EnumResearchMeta.HIDDEN,EnumResearchMeta.ROUND);
+		ResearchHelper.makeReadoptionResearch("MATSTUD_INFUSEDTHAUMIUM", "Material Studies: Infused Thaumium", 2, 1, new ItemStack(TR_Items.itemIngot,1,3), stages, parents, HIDDEN, ROUND);
 
 		//Material Studies Tallow
 		 stages = new ResearchStage[]{
@@ -228,7 +222,7 @@ public class TR_Research {
 
 		 parents = new String[] {"MATSTUDWOOD","HEDGEALCHEMY@2"};
 
-		ResearchHelper.makeReadoptionResearch("MATSTUD_TALLOW", "Material Studies: Tallow", 5, -2, new ItemStack(ItemsTC.tallow), stages, parents,EnumResearchMeta.HIDDEN,EnumResearchMeta.ROUND);
+		ResearchHelper.makeReadoptionResearch("MATSTUD_TALLOW", "Material Studies: Tallow", 5, -2, new ItemStack(ItemsTC.tallow), stages, parents, HIDDEN, ROUND);
 
 		//Material Studies Silverwood
 		 stages = new ResearchStage[]{
@@ -240,7 +234,7 @@ public class TR_Research {
 
 		 parents = new String[] {"MATSTUDWOOD","!PLANTWOOD"};
 
-		ResearchHelper.makeReadoptionResearch("MATSTUD_SILVERWOOD", "Material Studies: Silverwood", 5, -1, new ItemStack(BlocksTC.logSilverwood), stages, parents,EnumResearchMeta.HIDDEN,EnumResearchMeta.ROUND);
+		ResearchHelper.makeReadoptionResearch("MATSTUD_SILVERWOOD", "Material Studies: Silverwood", 5, -1, new ItemStack(BlocksTC.logSilverwood), stages, parents, HIDDEN, ROUND);
 
 
 
@@ -261,7 +255,7 @@ public class TR_Research {
 
 	 parents = new String[] {"INFUSEDTHAUMIUM"};
 
-	ResearchHelper.makeReadoptionResearch("TERRAOBSIDIAN", "Terra Infused Obsidian", 2, 4, new ItemStack(TR_Blocks.blockObsidian), stages, parents);
+	ResearchHelper.makeReadoptionResearch("TERRAOBSIDIAN", "Terra Infused Obsidian", 2, 5, new ItemStack(TR_Blocks.blockObsidian), stages, parents);
 
 	//Edged Crystals
 	 stages = new ResearchStage[]{
@@ -281,7 +275,7 @@ public class TR_Research {
 	 parents = new String[] {"TERRAOBSIDIAN"};
 
 
-	ResearchHelper.makeReadoptionResearch("POTIONCRYSTALS", "Edged Crystals", 2, 6, new ItemStack(TR_Blocks.blockCrystal), stages, parents);
+	ResearchHelper.makeReadoptionResearch("POTIONCRYSTALS", "Edged Crystals", 2, 7, new ItemStack(TR_Blocks.blockCrystal), stages, parents);
 
 	//Aqua Bucket
 	 stages = new ResearchStage[]{
@@ -299,7 +293,25 @@ public class TR_Research {
 
 	 parents = new String[] {"INFUSEDTHAUMIUM"};
 
-	ResearchHelper.makeReadoptionResearch("AQUABUCKET", "Aqua Infused Water Bucket", 0, 4, new ItemStack(TR_Items.itemTRBucket), stages, parents);
+	ResearchHelper.makeReadoptionResearch("AQUABUCKET", "Aqua Infused Water Bucket", 0, 5, new ItemStack(TR_Items.itemTRBucket), stages, parents);
+
+	//Raving Aer
+	 stages = new ResearchStage[]{
+			  new ResearchHelper.RSB()
+			  .setText("research_stage."+ThaumicRestoration.ModID+":paving_aer.0")
+			  .setKnow(new Knowledge(OBSERVATION, getCategory("ARTIFICE"), 1))
+			  .setConsumedItems(new ItemStack(BlocksTC.pavingStoneTravel,4,0),new ItemStack(BlocksTC.pavingStoneBarrier,4,0))
+			  .build(),
+			 new ResearchHelper.RSB()
+			  .setText("research_stage."+ThaumicRestoration.ModID+":paving_aer.1")
+			  .setRecipes(TR_Recipes.recipes.get("PAVING_AER.1"))
+              .build()
+
+	};
+
+	 parents = new String[] {"INFUSEDTHAUMIUM","PAVINGSTONES"};
+
+	ResearchHelper.makeReadoptionResearch("PAVING_AER", "Paving Stone of Permeability", 3, 4, new ItemStack(TR_Blocks.blockPavingAer), stages, parents);
 
 
 	/*/Storage Unit
@@ -315,7 +327,7 @@ public class TR_Research {
 
 	 parents = new String[] {"INFUSEDTHAUMIUM","TR_DECO"};
 
-	ResearchHelper.makeReadoptionResearch("STORAGEUNIT", "StorageUnit", 6, 2, new ItemStack(ReadoptedItems.itemTRBucket), stages, parents);
+	ResearchHelper.makeReadoptionResearch("STORAGEUNIT", "StorageUnit", 6, 3, new ItemStack(ReadoptedItems.itemTRBucket), stages, parents);
 	*/
 
 
@@ -429,7 +441,7 @@ public class TR_Research {
 	 parents = new String[] {"NOVICEWAND"};
 	 new ResearchHelper.RAB();
 
-	ResearchHelper.makeReadoptionResearch("WANDFIRE", "Hellfire Overlord", -2, -1, iconFire, stages, parents,EnumResearchMeta.HEX);
+	ResearchHelper.makeReadoptionResearch("WANDFIRE", "Hellfire Overlord", -2, -1, iconFire, stages, parents, HEX);
 
 
 	//Toast

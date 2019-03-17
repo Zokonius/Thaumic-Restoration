@@ -13,14 +13,6 @@ public class GuiWandHud extends Gui {
 	private static final ResourceLocation texture = new ResourceLocation(ThaumicRestoration.ModID, "textures/gui/wand_bar.png");
 
     public GuiWandHud(Minecraft mc){
-    	makeGui(mc);
-
-    }
-
-    private void makeGui(Minecraft mc) {
-
-    	int xPos = 2;
-		int yPos = 2;
 		mc.getTextureManager().bindTexture(texture);
 
 		GlStateManager.pushAttrib();
@@ -28,13 +20,12 @@ public class GuiWandHud extends Gui {
 		GlStateManager.disableLighting();
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
-		drawTexturedModalRect(xPos, yPos, 0, 0, 80, 8);
-
 		int visbarwidth = (int)(RechargeHelper.getChargePercentage(mc.player.getHeldItemMainhand(), mc.player) * 80);
-		drawTexturedModalRect(xPos, yPos, 0, 8, visbarwidth, 16);
+		drawTexturedModalRect(2, 2, 0, 0, 80, 8);
+		drawTexturedModalRect(2, 2, 0, 8, visbarwidth, 16);
 		GlStateManager.popAttrib();
 
-	}
+    }
 
 
 }

@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class RestoredCompatModule {
 
-	public static HashMap<String,Class> compat = new HashMap<>();
+	public static HashMap<String,Class<? extends RestoredCompatModule>> compat = new HashMap<>();
 	public static ArrayList<RestoredCompatModule> modules = new ArrayList<RestoredCompatModule>();
 
 

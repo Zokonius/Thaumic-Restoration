@@ -2,6 +2,8 @@ package com.Zoko061602.ThaumicRestoration.lib.crafting;
 
 import java.util.ArrayList;
 
+import com.Zoko061602.ThaumicRestoration.lib.research.AspectUtil;
+
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 
@@ -18,6 +20,7 @@ public class RecipeCrystalInfusion {
 		this.aspect = aspect;
 		this.input= input;
 		this.output = output;
+		register();
 	}
 
 	public String getResearch() {
@@ -36,7 +39,16 @@ public class RecipeCrystalInfusion {
 		return output;
 	}
 
-	public void register() {
+	//Used only for JEI.
+	public ArrayList<ItemStack> getInputs(){
+		ArrayList<ItemStack> r = new ArrayList<>();
+		r.add(input);
+		for(int i=0;!(i==6);i++)
+			r.add(AspectUtil.crystalEssence(aspect));
+		return r;
+	}
+
+	private void register() {
 	 if(this.getAspect()==null)return;
 	 if(this.getInput()==null)return;
 	 if(this.getOutput()==null)return;

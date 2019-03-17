@@ -11,6 +11,7 @@ public class TR_Tiles {
 		GameRegistry.registerTileEntity(TileInfuser.class, new ResourceLocation(ThaumicRestoration.ModID, "tileInfuser"));
 		GameRegistry.registerTileEntity(TileAdvRechargePedestal.class, new ResourceLocation(ThaumicRestoration.ModID, "tileAdvRechargePedestal"));
 		GameRegistry.registerTileEntity(TileCrystal.class, new ResourceLocation(ThaumicRestoration.ModID,"tileCrystal"));
+		GameRegistry.registerTileEntity(TileMagicWall.class, new ResourceLocation(ThaumicRestoration.ModID, "tileMagicWall"));
 		GameRegistry.registerTileEntity(TileStorageUnit.class, new ResourceLocation(ThaumicRestoration.ModID, "tileStorageUnit"));
 
 	}

@@ -75,6 +75,9 @@ public class TR_Recipes {
 	 crystals = new AspectList().add(Aspect.WATER, 5).add(Aspect.ORDER, 2);
      recipes.put("AQUABUCKET.1", addShapedArcaneRecipe("AQUABUCKET@1", new ItemStack(TR_Items.itemTRBucket,1,0), 25, crystals, "I I"," I ",'I',new ItemStack(TR_Items.itemIngot,1,2)));
 
+     crystals = new AspectList().add(Aspect.AIR,5).add(Aspect.ORDER,2).add(Aspect.ENTROPY,2);
+     recipes.put("PAVING_AER.1", addShapedArcaneRecipe("PAVING_AER@1", new ItemStack(TR_Blocks.blockPavingAer,8,0), 50, crystals, "SSS","SIS","SSS",'S', new ItemStack(BlocksTC.stoneArcane),'I', new ItemStack(TR_Items.itemIngot,1,0)));
+
 	 crystals = new AspectList().add(Aspect.EARTH, 5).add(Aspect.ENTROPY, 2);
      recipes.put("TERRAOBSIDIAN.1", addShapedArcaneRecipe("TERRAOBSIDIAN@1",new ItemStack(TR_Blocks.blockObsidian,5), 25, crystals, "OIO","IOI","OIO",'I',new ItemStack(TR_Items.itemIngot,1,3),'O',new ItemStack(Blocks.OBSIDIAN)));
 
@@ -110,12 +113,12 @@ public class TR_Recipes {
 	}
 
 	private static void addCrystalInfuserRecipes() {
-		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.AIR, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,0)).register();
-		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.FIRE, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,1)).register();
-		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.WATER, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,2)).register();
-		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.EARTH, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,3)).register();
-		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.ORDER, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,4)).register();
-		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.ENTROPY, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,5)).register();
+		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.AIR, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,0));
+		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.FIRE, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,1));
+		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.WATER, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,2));
+		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.EARTH, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,3));
+		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.ORDER, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,4));
+		new RecipeCrystalInfusion("INFUSEDTHAUMIUM@1", Aspect.ENTROPY, new ItemStack(ItemsTC.ingots), new ItemStack(TR_Items.itemIngot,1,5));
 
 	}
 
