@@ -29,7 +29,6 @@ public class TR_Aspects {
      l = new AspectList().add(Aspect.ENTROPY,8).add(Aspect.MAGIC,5).add(Aspect.METAL,5).add(Aspect.VOID, 3);
      ap.registerComplexObjectTag("ingotThaumiumPerditio", l);
 
-
 	}
 
 }

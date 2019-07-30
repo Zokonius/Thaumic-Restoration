@@ -21,13 +21,18 @@ import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.api.research.ResearchStage.Knowledge;
+import thaumcraft.api.research.theorycraft.CardExperimentation;
+import thaumcraft.common.lib.research.theorycraft.CardAwareness;
+import thaumcraft.common.lib.research.theorycraft.CardBeacon;
+import thaumcraft.common.lib.research.theorycraft.CardChannel;
+import thaumcraft.common.lib.research.theorycraft.CardFocus;
+import thaumcraft.common.lib.research.theorycraft.CardMeasure;
 
 public class TR_Research {
 
 	public static final ResourceLocation backoverlay = new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_over.png");
 
 	public static final ResourceLocation iconRestoration = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_restoration.png");
-	public static final ResourceLocation iconWither = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_wither.png");
 	public static final ResourceLocation iconAlchemy = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_alchemy.png");
 	public static final ResourceLocation iconTrans = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_trans.png");
 	public static final ResourceLocation iconFire = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/icon_fire.png");
@@ -35,6 +40,15 @@ public class TR_Research {
     public static final AspectList tabAspects = new AspectList().add(Aspect.MAGIC,20).add(Aspect.MECHANISM,20).add(Aspect.CRAFT,15).add(Aspect.AURA, 15).add(Aspect.ALCHEMY, 10).add(Aspect.CRYSTAL,10).add(Aspect.ENERGY,10);
 
     private static ResearchCategory catRestoration;
+
+    @SuppressWarnings("unchecked")
+	public static void createHelps(){
+    	ResearchHelper.makeAid(TR_Blocks.blockAdvRechargePed, CardFocus.class, CardAwareness.class);
+    	ResearchHelper.makeAid(TR_Blocks.blockInfuser, CardMeasure.class, CardChannel.class, CardExperimentation.class);
+    	ResearchHelper.makeAid(TR_Blocks.blockCrystal, CardBeacon.class);
+
+    }
+
 
 	public static void createResearch(){
 
@@ -57,7 +71,7 @@ public class TR_Research {
 
 		 parents = new String[] {"FIRSTSTEPS"};
 
-		ResearchHelper.makeReadoptionResearch("RESTORATION", "Thaumic Restoration", 0, 0, iconRestoration, stages, parents, ROUND);
+		ResearchHelper.makeRestorationResearch("RESTORATION", "Thaumic Restoration", 0, 0, iconRestoration, stages, parents, ROUND);
 
 		// Deco
 		 stages = new ResearchStage[]{
@@ -78,7 +92,7 @@ public class TR_Research {
 		 parents = new String[] {"!PLANTWOOD"};
 
 
-		ResearchHelper.makeReadoptionResearch("TR_DECO", "Decorative Blocks", 2, -1, new ItemStack(TR_Blocks.blockGreatwoodFramed), stages, parents, addenda, ROUND, HIDDEN);
+		ResearchHelper.makeRestorationResearch("TR_DECO", "Decorative Blocks", 2, -1, new ItemStack(TR_Blocks.blockGreatwoodFramed), stages, parents, addenda, ROUND, HIDDEN);
 
 
 		// Novice Wand
@@ -95,7 +109,7 @@ public class TR_Research {
 
 		 parents = new String[] {"RESTORATION","!PLANTWOOD","METALLURGY@2"};
 
-		ResearchHelper.makeReadoptionResearch("NOVICEWAND", "Novice Wand", -1, -2, new ItemStack(TR_Items.itemWand,1,0), stages, parents);
+		ResearchHelper.makeRestorationResearch("NOVICEWAND", "Novice Wand", -1, -2, new ItemStack(TR_Items.itemWand,1,0), stages, parents);
 
 		// Wand Transmutation
 		 stages = new ResearchStage[]{
@@ -110,7 +124,7 @@ public class TR_Research {
 
 		 parents = new String[] {"NOVICEWAND"};
 
-		ResearchHelper.makeReadoptionResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents,HIDDEN);
+		ResearchHelper.makeRestorationResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents,HIDDEN);
 
 
 		// Adept Wand
@@ -128,7 +142,7 @@ public class TR_Research {
 
 		 parents = new String[] {"NOVICEWAND"};
 
-		ResearchHelper.makeReadoptionResearch("ADEPTWAND", "Adept Wand", -4, -2, new ItemStack(TR_Items.itemWand,1,1), stages, parents);
+		ResearchHelper.makeRestorationResearch("ADEPTWAND", "Adept Wand", -4, -2, new ItemStack(TR_Items.itemWand,1,1), stages, parents);
 
 		// Master Wand
 		 stages = new ResearchStage[]{
@@ -145,7 +159,7 @@ public class TR_Research {
 
 		 parents = new String[] {"ADEPTWAND","~INFUSEDTHAUMIUM"};
 
-		ResearchHelper.makeReadoptionResearch("MASTERWAND", "Grandmasters Wand", -7, -2, new ItemStack(TR_Items.itemWand,1,2), stages, parents);
+		ResearchHelper.makeRestorationResearch("MASTERWAND", "Grandmasters Wand", -7, -2, new ItemStack(TR_Items.itemWand,1,2), stages, parents);
 
 		// Recharge Pedestal
 		 stages = new ResearchStage[]{
@@ -164,7 +178,7 @@ public class TR_Research {
 
 		 parents = new String[] {"ADEPTWAND","RECHARGEPEDESTAL","METALLURGY@3","BASEINFUSION"};
 
-		ResearchHelper.makeReadoptionResearch("RECHARGER", "Advanced Recharge Pedestal", -5, 0, new ItemStack(TR_Blocks.blockAdvRechargePed), stages, parents);
+		ResearchHelper.makeRestorationResearch("RECHARGER", "Advanced Recharge Pedestal", -5, 0, new ItemStack(TR_Blocks.blockAdvRechargePed), stages, parents);
 
 		//Crystal Infusion
 		 stages = new ResearchStage[]{
@@ -183,7 +197,7 @@ public class TR_Research {
 
 		 parents = new String[] {"METALLURGY@3","BASEINFUSION","~NOVICEWAND","RESTORATION"};
 
-		ResearchHelper.makeReadoptionResearch("CRYSTALINFUSION", "Crystal Infuser", -2, 2, new ItemStack(TR_Blocks.blockInfuser), stages, parents);
+		ResearchHelper.makeRestorationResearch("CRYSTALINFUSION", "Crystal Infuser", -2, 2, new ItemStack(TR_Blocks.blockInfuser), stages, parents);
 
 		//Infused Thaumium
 		 stages = new ResearchStage[]{
@@ -199,7 +213,7 @@ public class TR_Research {
 
 		 parents = new String[] {"METALLURGY@3","CRYSTALINFUSION"};
 
-		ResearchHelper.makeReadoptionResearch("INFUSEDTHAUMIUM", "Infused Thaumium", 1, 3, new ItemStack(TR_Items.itemIngot,1,2), stages, parents);
+		ResearchHelper.makeRestorationResearch("INFUSEDTHAUMIUM", "Infused Thaumium", 1, 3, new ItemStack(TR_Items.itemIngot,1,2), stages, parents);
 
 		//Material Studies Infused Thaumium
 		 stages = new ResearchStage[]{
@@ -210,7 +224,7 @@ public class TR_Research {
 
 		 parents = new String[] {"INFUSEDTHAUMIUM","MATSTUDTHAUMIUM"};
 
-		ResearchHelper.makeReadoptionResearch("MATSTUD_INFUSEDTHAUMIUM", "Material Studies: Infused Thaumium", 2, 1, new ItemStack(TR_Items.itemIngot,1,3), stages, parents, HIDDEN, ROUND);
+		ResearchHelper.makeRestorationResearch("MATSTUD_INFUSEDTHAUMIUM", "Material Studies: Infused Thaumium", 2, 1, new ItemStack(TR_Items.itemIngot,1,3), stages, parents, HIDDEN, ROUND);
 
 		//Material Studies Tallow
 		 stages = new ResearchStage[]{
@@ -222,7 +236,7 @@ public class TR_Research {
 
 		 parents = new String[] {"MATSTUDWOOD","HEDGEALCHEMY@2"};
 
-		ResearchHelper.makeReadoptionResearch("MATSTUD_TALLOW", "Material Studies: Tallow", 5, -2, new ItemStack(ItemsTC.tallow), stages, parents, HIDDEN, ROUND);
+		ResearchHelper.makeRestorationResearch("MATSTUD_TALLOW", "Material Studies: Tallow", 5, -2, new ItemStack(ItemsTC.tallow), stages, parents, HIDDEN, ROUND);
 
 		//Material Studies Silverwood
 		 stages = new ResearchStage[]{
@@ -234,7 +248,7 @@ public class TR_Research {
 
 		 parents = new String[] {"MATSTUDWOOD","!PLANTWOOD"};
 
-		ResearchHelper.makeReadoptionResearch("MATSTUD_SILVERWOOD", "Material Studies: Silverwood", 5, -1, new ItemStack(BlocksTC.logSilverwood), stages, parents, HIDDEN, ROUND);
+		ResearchHelper.makeRestorationResearch("MATSTUD_SILVERWOOD", "Material Studies: Silverwood", 5, -1, new ItemStack(BlocksTC.logSilverwood), stages, parents, HIDDEN, ROUND);
 
 
 
@@ -255,7 +269,7 @@ public class TR_Research {
 
 	 parents = new String[] {"INFUSEDTHAUMIUM"};
 
-	ResearchHelper.makeReadoptionResearch("TERRAOBSIDIAN", "Terra Infused Obsidian", 2, 5, new ItemStack(TR_Blocks.blockObsidian), stages, parents);
+	ResearchHelper.makeRestorationResearch("TERRAOBSIDIAN", "Terra Infused Obsidian", 2, 5, new ItemStack(TR_Blocks.blockObsidian), stages, parents);
 
 	//Edged Crystals
 	 stages = new ResearchStage[]{
@@ -275,7 +289,7 @@ public class TR_Research {
 	 parents = new String[] {"TERRAOBSIDIAN"};
 
 
-	ResearchHelper.makeReadoptionResearch("POTIONCRYSTALS", "Edged Crystals", 2, 7, new ItemStack(TR_Blocks.blockCrystal), stages, parents);
+	ResearchHelper.makeRestorationResearch("POTIONCRYSTALS", "Edged Crystals", 2, 7, new ItemStack(TR_Blocks.blockCrystal), stages, parents);
 
 	//Aqua Bucket
 	 stages = new ResearchStage[]{
@@ -293,9 +307,9 @@ public class TR_Research {
 
 	 parents = new String[] {"INFUSEDTHAUMIUM"};
 
-	ResearchHelper.makeReadoptionResearch("AQUABUCKET", "Aqua Infused Water Bucket", 0, 5, new ItemStack(TR_Items.itemTRBucket), stages, parents);
+	ResearchHelper.makeRestorationResearch("AQUABUCKET", "Aqua Infused Water Bucket", 0, 5, new ItemStack(TR_Items.itemTRBucket), stages, parents);
 
-	//Raving Aer
+	//Paving Aer
 	 stages = new ResearchStage[]{
 			  new ResearchHelper.RSB()
 			  .setText("research_stage."+ThaumicRestoration.ModID+":paving_aer.0")
@@ -311,7 +325,7 @@ public class TR_Research {
 
 	 parents = new String[] {"INFUSEDTHAUMIUM","PAVINGSTONES"};
 
-	ResearchHelper.makeReadoptionResearch("PAVING_AER", "Paving Stone of Permeability", 3, 4, new ItemStack(TR_Blocks.blockPavingAer), stages, parents);
+	ResearchHelper.makeRestorationResearch("PAVING_AER", "Paving Stone of Permeability", 3, 4, new ItemStack(TR_Blocks.blockPavingAer), stages, parents);
 
 
 	/*/Storage Unit
@@ -345,7 +359,7 @@ public class TR_Research {
 
 	 parents = new String[] {"RESTORATION"};
 
-	ResearchHelper.makeReadoptionResearch("TR_ALCHEMY", "Restored Alchemy", 1, -4, iconAlchemy, stages, parents);
+	ResearchHelper.makeRestorationResearch("TR_ALCHEMY", "Restored Alchemy", 1, -4, iconAlchemy, stages, parents);
 
 
 
@@ -384,7 +398,7 @@ public class TR_Research {
 
 	 parents = new String[] {"TR_ALCHEMY"};
 
-	ResearchHelper.makeReadoptionResearch("TR_ENDER", "Ender Pearl Duplication", 4, -5, new ItemStack(Items.ENDER_PEARL), stages, parents);
+	ResearchHelper.makeRestorationResearch("TR_ENDER", "Ender Pearl Duplication", 4, -5, new ItemStack(Items.ENDER_PEARL), stages, parents);
 
 	//Alchemy
 	 stages = new ResearchStage[]{
@@ -403,7 +417,7 @@ public class TR_Research {
 	 parents = new String[] {"TR_ALCHEMY"};
 	 new ResearchHelper.RAB();
 
-	ResearchHelper.makeReadoptionResearch("TR_WITHER", "Skull Corruption", 0, -5, new ItemStack(Items.SKULL,1,1), stages, parents);
+	ResearchHelper.makeRestorationResearch("TR_WITHER", "Skull Corruption", 0, -5, new ItemStack(Items.SKULL,1,1), stages, parents);
 
 	//Wither Ring
 	 stages = new ResearchStage[]{
@@ -423,7 +437,7 @@ public class TR_Research {
 	 parents = new String[] {"RESTORATION","INFUSION","METALLURGY@2"};
 	 new ResearchHelper.RAB();
 
-	ResearchHelper.makeReadoptionResearch("WITHERRING", "Ring of Wither Protection", -4, 3, new ItemStack(TR_Items.itemWitherRing), stages, parents);
+	ResearchHelper.makeRestorationResearch("WITHERRING", "Ring of Wither Protection", -4, 3, new ItemStack(TR_Items.itemWitherRing), stages, parents);
 
 	//Wand Fire
 	 stages = new ResearchStage[]{
@@ -441,7 +455,7 @@ public class TR_Research {
 	 parents = new String[] {"NOVICEWAND"};
 	 new ResearchHelper.RAB();
 
-	ResearchHelper.makeReadoptionResearch("WANDFIRE", "Hellfire Overlord", -2, -1, iconFire, stages, parents, HEX);
+	ResearchHelper.makeRestorationResearch("WANDFIRE", "Hellfire Overlord", -2, -1, iconFire, stages, parents, HEX);
 
 
 	//Toast
@@ -449,7 +463,7 @@ public class TR_Research {
 			  new ResearchHelper.RSB()
 			  .setText("research_stage."+ThaumicRestoration.ModID+":toast.0")
 			  .setKnow(new Knowledge(THEORY, getCategory("AUROMANCY"), 2))
-			  .setConsumedItems(new ItemStack(Items.BREAD,1,64))
+			  .setConsumedItems(new ItemStack(Items.BREAD,32,0))
 			  .build(),
 			 new ResearchHelper.RSB()
 			  .setText("research_stage."+ThaumicRestoration.ModID+":toast.1")
@@ -461,7 +475,7 @@ public class TR_Research {
 	 parents = new String[] {"TR_ALCHEMY"};
 	 new ResearchHelper.RAB();
 
-	ResearchHelper.makeReadoptionResearch("THAUMICTOAST", "Thaumic Toast", 3, -3, new ItemStack(TR_Items.itemToast), stages, parents);
+	ResearchHelper.makeRestorationResearch("THAUMICTOAST", "Thaumic Toast", 3, -3, new ItemStack(TR_Items.itemToast), stages, parents);
 
    }
 

@@ -40,7 +40,7 @@ public class ThaumicRestoration {
 
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent e) {
-      proxy.loadComplete(e);
+        proxy.loadComplete(e);
 	}
 
 }

@@ -109,7 +109,7 @@ public class TR_Recipes {
 		recipes.put("TR_ENDER.1",addCrucibleRecipe("TR_ENDER", new ItemStack(Items.ENDER_PEARL,2,0), aspects, new ItemStack(Items.ENDER_PEARL,1,0)));
 
 		aspects = new AspectList().add(Aspect.LIFE, 5).add(Aspect.MAGIC, 5).add(Aspect.MAN, 5).add(Aspect.ALCHEMY,5);
-		recipes.put("THAUMICTOAST.1",addCrucibleRecipe("THAUMICTOAST@1", new ItemStack(TR_Items.itemToast,1,0), aspects, new ItemStack(Items.BREAD,1,0)));
+		recipes.put("THAUMICTOAST.1",addCrucibleRecipe("THAUMICTOAST@1", new ItemStack(TR_Items.itemToast,1,0), aspects, new ItemStack(Items.BREAD)));
 	}
 
 	private static void addCrystalInfuserRecipes() {

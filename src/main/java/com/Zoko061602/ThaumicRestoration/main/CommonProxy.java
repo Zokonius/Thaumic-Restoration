@@ -18,7 +18,6 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent e) {
 		TR_Items.initItems();
-		TR_Blocks.initBlocks();
 		TR_Tiles.initTiles();
 		RestoredCompatModule.loadPreInit(e);
 	}
@@ -32,6 +31,7 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent e) {
 		TR_Aspects.addAspects();
+		TR_Research.createHelps();
 		TR_Research.createResearch();
 		RestoredCompatModule.loadPostInit(e);
 	}

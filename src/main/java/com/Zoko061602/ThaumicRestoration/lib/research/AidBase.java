@@ -9,9 +9,9 @@ public class AidBase implements ITheorycraftAid {
 	Block block;
     Class<TheorycraftCard>[] cards;
 
-	public AidBase(Block block, Class<TheorycraftCard>[] cards) {
+	public AidBase(Block block, Class<? extends TheorycraftCard>[] cards) {
 		this.block = block;
-		this.cards = cards;
+		this.cards = (Class<TheorycraftCard>[])cards;
 	}
 
 	@Override

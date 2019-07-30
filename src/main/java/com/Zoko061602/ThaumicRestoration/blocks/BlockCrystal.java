@@ -42,7 +42,10 @@ public class BlockCrystal extends BlockBase implements ITileEntityProvider {
 
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,EntityPlayer player) {
-		return ItemBlockCrystal.ofType(((TileCrystal) world.getTileEntity(pos)).getAspect());
+		Aspect a = Aspect.AIR;
+		if(world.getTileEntity(pos)!=null)
+			a = ((TileCrystal) world.getTileEntity(pos)).getAspect();
+		return ItemBlockCrystal.ofType(a);
 	}
 
 	@Override

@@ -13,27 +13,15 @@ import net.minecraftforge.event.RegistryEvent;
 
 public class TR_Blocks {
 
-	public static Block blockReinforced;
-	public static Block blockGreatwoodPlank;
-	public static Block blockGreatwoodFramed;
-	public static Block blockInfuser;
-	public static Block blockAdvRechargePed;
-	public static Block blockCrystal;
-	public static Block blockObsidian;
-	public static Block blockStorageUnit;
-	public static Block blockPavingAer;
-
-	public static void initBlocks() {
-		blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced");
-		blockGreatwoodPlank = new BlockBase(Material.WOOD, "axe", 0, 2F, 2F, "block_greatwood");
-		blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed");
-		blockObsidian = new BlockObsidian();
-		blockInfuser = new BlockInfuser();
-		blockAdvRechargePed = new BlockAdvRechargePedestal();
-		blockPavingAer = new BlockPavingAer();
-		blockCrystal = new BlockCrystal();
-		//blockStorageUnit = new BlockStorageUnit();
-	}
+	public static Block blockReinforced = new BlockBase(Material.ROCK, "pickaxe", 2, 50F, 10F, "block_reinforced");
+	public static Block blockGreatwoodPlank = new BlockBase(Material.WOOD, "axe", 0, 2F, 2F, "block_greatwood");
+	public static Block blockGreatwoodFramed = new BlockBase(Material.WOOD, "axe", 0, 3F, 3F, "block_greatwood_framed");
+	public static Block blockInfuser = new BlockInfuser();
+	public static Block blockAdvRechargePed = new BlockAdvRechargePedestal();
+	public static Block blockCrystal = new BlockCrystal();
+	public static Block blockObsidian = new BlockObsidian();
+	public static Block blockStorageUnit  = new BlockStorageUnit();
+	public static Block blockPavingAer = new BlockPavingAer();
 
 	public static void registerBlocks(RegistryEvent.Register<Block> e){
       registerBlock(e, blockReinforced);

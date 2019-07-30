@@ -6,6 +6,8 @@ import thaumcraft.api.research.ResearchEntry.EnumResearchMeta;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.api.research.theorycraft.TheorycraftCard;
 import thaumcraft.api.research.theorycraft.TheorycraftManager;
+import thaumcraft.common.lib.research.theorycraft.CardAwareness;
+import thaumcraft.common.lib.research.theorycraft.CardFocus;
 
 public class ResearchHelper {
 
@@ -25,17 +27,18 @@ public class ResearchHelper {
          reb.buildAndRegister();
 		}
 
-	public static void makeReadoptionResearch(String tag,String name, int Xpos, int Ypos,Object icon, ResearchStage[] stages, String[] parents, EnumResearchMeta... meta) {
+	public static void makeRestorationResearch(String tag,String name, int Xpos, int Ypos,Object icon, ResearchStage[] stages, String[] parents, EnumResearchMeta... meta) {
 		makeResearch(tag, "RESTORATION", name, Xpos, Ypos, icon, stages, parents, null, meta);
 	}
 
-	public static void makeReadoptionResearch(String tag,String name, int Xpos, int Ypos,Object icon, ResearchStage[] stages, String[] parents,ResearchAddendum[] add, EnumResearchMeta... meta) {
+	public static void makeRestorationResearch(String tag,String name, int Xpos, int Ypos,Object icon, ResearchStage[] stages, String[] parents,ResearchAddendum[] add, EnumResearchMeta... meta) {
 			makeResearch(tag, "RESTORATION", name, Xpos, Ypos, icon, stages, parents, add, meta);
 		}
 
-	public static void createAid(Block block, Class<TheorycraftCard>[] cards) {
+	public static void makeAid(Block block, Class<? extends TheorycraftCard>... cards) {
 		if(TheorycraftManager.aids.get(block.getUnlocalizedName())==null)
          TheorycraftManager.aids.put(block.getUnlocalizedName(), new AidBase(block, cards));
 	}
+
 
 }

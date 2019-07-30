@@ -27,7 +27,7 @@ public class TileCrystal extends TileThaumcraft implements ITickable {
 	}
 
 	public Aspect getAspect() {
-		return a;
+		return a!=null ? a:Aspect.AIR;
 	}
 
 	public void setAspect(Aspect a) {
