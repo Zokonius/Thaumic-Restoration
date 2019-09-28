@@ -33,7 +33,7 @@ public class ResearchHelper {
 
 	public static void makeRestorationResearch(String tag,String name, int Xpos, int Ypos,Object icon, ResearchStage[] stages, String[] parents,ResearchAddendum[] add, EnumResearchMeta... meta) {
 			makeResearch(tag, "RESTORATION", name, Xpos, Ypos, icon, stages, parents, add, meta);
-		}
+	}
 
 	public static void makeAid(Block block, Class<? extends TheorycraftCard>... cards) {
 		if(TheorycraftManager.aids.get(block.getUnlocalizedName())==null)

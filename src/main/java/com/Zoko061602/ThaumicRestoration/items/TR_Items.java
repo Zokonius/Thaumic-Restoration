@@ -20,6 +20,7 @@ public class TR_Items {
 	public static Item itemWandRod;
 	public static Item itemWitherRing;
 	public static Item itemLighter;
+	public static Item itemShard;
 
 	public static void initItems() {
 		itemWand = new ItemWand();
@@ -33,6 +34,7 @@ public class TR_Items {
 		itemToast = new ItemToast();
 		itemWitherRing = new ItemRingWither();
 		itemLighter = new ItemLighter();
+		itemShard = new ItemShard();
 	}
 
 	public static void registerItems(RegistryEvent.Register<Item> e){
@@ -48,6 +50,7 @@ public class TR_Items {
 		e.getRegistry().register(itemToast);
         e.getRegistry().register(itemWitherRing);
         e.getRegistry().register(itemLighter);
+        e.getRegistry().register(itemShard);
 
 	}
 
@@ -61,6 +64,7 @@ public class TR_Items {
 		registerRender(itemToast);
 		registerRender(itemWitherRing);
 		registerRender(itemLighter);
+		registerRender(itemShard);
 
 	}
 

@@ -28,6 +28,9 @@ item.item_bucket.name=Infinite Water Bucket
 item.item_toast.name=Thaumic Toast
 item.item_witherring.name=Wither Protection Ring
 
+item.item_shard.name=Colorful Curiosity
+item.item_shard.tip=Seems familiar
+
 #Blocks
 tile.block_reinforced.name=Thaumium Plated Stone
 tile.block_infuser.name=Crystal Infuser
@@ -92,7 +95,7 @@ research_stage.thaumicrestoration:novicewand.1=I found a way to make this portab
 
 #Transmutations
 research_stage.thaumicrestoration:transmutation.0=There must be more to this thing than just the properties of Salis Mundus, there must be a difference...
-research_stage.thaumicrestoration:transmutation.1=Well, it turns out that the Wand is slightly better than Salis Mundus, at least it is able to turn Materials in Other Materials. Sadly I was only able to see this at Sea Lanterns and Pumpkins.
+research_stage.thaumicrestoration:transmutation.1=Well, it turns out that the Wand is slightly better than Salis Mundus, at least it is able to turn Materials in Other Materials. There is a quite strange reaction with quarz ore, it seems to absorb the whole mage it is exposed to and crystalizes a glowing shard. Weirdly the wand also resonates with pumpkins and sea lanterns.
 
 #Adept Wand
 research_stage.thaumicrestoration:adeptwand.0=I observed that the vis fluctuation of this Wand reduces when it's near a vis resonator, maybe this ist the key to argument this Wand.

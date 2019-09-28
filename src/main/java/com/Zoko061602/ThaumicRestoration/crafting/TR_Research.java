@@ -39,7 +39,7 @@ public class TR_Research {
 	public static final ResourceLocation backRestoration = new ResourceLocation(ThaumicRestoration.ModID, "textures/research/tab_restoration.jpg");
     public static final AspectList tabAspects = new AspectList().add(Aspect.MAGIC,20).add(Aspect.MECHANISM,20).add(Aspect.CRAFT,15).add(Aspect.AURA, 15).add(Aspect.ALCHEMY, 10).add(Aspect.CRYSTAL,10).add(Aspect.ENERGY,10);
 
-    private static ResearchCategory catRestoration;
+    public static ResearchCategory catRestoration;
 
     @SuppressWarnings("unchecked")
 	public static void createHelps(){
@@ -124,7 +124,7 @@ public class TR_Research {
 
 		 parents = new String[] {"NOVICEWAND"};
 
-		ResearchHelper.makeRestorationResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents,HIDDEN);
+		ResearchHelper.makeRestorationResearch("WANDTRANS", "Magic Transmutations", -3, -4, iconTrans, stages, parents, HIDDEN);
 
 
 		// Adept Wand

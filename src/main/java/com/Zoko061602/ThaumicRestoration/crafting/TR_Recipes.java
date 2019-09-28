@@ -128,6 +128,7 @@ public class TR_Recipes {
 			IWandTrigger.registerWandTrigger(new WandTriggerDust(t));
 	    IWandTrigger.registerWandTrigger(new WandTriggerSimple("WANDTRANS@1", Blocks.SEA_LANTERN, new ItemStack(BlocksTC.amberBlock),5));
 	    IWandTrigger.registerWandTrigger(new WandTriggerSimple("WANDTRANS@1", Blocks.PUMPKIN, new ItemStack(Blocks.MELON_BLOCK),5));
+	    IWandTrigger.registerWandTrigger(new WandTriggerSimple("WANDTRANS@1", BlocksTC.oreQuartz, new ItemStack(TR_Items.itemShard), 20));
 	    IWandTrigger.registerWandTrigger(new WandTriggerFire("WANDFIRE@1"));
 	}
 
