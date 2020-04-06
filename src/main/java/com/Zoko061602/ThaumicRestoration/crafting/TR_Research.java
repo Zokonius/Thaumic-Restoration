@@ -424,7 +424,7 @@ public class TR_Research {
 			  new ResearchHelper.RSB()
 			  .setText("research_stage."+ThaumicRestoration.ModID+":wither_ring.0")
 			  .setKnow(new Knowledge(THEORY, getCategory("AUROMANCY"), 2))
-			  .setConsumedItems(new ItemStack(Blocks.SKULL,1,1))
+			  .setConsumedItems(new ItemStack(Items.SKULL,1,1))
 			  .setWarp(2)
 			  .build(),
 			 new ResearchHelper.RSB()
