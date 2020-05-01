@@ -3,6 +3,7 @@ package com.Zoko061602.ThaumicRestoration.crafting;
 import com.Zoko061602.ThaumicRestoration.blocks.TR_Blocks;
 import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.lib.research.ResearchHelper;
+import com.Zoko061602.ThaumicRestoration.lib.research.cards.CardRestoration;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
 import static thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType.*;
@@ -12,6 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
@@ -43,9 +46,11 @@ public class TR_Research {
 
     @SuppressWarnings("unchecked")
 	public static void createHelps(){
-    	ResearchHelper.makeAid(TR_Blocks.blockAdvRechargePed, CardFocus.class, CardAwareness.class);
-    	ResearchHelper.makeAid(TR_Blocks.blockInfuser, CardMeasure.class, CardChannel.class, CardExperimentation.class);
-    	ResearchHelper.makeAid(TR_Blocks.blockCrystal, CardBeacon.class);
+    	ResearchHelper.registerCards(CardRestoration.class);
+    	ResearchHelper.makeAid(TR_Blocks.blockGreatwoodFramed, CardRestoration.class);
+    	ResearchHelper.makeAid(TR_Blocks.blockAdvRechargePed, CardRestoration.class, CardFocus.class, CardAwareness.class);
+    	ResearchHelper.makeAid(TR_Blocks.blockInfuser, CardRestoration.class, CardMeasure.class, CardChannel.class, CardExperimentation.class);
+    	ResearchHelper.makeAid(TR_Blocks.blockCrystal, CardRestoration.class, CardBeacon.class);
 
     }
 

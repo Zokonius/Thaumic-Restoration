@@ -40,5 +40,9 @@ public class ResearchHelper {
          TheorycraftManager.aids.put(block.getUnlocalizedName(), new AidBase(block, cards));
 	}
 
+	public static void registerCards(Class<? extends TheorycraftCard>... cards) {
+		for(Class<? extends TheorycraftCard> card:cards)
+         TheorycraftManager.registerCard(card);
+	}
 
 }
