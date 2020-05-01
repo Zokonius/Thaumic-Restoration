@@ -8,6 +8,8 @@ public class BlockBaseFluid extends BlockFluidClassic {
 
 	public BlockBaseFluid(String name, Fluid fluid, Material material) {
 		super(fluid, material);
+		setUnlocalizedName(name);
+		setRegistryName(name);
 	}
 
 

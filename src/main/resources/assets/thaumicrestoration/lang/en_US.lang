@@ -81,6 +81,12 @@ modifier.tr_entropic.desc=Ordinary Materials can't resist the entropic vibes of 
 # --- Research ---
 tc.research_category.RESTORATION=Thaumic Restoration
 
+# -- Cards --
+
+#Restoration 
+card.restoration.name=Regained Knowledge
+card.restoration.text=You realize something about you studies seems oddly familiar, by introspection you find some long forgotten knowledge. Gain 25 Restoration.
+
 #Restoration
 research_stage.thaumicrestoration:restoration.0=Hmm... This chapter seems to be interesting, it contains ancient magical devices, maybe I should investigate it further.
 research_stage.thaumicrestoration:restoration.1=Well, this chapter deals with the creation of thaumic devices, what have I actually exspected.
