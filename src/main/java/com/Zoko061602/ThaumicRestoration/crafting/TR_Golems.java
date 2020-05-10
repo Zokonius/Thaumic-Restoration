@@ -10,6 +10,7 @@ import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.golems.EnumGolemTrait;
 import thaumcraft.api.golems.parts.GolemMaterial;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.common.golems.GolemProperties;
 
 public class TR_Golems {
 
@@ -23,7 +24,8 @@ public class TR_Golems {
 	public static GolemMaterial materialPerditio;
 
 	public static void addGolems() {
-
+		// makes sure all TC Golems are initilized before adding new ones
+		GolemProperties.fromLong(0L);
        materialTallow = makeGolemMaterial("tallow", "MATSTUD_TALLOW", 0xDEA340, 20, 6, 2, new ItemStack(ItemsTC.tallow,3), new ItemStack(ItemsTC.mechanismSimple), CLUMSY,LIGHT);
        materialSilverwood = makeGolemMaterial("silverwood", "MATSTUD_SILVERWODO", 0xE7DBC4, 20, 9, 1, new ItemStack(BlocksTC.plankSilverwood), new ItemStack(ItemsTC.mechanismComplex),LIGHT,DEFT);
        materialAer = makeGolemMaterial("thaumium_aer", "MATSTUD_INFUSEDTHAUMIUM", 0xF3F45F, 30, 10, 5, new ItemStack(TR_Items.itemPlate,1,0), new ItemStack(ItemsTC.mechanismComplex), LIGHT,BLASTPROOF,FIREPROOF,FLYER);
