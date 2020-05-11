@@ -41,6 +41,7 @@ repositories {
 }
 
 dependencies {
+	compile 'baubles:Baubles:${minecraft_main}:${dependencies_baubles}'
     compile "mezz.jei:jei_${minecraft_main}.${minecraft_build}:${dependencies_jei}"
     compile "thaumcraft:Thaumcraft:${minecraft_main}.${minecraft_build}:${dependencies_thaumcraft}"
     compile "slimeknights.mantle:Mantle:${minecraft_main}-${dependencies_mantle}"
