@@ -30,12 +30,12 @@ public class TConstructCompat extends RestoredCompatModule {
     public static final TConMats terra    = new TConMats("terra"   , 0x4CB602, "ThaumiumTerra");
     public static final TConMats ordo     = new TConMats("ordo"    , 0xE4E6FD, "ThaumiumOrdo");
     public static final TConMats perditio = new TConMats("perditio", 0x585858, "ThaumiumPerditio");
-    
+
     public static AbstractTrait tr_entropic = new TraitEntropic(0x585858);
 
     @Override
     public void preInit(FMLPreInitializationEvent e) {
-        
+
         FMLInterModComms.sendMessage("tconstruct", "blacklistMelting", new ItemStack(TR_Items.itemTRBucket, 1, 0));
 
         registerMats(aer,
@@ -43,7 +43,7 @@ public class TConstructCompat extends RestoredCompatModule {
                 1.5F, 100, 100);
 
         registerMats(ignis,
-                1000, 8F, 6F, HarvestLevels.OBSIDIAN,
+                1000, 8F, 9F, HarvestLevels.OBSIDIAN,
                 1.5F, 100, 100);
 
         registerMats(aqua,
@@ -59,9 +59,9 @@ public class TConstructCompat extends RestoredCompatModule {
                 3F, 100, 100);
 
         registerMats(perditio,
-                1000, 8F, 6F, HarvestLevels.OBSIDIAN,
+                1000, 12F, 6F, HarvestLevels.COBALT,
                 1.5F, 100, 100);
-        
+
     }
 
     private void registerMats(TConMats metal, int headDurability, float headMiningspeed, float headAttack, int headHarvest, float handleModifier, int handleDurability, int extraDurability) {
@@ -72,7 +72,7 @@ public class TConstructCompat extends RestoredCompatModule {
         TinkerRegistry.integrate(metal.mat, metal.fluid, metal.oreDict).preInit();
         sendFluidForMelting(metal.oreDict, metal.fluid);
     }
-    
+
     @Override
     public void init(FMLInitializationEvent e) {
         addTraitToMats(aer     , TinkerTraits.lightweight);
@@ -89,12 +89,12 @@ public class TConstructCompat extends RestoredCompatModule {
     }
 
     public static class FluidColouredMetal extends Fluid {
-        
+
         public static ResourceLocation ICON_MetalStill = new ResourceLocation("tconstruct:blocks/fluids/molten_metal");
         public static ResourceLocation ICON_MetalFlowing = new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow");
-        
+
         int color;
-        
+
         public FluidColouredMetal(String name, int color, int temp) {
             super(name, ICON_MetalStill, ICON_MetalFlowing);
             this.color = color;
@@ -102,13 +102,13 @@ public class TConstructCompat extends RestoredCompatModule {
             this.setDensity(2000);
             this.setViscosity(10000);
         }
-        
+
         @Override
         public int getColor(){
             return color | 0xff000000;
         }
     }
-    
+
     public static Fluid sendFluidForMelting(String ore, Fluid fluid){
         NBTTagCompound tag = new NBTTagCompound();
         tag.setString("fluid", fluid.getName());
@@ -130,5 +130,5 @@ public class TConstructCompat extends RestoredCompatModule {
             this.oreDict = oreDict;
         }
     }
-    
+
 }

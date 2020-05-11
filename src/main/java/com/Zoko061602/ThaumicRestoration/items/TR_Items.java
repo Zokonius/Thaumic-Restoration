@@ -17,6 +17,7 @@ public class TR_Items {
 
     public static ItemBase itemWandCap = new ItemBase("item_wandcap");
     public static ItemBase itemWandRod = new ItemBase("item_wandrod");
+    public static ItemBase itemPrimalModulator = new ItemBase("item_primal_modulator");
     public static ItemBase itemIngot = new ItemBasePrimal("item_ingot");
     public static ItemBase itemPlate = new ItemBasePrimal("item_plate");
     public static ItemBase itemWand = new ItemWand();

@@ -5,9 +5,9 @@ import thaumcraft.api.aspects.AspectEventProxy;
 import thaumcraft.api.aspects.AspectList;
 
 public class TR_Aspects {
-    
-    public static AspectEventProxy ap = new AspectEventProxy();
-    
+
+    private static AspectEventProxy ap = new AspectEventProxy();
+
     public static void addAspects() {
         addAspect("Aer"    , Aspect.AIR    , Aspect.LIGHT);
         addAspect("Ignis"  , Aspect.FIRE   , Aspect.ENERGY);
@@ -21,5 +21,5 @@ public class TR_Aspects {
         ap.registerComplexObjectTag("ingotThaumium" + oreDict,
                 new AspectList().add(primary, 8).add(Aspect.MAGIC, 5).add(Aspect.METAL, 5).add(secondary, 3));
     }
-    
+
 }

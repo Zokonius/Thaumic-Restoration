@@ -28,6 +28,8 @@ item.item_bucket.name=Infinite Water Bucket
 item.item_toast.name=Thaumic Toast
 item.item_witherring.name=Wither Protection Ring
 
+item.item_primal_modulator.name=Primal Modulator
+
 item.item_shard.name=Colorful Curiosity
 item.item_shard.tip=Seems familiar
 
@@ -58,7 +60,7 @@ golem.material.text.tr_thaumium_terra=The Golem is crafted from Terra Infused Th
 golem.material.tr_thaumium_ordo=Order Infused Thaumium
 golem.material.text.tr_thaumium_ordo=The Golem is crafted from Order Infused Thaumium. Due to additional knowledge it's capable of handling a bigger area.
 golem.material.tr_thaumium_perditio=Entropy Infused Thaumium
-golem.material.text.tr_thaumium_perditio=The Golem is crafted from Entropy Infused Thaumium. It's very much like Thaumium.
+golem.material.text.tr_thaumium_perditio=The Golem is crafted from Entropy Infused Thaumium. It has a buring desire to break things. It is also quite similar to Thaumium.
 
 # --- TConstruct ---
 material.aer_thaumium.name=Air Infused Thaumium
@@ -135,10 +137,9 @@ research_stage.thaumicrestoration:potioncrystals.1=By inserting some essentia cr
 research_stage.thaumicrestoration:aquabucket.0=Aqua Ingots are strange, they simply attract water, there is only one possible device I could think of to build... 
 research_stage.thaumicrestoration:aquabucket.1=It's Bucket, a never emptying bucket. What did I exspect?
 
-#Aqua Bucket
+#Paving Stone of Permeablility
 research_stage.thaumicrestoration:paving_aer.0=Aer Ingots seem to be translucent. I wonder if I could turn these into something useful.
 research_stage.thaumicrestoration:paving_aer.1=It seems that these kind of blocks are not only translucent, but also seem to be passable when provided with the tiniest amount of Vis or simply a redstone signal. Even a nano-Vis is able to keep these blocks for two seconds passable, this amount of Vis is so small that it can be draind from the smallest fluctuations of the Vis field and therefore does not consume any Vis from the wand or the aura arround it.
-
 
 #Alchemy
 research_stage.thaumicrestoration:tr_alchemy.0=Alchemy is a well studied field, it's got to be hard to revolutionise it completely.
@@ -167,5 +168,5 @@ research_stage.thaumicrestoration:toast.1=I was able to create a new type of bre
 #Material Studies
 research_stage.thaumicrestoration:mat_tallow.0=Tallow is quite soft and therfore easy to shape, perfect for a golem. It just seems to be quite clumsy (Modeling ain't easy), but at least it's preaty light.  
 research_stage.thaumicrestoration:mat_silverwood.0=Silverwood has far stronger magical properties than Greatwood, which makes it even more interesting for golems. This kind of magic seems to make the golem able to perform more complex tasks.
-research_stage.thaumicrestoration:mat_infusedthaumium.0=Infused Thaumium is quite similar to thaumium, but slightly stronger. <PAGE/> Infused Thaumium realy shines when it comes to special properties:<BR> §eAER§r - Golem is much lighter and also able to fly.<BR> §4IGNIS§r - Golem has a brutal attitude. <BR> §3AQUA§r - Golem pulls water from the air to heal itself. <BR> §2TERRA§r - Golem has additional Armor. <BR> §7ORDO§r - Golem is able to overview a bigger area. <BR> §8PERDITIO§r - Meh... 
+research_stage.thaumicrestoration:mat_infusedthaumium.0=Infused Thaumium is quite similar to thaumium, but due to resonance with primal energies provides far stronger capabilites for golems crafted from it. The creation of these golems however brings a new challenge, due to the heavy deformations the Infused Thaumium is going though in the pressing process, the crystal lattice inside of it requires some further stabilization by primal energies, hence a additional component is needed in the manufacturing process. <PAGE/> Infused Thaumium realy shines when it comes to special properties:<BR> §eAER§r - Golem is much lighter and also able to fly.<BR> §4IGNIS§r - Golem has a brutal attitude. <BR> §3AQUA§r - Golem pulls water from the air to heal itself. <BR> §2TERRA§r - Golem has additional Armor. <BR> §7ORDO§r - Golem is able to overview a bigger area. <BR> §8PERDITIO§r - Golem is good at breaking things. 
 

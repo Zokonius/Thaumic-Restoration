@@ -205,9 +205,10 @@ public class TR_Research {
         stages = new ResearchStage[] {
             new ResearchHelper.RSB()
                 .setText("research_stage." + ThaumicRestoration.ModID + ":mat_infusedthaumium.0")
+                .setRecipes(TR_Recipes.recipes.get("MATSTUD_INFUSEDTHAUMIUM.1"))
                 .build()
         };
-        parents = new String[] {"INFUSEDTHAUMIUM","MATSTUDTHAUMIUM"};
+        parents = new String[] {"INFUSEDTHAUMIUM","MATSTUDTHAUMIUM","~WANDTRANS"};
         ResearchHelper.makeRestorationResearch("MATSTUD_INFUSEDTHAUMIUM", "Material Studies: Infused Thaumium", 2, 1, new ItemStack(TR_Items.itemIngot, 1, 3), stages, parents, HIDDEN, ROUND);
 
         //Material Studies Tallow
