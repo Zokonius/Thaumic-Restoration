@@ -14,24 +14,29 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemLighter extends ItemBase {
-
-	public ItemLighter() {
-		super("item_lighter");
-	}
-
-	   public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-	        pos = pos.offset(facing);
-	        ItemStack itemstack = player.getHeldItem(hand);
-
-	        if(!player.canPlayerEdit(pos, facing, itemstack)) return EnumActionResult.FAIL;
-	         if(worldIn.isAirBlock(pos)){
-	            worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-	            worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
-	         }
-
-             if(player instanceof EntityPlayerMP)CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, itemstack);
-	            itemstack.damageItem(1, player);
-	            return EnumActionResult.SUCCESS;
-	        }
-	   }
+    
+    public ItemLighter() {
+        super("item_lighter");
+    }
+    
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        pos = pos.offset(facing);
+        ItemStack itemstack = player.getHeldItem(hand);
+        
+        if (!player.canPlayerEdit(pos, facing, itemstack))
+            return EnumActionResult.FAIL;
+        
+        if (worldIn.isAirBlock(pos)) {
+            worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+            worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
+        }
+        
+        if (player instanceof EntityPlayerMP)
+            CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, itemstack);
+        
+        itemstack.damageItem(1, player);
+        return EnumActionResult.SUCCESS;
+    }
+    
+}
 

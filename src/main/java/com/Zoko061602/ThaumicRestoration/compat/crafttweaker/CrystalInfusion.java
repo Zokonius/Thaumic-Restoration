@@ -13,40 +13,45 @@ import thaumcraft.api.aspects.Aspect;
 @ZenClass("mods.thaumicrestoration.CrystalInfusion")
 @ZenRegister
 public class CrystalInfusion {
-
+    
     public static final String name = "Thaumic Restoration Crystal Infusion";
-
-	@ZenMethod
-	public static void addRecipe(String key, IItemStack output, String aspect, IItemStack input) {
-	 if(parseAspects(aspect) == null)return;
-     Aspect a = parseAspects(aspect);
-     CraftTweakerCompat.lateAdditions.add(new Add(new RecipeCrystalInfusion(key, a, toStack(input), toStack(output))));
-	}
-
+    
+    @ZenMethod
+    public static void addRecipe(String key, IItemStack output, String aspect, IItemStack input) {
+        if (parseAspects(aspect) == null)
+            return;
+        
+        Aspect a = parseAspects(aspect);
+        CraftTweakerCompat.lateAdditions.add(new Add(new RecipeCrystalInfusion(key, a, toStack(input), toStack(output))));
+    }
+    
     public static Aspect parseAspects(String str) {
-        if (str == null || str.equals("")) return null;
-            if (str.startsWith(" ")) str = str.replace(" ", "");
-            return Aspect.aspects.get(str);
+        if (str == null || str.equals(""))
+            return null;
+        str = str.trim();
+        
+        return Aspect.aspects.get(str);
     }
-
+    
     public static ItemStack toStack(IItemStack iStack) {
-      if(iStack == null)return ItemStack.EMPTY;
+        if (iStack == null)
+            return ItemStack.EMPTY;
+        
         Object internal = iStack.getInternal();
-        return (ItemStack)internal;
+        return (ItemStack) internal;
     }
-
+    
     private static class Add implements IAction {
-
-	public Add(RecipeCrystalInfusion r){}
-
-	@Override
-	public void apply(){}
-
-	@Override
-	public String describe() {
-		return "";
-	}
-
-  }
-
+        
+        public Add(RecipeCrystalInfusion r) {}
+        
+        @Override
+        public void apply() {}
+        
+        @Override
+        public String describe() {
+            return "";
+        }
+    }
+    
 }

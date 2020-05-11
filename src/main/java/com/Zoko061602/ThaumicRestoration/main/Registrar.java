@@ -14,26 +14,27 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid=ThaumicRestoration.ModID)
 public class Registrar {
-
-	  @SubscribeEvent
-	  public static void registerBlocks(RegistryEvent.Register<Block> e){
-       TR_Blocks.registerBlocks(e);
-	  }
-
-	  @SubscribeEvent
-	  public static void registerItems(RegistryEvent.Register<Item> e){
-		  TR_Blocks.registerItemBlocks(e);
-		  TR_Items.registerItems(e);
-	  }
-
-	  @SubscribeEvent
-	  public static void registerRecipes(RegistryEvent.Register<IRecipe> e){
-	    TR_Recipes.addRecipes(e);
-	  }
-
-	  @SubscribeEvent
-	  public static void registerModels(ModelRegistryEvent e){
-		  TR_Items.registerRenders(e);
-		  TR_Blocks.registerRenders(e);
-	  }
+    
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> e){
+        TR_Blocks.registerBlocks(e);
+    }
+    
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> e){
+        TR_Blocks.registerItemBlocks(e);
+        TR_Items.registerItems(e);
+    }
+    
+    @SubscribeEvent
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> e){
+        TR_Recipes.addRecipes(e);
+    }
+    
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent e){
+        TR_Items.registerRenders(e);
+        TR_Blocks.registerRenders(e);
+    }
+    
 }

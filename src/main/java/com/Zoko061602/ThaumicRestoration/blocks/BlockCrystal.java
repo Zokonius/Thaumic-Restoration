@@ -18,52 +18,51 @@ import net.minecraft.world.World;
 import thaumcraft.api.aspects.Aspect;
 
 public class BlockCrystal extends BlockBase implements ITileEntityProvider {
-
-	ItemStack drop;
-
-	public BlockCrystal() {
-		super(Material.ROCK, "pickaxe", 1, 3F, 3F, "block_crystal");
-		setLightLevel(3);
-	}
-
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-
-	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if(tab==getCreativeTabToDisplayOn())
-			for(Aspect a:Aspect.getPrimalAspects())
-				items.add(ItemBlockCrystal.ofType(a));
-			for(Aspect a:Aspect.getCompoundAspects())
-				items.add(ItemBlockCrystal.ofType(a));
-	}
-
-	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,EntityPlayer player) {
-		Aspect a = Aspect.AIR;
-		if(world.getTileEntity(pos)!=null)
-			a = ((TileCrystal) world.getTileEntity(pos)).getAspect();
-		return ItemBlockCrystal.ofType(a);
-	}
-
-	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		drop = ItemBlockCrystal.ofType(((TileCrystal) worldIn.getTileEntity(pos)).getAspect());
-		super.breakBlock(worldIn, pos, state);
-	}
-
+    
+    ItemStack drop;
+    
+    public BlockCrystal() {
+        super(Material.ROCK, "pickaxe", 1, 3F, 3F, "block_crystal");
+        setLightLevel(3);
+    }
+    
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+    
+    @Override
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
+        if (tab == getCreativeTabToDisplayOn())
+            for (Aspect a : Aspect.getPrimalAspects())
+                items.add(ItemBlockCrystal.ofType(a));
+        for(Aspect a : Aspect.getCompoundAspects())
+            items.add(ItemBlockCrystal.ofType(a));
+    }
+    
+    @Override
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,EntityPlayer player) {
+        Aspect a = Aspect.AIR;
+        if (world.getTileEntity(pos) != null)
+            a = ((TileCrystal) world.getTileEntity(pos)).getAspect();
+            
+        return ItemBlockCrystal.ofType(a);
+    }
+    
+    @Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+        drop = ItemBlockCrystal.ofType(((TileCrystal) worldIn.getTileEntity(pos)).getAspect());
+        super.breakBlock(worldIn, pos, state);
+    }
+    
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-      drops.add(drop);
+        drops.add(drop);
     }
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileCrystal();
-	}
-
-
-
+    
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileCrystal();
+    }
+    
 }

@@ -21,68 +21,75 @@ import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.lib.utils.InventoryUtils;
 
 public class BlockInfuser extends BlockBase implements ITileEntityProvider {
-
-	public BlockInfuser() {
-		super(Material.IRON, "pickaxe", 1, 3F, 3F, "block_infuser");
-	}
-
-	  public boolean isOpaqueCube(IBlockState state){
-	    return false;
-	  }
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileInfuser();
-	}
-
+    
+    public BlockInfuser() {
+        super(Material.IRON, "pickaxe", 1, 3F, 3F, "block_infuser");
+    }
+    
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+    
     @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
-        if (!hasTileEntity){
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileInfuser();
+    }
+    
+    @Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+        if (!hasTileEntity) {
             TileEntity tile = worldIn.getTileEntity(pos);
-            if (tile instanceof TileInfuser){
+            if (tile instanceof TileInfuser) {
                 InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory) tile);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }
-
+        
         super.breakBlock(worldIn, pos, state);
     }
+    
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
+        if (world.isRemote) return true;
+        TileEntity tile = world.getTileEntity(pos);
+        if ((tile != null) && ((tile instanceof TileInfuser))) {
+            TileInfuser ped = (TileInfuser) tile;
+            if ((ped.getStackInSlot(0).isEmpty()) && 
+                (!player.inventory.getCurrentItem().isEmpty()) && 
+                (player.inventory.getCurrentItem().getCount() > 0)) {
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
-	    if(world.isRemote) return true;
-	    TileEntity tile = world.getTileEntity(pos);
-	    if((tile != null) && ((tile instanceof TileInfuser))){
-	    	TileInfuser ped = (TileInfuser)tile;
-	        if((ped.getStackInSlot(0).isEmpty()) && (!player.inventory.getCurrentItem().isEmpty()) && (player.inventory.getCurrentItem().getCount() > 0)){
-	          ItemStack i = player.getHeldItem(hand).copy();
-	          i.setCount(1);
-	          ped.setInventorySlotContents(0, i);
-	          player.getHeldItem(hand).shrink(1);
-	          if(player.getHeldItem(hand).getCount() == 0)
-	             player.setHeldItem(hand, ItemStack.EMPTY);
-	          player.inventory.markDirty();
-	          world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.6F);
-	          return true;
-	        }
-	        if(!ped.getStackInSlot(0).isEmpty()){
-	        	if(!player.inventory.getCurrentItem().isEmpty()&&player.inventory.getCurrentItem().getItem() instanceof ItemWand) {
-	        		if(RechargeHelper.getCharge(player.inventory.getCurrentItem())>=50) {
-	        			if(ped.activate(player))
-	        			RechargeHelper.consumeCharge(player.inventory.getCurrentItem(), player, 50);
-	        			return true;
-	        		}
-	        	}
-	        else {
-	        InventoryUtils.dropItemsAtEntity(world, pos, player);
-	        world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.5F);
-	        }
-	        return true;
-	        }
-	    }
+                ItemStack i = player.getHeldItem(hand).copy();
+                i.setCount(1);
+                ped.setInventorySlotContents(0, i);
+                player.getHeldItem(hand).shrink(1);
 
-	    return super.onBlockActivated(world, pos, state, player, hand, side, hitX, hitY, hitZ);
-	  }
+                if (player.getHeldItem(hand).getCount() == 0)
+                    player.setHeldItem(hand, ItemStack.EMPTY);
+                
+                player.inventory.markDirty();
+                world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.6F);
+                
+                return true;
+            }
 
-
+            if (!ped.getStackInSlot(0).isEmpty()) {
+                if (!player.inventory.getCurrentItem().isEmpty() && 
+                    player.inventory.getCurrentItem().getItem() instanceof ItemWand) {
+                    if (RechargeHelper.getCharge(player.inventory.getCurrentItem()) >= 50) {
+                        if (ped.activate(player))
+                            RechargeHelper.consumeCharge(player.inventory.getCurrentItem(), player, 50);
+                        return true;
+                    }
+                }
+                else {
+                    InventoryUtils.dropItemsAtEntity(world, pos, player);
+                    world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.5F);
+                }
+                return true;
+            }
+        }
+        
+        return super.onBlockActivated(world, pos, state, player, hand, side, hitX, hitY, hitZ);
+    }
+    
 }

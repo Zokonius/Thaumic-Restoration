@@ -21,72 +21,77 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockPavingAer extends BlockBase implements ITileEntityProvider {
-
-	public static final PropertyBool collision = PropertyBool.create("collision");
-
-	public BlockPavingAer() {
-		super(Material.ROCK, "pickaxe", 0, 2F, 2F, "block_paving_aer");
-		this.setDefaultState(this.blockState.getBaseState().withProperty(collision, true));
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, collision);
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		if(state.getValue(collision).booleanValue()) return 1;
-		else return 0;
-	}
-
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		if(meta==0)return this.blockState.getBaseState();
-		else return this.blockState.getBaseState().withProperty(collision, false);
-	}
-
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-      TileEntity te = world.getTileEntity(pos);
-      if(te!=null&&te instanceof TileMagicWall)
-    	  return ((TileMagicWall) te).onActivate(player);
-	  return false;
-	}
-
-    public boolean isFullCube(IBlockState state){
+    
+    public static final PropertyBool collision = PropertyBool.create("collision");
+    
+    public BlockPavingAer() {
+        super(Material.ROCK, "pickaxe", 0, 2F, 2F, "block_paving_aer");
+        this.setDefaultState(this.blockState.getBaseState().withProperty(collision, true));
+    }
+    
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, collision);
+    }
+    
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        if(state.getValue(collision).booleanValue())
+            return 1;
+        else
+            return 0;
+    }
+    
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        if(meta == 0)
+            return this.blockState.getBaseState();
+        else
+            return this.blockState.getBaseState().withProperty(collision, false);
+    }
+    
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        TileEntity te = world.getTileEntity(pos);
+        if (te != null && te instanceof TileMagicWall)
+            return ((TileMagicWall) te).onActivate(player);
+        return false;
+    }
+    
+    public boolean isFullCube(IBlockState state) {
         return state.getValue(collision).booleanValue();
     }
-
-    public boolean isOpaqueCube(IBlockState state){
+    
+    public boolean isOpaqueCube(IBlockState state) {
         return state.getValue(collision).booleanValue();
     }
-
+    
     @Override
     public boolean causesSuffocation(IBlockState state) {
         return state.getValue(collision).booleanValue();
     }
-
+    
     @Override
-    public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState state, Entity entity,
-    		double yToTest, Material materialIn, boolean testingHead) {
-    	 return state.getValue(collision).booleanValue();
+    public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState state, Entity entity, double yToTest, Material materialIn, boolean testingHead) {
+        return state.getValue(collision).booleanValue();
     }
-
+    
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer(){
+    public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
-
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		if(state.getValue(collision).booleanValue())return FULL_BLOCK_AABB;
-		else return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
-	}
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileMagicWall();
-	}
-
+    
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        if (state.getValue(collision).booleanValue())
+            return FULL_BLOCK_AABB;
+        else
+            return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+    }
+    
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileMagicWall();
+    }
+    
 }
