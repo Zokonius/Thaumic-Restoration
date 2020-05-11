@@ -13,23 +13,23 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockObsidian extends BlockBase {
-
-	public BlockObsidian() {
-		super(Material.ROCK, "pickaxe", 3, 50F, 1200F, "block_obsidian");
-	}
-
-	  @Override
-	  public boolean canEntityDestroy(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull Entity entity) {
-	    return !(entity instanceof EntityWither) && !(entity instanceof EntityWitherSkull);
-	  }
-
-	  @Override
-	  public void onBlockExploded(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Explosion explosion) {
-	  }
-
-	  @Override
-	  public boolean canDropFromExplosion(@Nonnull Explosion p_149659_1_) {
-	    return false;
-	  }
-
+    
+    public BlockObsidian() {
+        super(Material.ROCK, "pickaxe", 3, 50F, 1200F, "block_obsidian");
+    }
+    
+    @Override
+    public boolean canEntityDestroy(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull Entity entity) {
+        return !(entity instanceof EntityWither) && !(entity instanceof EntityWitherSkull);
+    }
+    
+    @Override
+    public void onBlockExploded(@Nonnull World world, @Nonnull BlockPos pos, @Nonnull Explosion explosion) {
+    }
+    
+    @Override
+    public boolean canDropFromExplosion(@Nonnull Explosion p_149659_1_) {
+        return false;
+    }
+    
 }

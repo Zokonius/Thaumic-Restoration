@@ -9,17 +9,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@EventBusSubscriber(value=Side.CLIENT, modid=ThaumicRestoration.ModID)
+@EventBusSubscriber(value = Side.CLIENT, modid = ThaumicRestoration.ModID)
 public class ClientTickHandler {
-
-	public static int ticksInGame = 0;
-
-	@SubscribeEvent
-	public static void clientTickEnd(ClientTickEvent event) {
-		GuiScreen gui = Minecraft.getMinecraft().currentScreen;
-		if(gui == null || !gui.doesGuiPauseGame()) {
-			ticksInGame++;
-	    }
-	}
-
+    
+    public static int ticksInGame = 0;
+    
+    @SubscribeEvent
+    public static void clientTickEnd(ClientTickEvent event) {
+        GuiScreen gui = Minecraft.getMinecraft().currentScreen;
+        if(gui == null || !gui.doesGuiPauseGame()) {
+            ticksInGame++;
+        }
+    }
+    
 }
