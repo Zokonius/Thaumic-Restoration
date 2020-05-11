@@ -13,27 +13,26 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
-    
+
     public void preInit(FMLPreInitializationEvent e) {
-        TR_Items.initItems();
         TR_Tiles.initTiles();
         RestoredCompatModule.loadPreInit(e);
     }
-    
+
     public void init(FMLInitializationEvent e){
         TR_OreDict.addOreDict();
         RestoredCompatModule.loadInit(e);
     }
-    
+
     public void postInit(FMLPostInitializationEvent e) {
         TR_Aspects.addAspects();
         TR_Research.createHelps();
         TR_Research.createResearch();
         RestoredCompatModule.loadPostInit(e);
     }
-    
+
     public void loadComplete(FMLLoadCompleteEvent e) {
         RestoredCompatModule.loadLoadComplete(e);
     }
-    
+
 }

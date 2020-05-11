@@ -1,27 +1,18 @@
 package com.Zoko061602.ThaumicRestoration.items.baubles;
 
-import java.util.Collection;
-
-import com.Zoko061602.ThaumicRestoration.main.TR_Tab;
+import com.Zoko061602.ThaumicRestoration.items.ItemBase;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
-import net.minecraft.advancements.critereon.EffectsChangedTrigger;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.PotionTypes;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
 
-public class ItemRingWither extends Item implements IBauble{
+public class ItemRingWither extends ItemBase implements IBauble {
 
     public ItemRingWither() {
-        this.setRegistryName("item_witherring");
-        this.setUnlocalizedName("item_witherring");
-        this.setCreativeTab(TR_Tab.tabRestoration);
+    	super("item_witherring");
     }
 
 

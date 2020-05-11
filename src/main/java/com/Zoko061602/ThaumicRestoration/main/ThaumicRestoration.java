@@ -10,37 +10,37 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid=ThaumicRestoration.ModID, name=ThaumicRestoration.ModName, version=ThaumicRestoration.Version, dependencies=ThaumicRestoration.Dependencies)
 public class ThaumicRestoration {
-    
+
     public static final String ModID = "thaumicrestoration";
     public static final String ModName = "Thaumic Restoration";
-    public static final String Version = "1.3.3b";
+    public static final String Version = "1.3.4";
     public static final String Dependencies = "required-after:thaumcraft;"+
                                                 "after:jei;"+
                                                 "after:tconstruct;"+
                                                 "after:crafttweaker";
-    
-    
+
+
     @SidedProxy(clientSide="com.Zoko061602.ThaumicRestoration.client.ClientProxy", serverSide="com.Zoko061602.ThaumicRestoration.main.CommonProxy")
     public static CommonProxy proxy;
-    
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         proxy.preInit(e);
     }
-    
+
     @EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.init(e);
     }
-    
+
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
     }
-    
+
     @EventHandler
     public void loadComplete(FMLLoadCompleteEvent e) {
         proxy.loadComplete(e);
     }
-    
+
 }
