@@ -2,6 +2,8 @@ package com.Zoko061602.ThaumicRestoration.tile;
 
 import java.util.ArrayList;
 
+import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
+import com.Zoko061602.ThaumicRestoration.util.IterUtil;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -21,13 +23,13 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
         BlocksTC.metalBlockVoid
     };
     
-    public Block getPedBlock(){
-        return world.getBlockState(new BlockPos(pos.getX()+2, pos.getY()+2, pos.getZ()+2)).getBlock();
+    public Block getPedBlock() {
+        return world.getBlockState(BlockPosUtil.translateToBlockPos(pos, 2, 2, 2)).getBlock();
     }
     
     @Override
     public void update() {
-        if (checkStructure()){
+        if (checkStructure()) {
             Block b = getPedBlock();
                  if (b == metals[0]) multi = 3;
             else if (b == metals[1]) multi = 4;
@@ -57,12 +59,12 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
     }
     
     @Override
-    public int getInventoryStackLimit(){
+    public int getInventoryStackLimit() {
         return 1;
     }
     
     @Override
-    public boolean isItemValidForSlot(int par1, ItemStack stack2){
+    public boolean isItemValidForSlot(int par1, ItemStack stack2) {
         return (stack2.isEmpty()) || (getStackInSlot(par1).isEmpty());
     }
     
@@ -71,30 +73,18 @@ public class TileAdvRechargePedestal extends TileRechargePedestal {
     }
     
     private boolean checkStructure() {
-        
-        for (int i = 0; !(i == 2); i++){
-            if (world.getBlockState(new BlockPos(pos.getX() + 2, pos.getY() + i, pos.getZ() + 2)).getBlock() != Blocks.QUARTZ_BLOCK)
-                return false;
-            if (world.getBlockState(new BlockPos(pos.getX() + 2, pos.getY() + i, pos.getZ() - 2)).getBlock() != Blocks.QUARTZ_BLOCK)
-                return false;
-            if (world.getBlockState(new BlockPos(pos.getX() - 2, pos.getY() + i, pos.getZ() + 2)).getBlock() != Blocks.QUARTZ_BLOCK)
-                return false;
-            if (world.getBlockState(new BlockPos(pos.getX() - 2, pos.getY() + i, pos.getZ() - 2)).getBlock() != Blocks.QUARTZ_BLOCK)
+
+        for (int i = 0; i < 8; i++) {
+            // checks -2, 1, -2 || 2, 1, -2 || -2, 1, 2 || 2, 1, 2 || -2, 2, -2 || 2, 2, -2 || -2, 2, 2 || 2, 2, 2
+            if (world.getBlockState(BlockPosUtil.translateToBlockPos(pos, IterUtil.tick1(i) * 2, (i / 4), IterUtil.tick2(i) * 2)).getBlock() != Blocks.QUARTZ_BLOCK)
                 return false;
         }
         
         ArrayList<Block> l = new ArrayList<Block>();
-        if (!l.contains(world.getBlockState(new BlockPos(pos.getX() + 2, pos.getY() + 2, pos.getZ() + 2)).getBlock()))
-            l.add(world.getBlockState(new BlockPos(pos.getX() + 2, pos.getY() + 2, pos.getZ() + 2)).getBlock());
-        
-        if (!l.contains(world.getBlockState(new BlockPos(pos.getX() + 2, pos.getY() + 2, pos.getZ() - 2)).getBlock()))
-            l.add(world.getBlockState(new BlockPos(pos.getX() + 2, pos.getY() + 2, pos.getZ() - 2)).getBlock());
-        
-        if (!l.contains(world.getBlockState(new BlockPos(pos.getX() - 2, pos.getY() + 2, pos.getZ() + 2)).getBlock()))
-            l.add(world.getBlockState(new BlockPos(pos.getX() - 2, pos.getY() + 2, pos.getZ() + 2)).getBlock());
-        
-        if (!l.contains(world.getBlockState(new BlockPos(pos.getX() - 2, pos.getY() + 2, pos.getZ() - 2)).getBlock()))
-            l.add(world.getBlockState(new BlockPos(pos.getX() - 2, pos.getY() + 2, pos.getZ() - 2)).getBlock());
+        for (int i = 0; i < 4; i++) {
+            if (!l.contains(world.getBlockState(BlockPosUtil.translateToBlockPos(pos, IterUtil.tick1(i) * 2, 2, IterUtil.tick2(i))).getBlock()))
+                l.add(world.getBlockState(BlockPosUtil.translateToBlockPos(pos, IterUtil.tick1(i) * 2, 2, IterUtil.tick2(i))).getBlock());
+        }
         
         if (l.size() != 1)
             return false;

@@ -46,7 +46,7 @@ public class TileInfuserRenderer extends TileEntitySpecialRenderer<TileInfuser>{
 //      if (ped.isActive() && false) { // A && false is always false, commented
 //          BlockPos pos = ped.getCurrentPed();
 //          if(ped.getRounds() == 6)
-//              FXDispatcher.INSTANCE.visSparkle((int)x, (int)y, (int)z, pos.getX(),pos.getY() + 1, pos.getZ(), ped.getRecipe().getAspect().getColor());
+//              FXDispatcher.INSTANCE.visSparkle((int)x, (int)y, (int)z, pos.getX(), pos.getY() + 1, pos.getZ(), ped.getRecipe().getAspect().getColor());
 //          else if(ped.getRounds() < 6)
 //              FXDispatcher.INSTANCE.drawBlockSparkles(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), new Vec3d(pos.getX(), pos.getY() + 1, pos.getZ()));
 //      }

@@ -14,9 +14,9 @@ public class TR_OreDict {
     }
     
     private static void addPrimal(String ore, Item item){
-        String[] p = new String[]{"Aer","Ignis","Aqua","Terra","Ordo","Perditio"};
-        for(int i = 0; !(p.length == i); i++)
-        OreDictionary.registerOre(ore + p[i], new ItemStack(item, 1, i));
+        String[] p = new String[] { "Aer", "Ignis", "Aqua", "Terra", "Ordo", "Perditio" };
+        for (int i = 0; !(p.length == i); i++)
+            OreDictionary.registerOre(ore + p[i], new ItemStack(item, 1, i));
     }
     
 }

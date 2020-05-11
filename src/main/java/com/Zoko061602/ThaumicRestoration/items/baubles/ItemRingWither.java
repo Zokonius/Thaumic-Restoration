@@ -42,8 +42,8 @@ public class ItemRingWither extends Item implements IBauble{
 
     @Override
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-        if(player !=null && player instanceof EntityPlayer) {
-            if(player.isPotionActive(MobEffects.WITHER))
+        if (player instanceof EntityPlayer) {
+            if (player.isPotionActive(MobEffects.WITHER))
                 player.removeActivePotionEffect(MobEffects.WITHER);
         }
     }

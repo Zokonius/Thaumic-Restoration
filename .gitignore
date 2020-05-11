@@ -16,3 +16,6 @@
 usercache.json
 usernamecache.json
 options.txt
+/eclipse
+/gradle
+/.idea

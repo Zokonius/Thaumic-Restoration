@@ -137,7 +137,7 @@ public class TR_Research {
             new ResearchHelper.RSB()
                 .setText("research_stage." + ThaumicRestoration.ModID + ":adeptwand.1")
                 .setRecipes(TR_Recipes.recipes.get("ADEPTWAND.1"))
-                  .build(),
+                .build(),
         };
         parents = new String[] {"NOVICEWAND"};
         ResearchHelper.makeRestorationResearch("ADEPTWAND", "Adept Wand", -4, -2, new ItemStack(TR_Items.itemWand, 1, 1), stages, parents);

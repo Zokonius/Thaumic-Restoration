@@ -22,7 +22,7 @@ public class RecipeCrystal extends ShapedArcaneRecipe {
     @Override
     public boolean matches(InventoryCrafting arg0, World arg1) {
         if(super.matches(arg0, arg1)) {
-            Aspect a0,a1,a2;
+            Aspect a0, a1, a2;
             a0 = AspectHelper.getObjectAspects(arg0.getStackInSlot(1)).getAspects()[0];
             a1 = AspectHelper.getObjectAspects(arg0.getStackInSlot(3)).getAspects()[0];
             a2 = AspectHelper.getObjectAspects(arg0.getStackInSlot(5)).getAspects()[0];

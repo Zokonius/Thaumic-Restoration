@@ -45,7 +45,6 @@ public class TR_Recipes {
         addWandTriggers();
         TR_Golems.addGolems();
         CrystalTypes.registerCrystals();
-        
     }
     
     
@@ -162,14 +161,14 @@ public class TR_Recipes {
     public static ResourceLocation addShapedArcaneRecipe(String research,ItemStack output,int vis,AspectList crystals,Object... input) {
         ResourceLocation location = getNameForRecipe(output);
         ShapedArcaneRecipe recipe = new ShapedArcaneRecipe(location, research, vis, crystals, output, input);
-        ThaumcraftApi.addArcaneCraftingRecipe(location,recipe);
+        ThaumcraftApi.addArcaneCraftingRecipe(location, recipe);
         return location;
     }
     
     public static ResourceLocation addShapedArcaneCrystalRecipe(String research,ItemStack output,int vis,AspectList crystals,Object... input) {
         ResourceLocation location = getNameForRecipe(output);
         ShapedArcaneRecipe recipe = new RecipeCrystal(location, research, vis, crystals, output, input);
-        ThaumcraftApi.addArcaneCraftingRecipe(location,recipe);
+        ThaumcraftApi.addArcaneCraftingRecipe(location, recipe);
         return location;
     }
     

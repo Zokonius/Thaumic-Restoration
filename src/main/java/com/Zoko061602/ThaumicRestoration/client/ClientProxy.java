@@ -28,9 +28,9 @@ public class ClientProxy extends CommonProxy {
         super.init(e);
         ColorHandler.init();
         
-        ClientRegistry.bindTileEntitySpecialRenderer(TileInfuser.class, new TileInfuserRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileInfuser            .class, new TileInfuserRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileAdvRechargePedestal.class, new TileAdvRechargePedestalRenderer());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileStorageUnit.class, new TileStorageUnitRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileStorageUnit        .class, new TileStorageUnitRenderer());
     }
     
     @Override

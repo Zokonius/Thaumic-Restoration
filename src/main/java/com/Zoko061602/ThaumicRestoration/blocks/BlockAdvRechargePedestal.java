@@ -25,16 +25,16 @@ public class BlockAdvRechargePedestal extends BlockBase implements ITileEntityPr
         super(Material.IRON, "pickaxe", 1, 3F, 3F, "block_adv_recharge_pedestal");
     }
     
-    public boolean isOpaqueCube(IBlockState state){
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
     
-    public boolean isFullCube(IBlockState state){
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
     
     @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         if (!hasTileEntity) {
             TileEntity tile = worldIn.getTileEntity(pos);
             
@@ -47,10 +47,10 @@ public class BlockAdvRechargePedestal extends BlockBase implements ITileEntityPr
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
         TileEntity tile = world.getTileEntity(pos);
 
-        if ((tile != null) && ((tile instanceof TileAdvRechargePedestal))){
+        if (tile instanceof TileAdvRechargePedestal) {
             TileAdvRechargePedestal ped = (TileAdvRechargePedestal) tile;
 
             if ((ped.getStackInSlot(0).isEmpty()) && ((player.inventory.getCurrentItem().getItem() instanceof IRechargable))) {
@@ -59,7 +59,7 @@ public class BlockAdvRechargePedestal extends BlockBase implements ITileEntityPr
                 ped.setInventorySlotContents(0, i);
                 player.getHeldItem(hand).shrink(1);
                 if (player.getHeldItem(hand).getCount() == 0)
-                player.setHeldItem(hand, ItemStack.EMPTY);
+                    player.setHeldItem(hand, ItemStack.EMPTY);
                 player.inventory.markDirty();
                 world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.6F);
                 return true;

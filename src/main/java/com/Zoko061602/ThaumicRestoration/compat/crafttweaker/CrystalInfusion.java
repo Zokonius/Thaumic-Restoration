@@ -28,9 +28,7 @@ public class CrystalInfusion {
     public static Aspect parseAspects(String str) {
         if (str == null || str.equals(""))
             return null;
-        
-        if (str.startsWith(" "))
-            str = str.replace(" ", "");
+        str = str.trim();
         
         return Aspect.aspects.get(str);
     }
@@ -40,7 +38,7 @@ public class CrystalInfusion {
             return ItemStack.EMPTY;
         
         Object internal = iStack.getInternal();
-        return (ItemStack)internal;
+        return (ItemStack) internal;
     }
     
     private static class Add implements IAction {

@@ -20,7 +20,6 @@ public class TileInfuser extends TileThaumcraftInventory {
     private int rounds = 0;
     private boolean active = false;
     private BlockPos posPed = null;
-    private ArrayList<Aspect> aspects;
     private RecipeCrystalInfusion recipe;
     
     public TileInfuser() {
@@ -69,7 +68,7 @@ public class TileInfuser extends TileThaumcraftInventory {
     }
     
     private Aspect checkItems() {
-        aspects = new ArrayList<Aspect>();
+        ArrayList<Aspect> aspects = new ArrayList<Aspect>();
         Aspect a;
         for (TilePedestal p:getPedestals())
             if (!(p.getStackInSlot(0).isEmpty()) 

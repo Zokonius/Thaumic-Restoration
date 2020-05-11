@@ -23,115 +23,71 @@ import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.tools.TinkerTraits;
 
 public class TConstructCompat extends RestoredCompatModule {
-    
-    public static final Material aer_thaumium = new Material("aer_thaumium", 0xEDEF59);
-    public static final Material ignis_thaumium = new Material("ignis_thaumium", 0xEE4B00);
-    public static final Material aqua_thaumium = new Material("aqua_thaumium", 0x2DC5D9);
-    public static final Material terra_thaumium = new Material("terra_thaumium", 0x4CB602);
-    public static final Material ordo_thaumium = new Material("ordo_thaumium", 0xE4E6FD);
-    public static final Material perditio_thaumium = new Material("perditio_thaumium", 0x585858);
+
+    public static final TConMats aer      = new TConMats("aer"     , 0xEDEF59, "ThaumiumAer");
+    public static final TConMats ignis    = new TConMats("ignis"   , 0xEE4B00, "ThaumiumIgnis");
+    public static final TConMats aqua     = new TConMats("aqua"    , 0x2DC5D9, "ThaumiumAqua");
+    public static final TConMats terra    = new TConMats("terra"   , 0x4CB602, "ThaumiumTerra");
+    public static final TConMats ordo     = new TConMats("ordo"    , 0xE4E6FD, "ThaumiumOrdo");
+    public static final TConMats perditio = new TConMats("perditio", 0x585858, "ThaumiumPerditio");
     
     public static AbstractTrait tr_entropic = new TraitEntropic(0x585858);
-    
-    public static Fluid fluidAer = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_aer", 0xEDEF59, 1000));
-    public static Fluid fluidIgnis = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_ignis", 0xEE4B00, 1000));
-    public static Fluid fluidAqua = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_aqua", 0x2DC5D9, 1000));
-    public static Fluid fluidTerra = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_terra", 0x4CB602, 1000));
-    public static Fluid fluidOrdo = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_ordo", 0xE4E6FD, 1000));
-    public static Fluid fluidPerditio = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_perditio", 0x585858, 1000));
-    
-    public static Block blockFluidAer = new BlockBaseFluid("block_molten_aer", fluidAer, net.minecraft.block.material.Material.LAVA);
-    public static Block blockFluidIgnis = new BlockBaseFluid("block_molten_ignis", fluidIgnis, net.minecraft.block.material.Material.LAVA);;
-    public static Block blockFluidAqua = new BlockBaseFluid("block_molten_aqua", fluidAqua, net.minecraft.block.material.Material.LAVA);;
-    public static Block blockFluidTerra = new BlockBaseFluid("block_molten_terra", fluidTerra, net.minecraft.block.material.Material.LAVA);;
-    public static Block blockFluidOrdo = new BlockBaseFluid("block_molten_ordo", fluidOrdo, net.minecraft.block.material.Material.LAVA);;
-    public static Block blockFluidPerditio = new BlockBaseFluid("block_molten_perditio", fluidPerditio, net.minecraft.block.material.Material.LAVA);;
-    
+
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         
         FMLInterModComms.sendMessage("tconstruct", "blacklistMelting", new ItemStack(TR_Items.itemTRBucket, 1, 0));
+
+        registerMats(aer,
+                1000, 16F, 6F, HarvestLevels.OBSIDIAN,
+                1.5F, 100, 100);
+
+        registerMats(ignis,
+                1000, 8F, 6F, HarvestLevels.OBSIDIAN,
+                1.5F, 100, 100);
+
+        registerMats(aqua,
+                1000, 8F, 6F, HarvestLevels.OBSIDIAN,
+                1.5F, 100, 100);
+
+        registerMats(terra,
+                2500, 8F, 6F, HarvestLevels.OBSIDIAN,
+                1.5F, 250, 250);
+
+        registerMats(ordo,
+                1000, 8F, 6F, HarvestLevels.OBSIDIAN,
+                3F, 100, 100);
+
+        registerMats(perditio,
+                1000, 8F, 6F, HarvestLevels.OBSIDIAN,
+                1.5F, 100, 100);
         
-        //Aer
-        TinkerRegistry.addMaterialStats(aer_thaumium,
-        new HeadMaterialStats(1000, 16F, 6F, HarvestLevels.OBSIDIAN),
-        new HandleMaterialStats(1.5f, 100),
-        new ExtraMaterialStats(100));
-        
-        TinkerRegistry.integrate(aer_thaumium,fluidAer,"ThaumiumAer").preInit();
-        
-        //Ignis
-        TinkerRegistry.addMaterialStats(ignis_thaumium,
-        new HeadMaterialStats(1000, 8F, 6F, HarvestLevels.OBSIDIAN),
-        new HandleMaterialStats(1.5f, 100),
-        new ExtraMaterialStats(100));
-        
-        TinkerRegistry.integrate(ignis_thaumium, fluidIgnis,"ThaumiumIgnis").preInit();
-        
-        
-        TinkerRegistry.addMaterialStats(aqua_thaumium,
-        new HeadMaterialStats(1000, 8F, 6F, HarvestLevels.OBSIDIAN),
-        new HandleMaterialStats(1.5f, 100),
-        new ExtraMaterialStats(100));
-        
-        TinkerRegistry.integrate(aqua_thaumium, fluidAqua,"ThaumiumAqua").preInit();
-        
-        
-        //Terra
-        TinkerRegistry.addMaterialStats(terra_thaumium,
-        new HeadMaterialStats(2500, 8F, 6F, HarvestLevels.OBSIDIAN),
-        new HandleMaterialStats(1.5f, 250),
-        new ExtraMaterialStats(250));
-        
-        TinkerRegistry.integrate(terra_thaumium, fluidTerra, "ThaumiumTerra").preInit();
-        
-        //Ordo
-        TinkerRegistry.addMaterialStats(ordo_thaumium,
-        new HeadMaterialStats(1000, 8F, 6F, HarvestLevels.OBSIDIAN),
-        new HandleMaterialStats(3f, 100),
-        new ExtraMaterialStats(100));
-        
-        TinkerRegistry.integrate(ordo_thaumium, fluidOrdo,"ThaumiumOrdo").preInit();
-        
-        //Perditio
-        TinkerRegistry.addMaterialStats(perditio_thaumium,
-        new HeadMaterialStats(1000, 8F, 6F, HarvestLevels.OBSIDIAN),
-        new HandleMaterialStats(1.5f, 100),
-        new ExtraMaterialStats(100));
-        
-        TinkerRegistry.integrate(perditio_thaumium, fluidPerditio, "ThaumiumPerditio").preInit();
-        
-        sendFluidForMelting("ThaumiumAer", fluidAer);
-        sendFluidForMelting("ThaumiumIgnis", fluidIgnis);
-        sendFluidForMelting("ThaumiumAqua", fluidAqua);
-        sendFluidForMelting("ThaumiumTerra", fluidTerra);
-        sendFluidForMelting("ThaumiumOrdo", fluidOrdo);
-        sendFluidForMelting("ThaumiumPerditio", fluidPerditio);
-        
+    }
+
+    private void registerMats(TConMats metal, int headDurability, float headMiningspeed, float headAttack, int headHarvest, float handleModifier, int handleDurability, int extraDurability) {
+        TinkerRegistry.addMaterialStats(metal.mat,
+                new HeadMaterialStats(headDurability, headMiningspeed, headAttack, headHarvest),
+                new HandleMaterialStats(handleModifier, handleDurability),
+                new ExtraMaterialStats(extraDurability));
+        TinkerRegistry.integrate(metal.mat, metal.fluid, metal.oreDict).preInit();
+        sendFluidForMelting(metal.oreDict, metal.fluid);
     }
     
     @Override
     public void init(FMLInitializationEvent e) {
-        aer_thaumium.setCastable(true).addItem("ingotThaumiumAer", 1, Material.VALUE_Ingot);
-        aer_thaumium.addTrait(TinkerTraits.lightweight);
-        
-        ignis_thaumium.setCastable(true).addItem("ingotThaumiumIgnis", 1, Material.VALUE_Ingot);
-        ignis_thaumium.addTrait(TinkerTraits.autosmelt).addTrait(TinkerTraits.superheat);
-        
-        aqua_thaumium.setCastable(true).addItem("ingotThaumiumAqua", 1, Material.VALUE_Ingot);
-        aqua_thaumium.addTrait(TinkerTraits.aquadynamic);
-        
-        terra_thaumium.setCastable(true).addItem("ingotThaumiumTerra", 1, Material.VALUE_Ingot);
-        terra_thaumium.addTrait(TinkerTraits.petramor).addTrait(TinkerTraits.duritos);
-        
-        ordo_thaumium.setCastable(true).addItem("ingotThaumiumOrdo", 1, Material.VALUE_Ingot);
-        ordo_thaumium.addTrait(TinkerTraits.writable);
-        
-        perditio_thaumium.setCastable(true).addItem("ingotThaumiumPerditio", 1, Material.VALUE_Ingot);
-        perditio_thaumium.addTrait(tr_entropic);
-        
+        addTraitToMats(aer     , TinkerTraits.lightweight);
+        addTraitToMats(ignis   , TinkerTraits.autosmelt  , TinkerTraits.superheat);
+        addTraitToMats(aqua    , TinkerTraits.aquadynamic);
+        addTraitToMats(terra   , TinkerTraits.petramor   , TinkerTraits.duritos);
+        addTraitToMats(ordo    , TinkerTraits.writable);
+        addTraitToMats(perditio, tr_entropic);
     }
-    
+
+    private void addTraitToMats(TConMats metal, AbstractTrait... traits) {
+        metal.mat.setCastable(true).addItem("ingot" + metal.oreDict, 1, Material.VALUE_Ingot);
+        for (AbstractTrait trait : traits) metal.mat.addTrait(trait);
+    }
+
     public static class FluidColouredMetal extends Fluid {
         
         public static ResourceLocation ICON_MetalStill = new ResourceLocation("tconstruct:blocks/fluids/molten_metal");
@@ -139,7 +95,7 @@ public class TConstructCompat extends RestoredCompatModule {
         
         int color;
         
-        public FluidColouredMetal(String name, int color, int temp){
+        public FluidColouredMetal(String name, int color, int temp) {
             super(name, ICON_MetalStill, ICON_MetalFlowing);
             this.color = color;
             this.setTemperature(temp);
@@ -149,7 +105,7 @@ public class TConstructCompat extends RestoredCompatModule {
         
         @Override
         public int getColor(){
-            return color|0xff000000;
+            return color | 0xff000000;
         }
     }
     
@@ -159,6 +115,20 @@ public class TConstructCompat extends RestoredCompatModule {
         tag.setString("ore", ore);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
         return fluid;
+    }
+
+    private static class TConMats {
+        public final Material mat;
+        public final Fluid fluid;
+        public final Block blockFluid;
+        public final String oreDict;
+
+        public TConMats(String aspect, int color, String oreDict) {
+            this.mat = new Material(aspect + "_thaumium", color);
+            this.fluid = FluidHelper.setupFluid(new FluidColouredMetal("fluid_molten_" + aspect, color, 1000));
+            this.blockFluid = new BlockBaseFluid("block_molten_" + aspect, fluid, net.minecraft.block.material.Material.LAVA);
+            this.oreDict = oreDict;
+        }
     }
     
 }

@@ -1,7 +1,12 @@
 package com.Zoko061602.ThaumicRestoration.client.render;
 
 import com.Zoko061602.ThaumicRestoration.tile.TileAdvRechargePedestal;
+import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
 
+import java.util.Random;
+
+import com.Zoko061602.ThaumicRestoration.util.IterUtil;
+import jdk.nashorn.internal.ir.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,19 +22,24 @@ public class TileAdvRechargePedestalRenderer extends TileRechargePedestalRendere
         super.render(p, x, y, z, partialTicks, destroyStage, alpha);
         if (p instanceof TileAdvRechargePedestal) {
             TileAdvRechargePedestal ped = (TileAdvRechargePedestal) p;
-            BlockPos pos = ped.getPos();
+            BlockPosUtil.Vec3s pos = BlockPosUtil.translate(ped.getPos(), 0, 2, 0);
+            Random rand = ped.getWorld().rand;
             
-            if (ped.getMulti() != 2 && ped.doParticles() && ped.isActive()) {
-                drawParticles(ped, pos.getX() + 2 + ped.getWorld().rand.nextFloat(), pos.getY() + 2 + ped.getWorld().rand.nextFloat(), pos.getZ() + 2 + ped.getWorld().rand.nextFloat());
-                drawParticles(ped, pos.getX() + 2 + ped.getWorld().rand.nextFloat(), pos.getY() + 2 + ped.getWorld().rand.nextFloat(), pos.getZ() - 2 + ped.getWorld().rand.nextFloat());
-                drawParticles(ped, pos.getX() - 2 + ped.getWorld().rand.nextFloat(), pos.getY() + 2 + ped.getWorld().rand.nextFloat(), pos.getZ() + 2 + ped.getWorld().rand.nextFloat());
-                drawParticles(ped, pos.getX() - 2 + ped.getWorld().rand.nextFloat(), pos.getY() + 2 + ped.getWorld().rand.nextFloat(), pos.getZ() - 2 + ped.getWorld().rand.nextFloat());
+            if (ped.getMulti() != 2 
+            && ped.doParticles() 
+            && ped.isActive()) {
+                for (int i = 0; i < 4; i++) {
+                    drawParticles(ped, (float) pos.x + (2 * IterUtil.tick1(i)) + rand.nextFloat(),
+                                       (float) pos.y                           + rand.nextFloat(),
+                                       (float) pos.z + (2 * IterUtil.tick2(i)) + rand.nextFloat());
+                }
             }
         }
     }
     
     private void drawParticles(TileAdvRechargePedestal ped,float x, float y, float z) {
-        FXBoreParticles fb = new FXBoreParticles(ped.getWorld(), x, y, z, ped.getPos().getX() + 0.5D, ped.getPos().getY() - 0.5D, ped.getPos().getZ()+ 0.5D,ped.getPedBlock().getDefaultState(), 0);
+        BlockPosUtil.Vec3s pos = BlockPosUtil.translate(ped.getPos(), 0.5D, -0.5D, 0.5D);
+        FXBoreParticles fb = new FXBoreParticles(ped.getWorld(), x, y, z, pos.x, pos.y, pos.z, ped.getPedBlock().getDefaultState(), 0);
         fb.setAlphaF(0.3F);
         FMLClientHandler.instance().getClient().effectRenderer.addEffect(fb);
     }

@@ -17,7 +17,7 @@ public class ClientTickHandler {
     @SubscribeEvent
     public static void clientTickEnd(ClientTickEvent event) {
         GuiScreen gui = Minecraft.getMinecraft().currentScreen;
-        if(gui == null || !gui.doesGuiPauseGame()) {
+        if (gui == null || !gui.doesGuiPauseGame()) {
             ticksInGame++;
         }
     }

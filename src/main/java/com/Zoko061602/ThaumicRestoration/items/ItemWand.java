@@ -110,7 +110,7 @@ public class ItemWand extends ItemBaseMeta implements IRechargable {
     @Override
     public int getMaxCharge(ItemStack stack, EntityLivingBase player) {
         switch (stack.getItemDamage()) {
-            case 0:  return  50;
+//          case 0:  return  50; // same as default
             case 1:  return 200;
             case 2:  return 800;
             default: return  50;

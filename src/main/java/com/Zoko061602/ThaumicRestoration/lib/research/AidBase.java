@@ -11,7 +11,7 @@ public class AidBase implements ITheorycraftAid {
     
     public AidBase(Block block, Class<? extends TheorycraftCard>[] cards) {
         this.block = block;
-        this.cards = (Class<TheorycraftCard>[])cards;
+        this.cards = (Class<TheorycraftCard>[]) cards;
     }
     
     @Override

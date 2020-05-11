@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.Zoko061602.ThaumicRestoration.main.TR_Tab;
 
+import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -86,13 +87,10 @@ public class ItemTRBucket extends ItemBucket {
             return false;
         
         else if (worldIn.provider.doesWaterVaporize()) {
-            int l = posIn.getX();
-            int i = posIn.getY();
-            int j = posIn.getZ();
             worldIn.playSound(player, posIn, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.8F);
             
             for (int k = 0; k < 8; ++k)
-                worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, (double)l + Math.random(), (double)i + Math.random(), (double)j + Math.random(), 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posIn.getX() + Math.random(), posIn.getY() + Math.random(), posIn.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
         }
         
         else {

@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 public class ItemStackDrawable implements IDrawableStatic {
     
     private final ItemStack stack;
+    private final int PIXELS = 16;
     
     public ItemStackDrawable(ItemStack stack) {
         this.stack = stack;
@@ -25,12 +26,12 @@ public class ItemStackDrawable implements IDrawableStatic {
     
     @Override
     public int getWidth() {
-        return 16;
+        return PIXELS;
     }
     
     @Override
     public int getHeight() {
-        return 16;
+        return PIXELS;
     }
     
     @Override

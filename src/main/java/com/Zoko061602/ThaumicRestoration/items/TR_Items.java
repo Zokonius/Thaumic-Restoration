@@ -21,6 +21,20 @@ public class TR_Items {
     public static Item itemWitherRing;
     public static Item itemLighter;
     public static Item itemShard;
+
+    private static Item[] items;
+
+//    private static Item[] sumList(Item[]... list) {
+//        int n = 0;
+//        for (Item[] items : list) n += items.length;
+//        Item[] result = new Item[n];
+//        n = 0;
+//        for (Item[] items : list) {
+//            System.arraycopy(items, 0, result, n, items.length);
+//            n += items.length;
+//        }
+//        return result;
+//    }
     
     public static void initItems() {
         itemWand = new ItemWand();
@@ -35,37 +49,23 @@ public class TR_Items {
         itemWitherRing = new ItemRingWither();
         itemLighter = new ItemLighter();
         itemShard = new ItemShard();
+
+        items = new Item[] { itemWand, itemIngot, itemPlate, itemWandCap, itemWandRod, itemTRBucket, itemToast, itemWitherRing, itemLighter, itemShard };
+        // is there reason to initialize them here instead of directly in the field?
+        // if initiation is moved to the decleration, items can be moved and set """final""".
     }
     
-    public static void registerItems(RegistryEvent.Register<Item> e){
-        
-        e.getRegistry().registerAll(itemWand);
-        e.getRegistry().registerAll(itemIngot);
-        e.getRegistry().registerAll(itemPlate);
-        
-        e.getRegistry().register(itemWandCap);
-        e.getRegistry().register(itemWandRod);
-        
-        e.getRegistry().register(itemTRBucket);
-        e.getRegistry().register(itemToast);
-        e.getRegistry().register(itemWitherRing);
-        e.getRegistry().register(itemLighter);
-        e.getRegistry().register(itemShard);
-        
+    public static void registerItems(RegistryEvent.Register<Item> e) {
+        for (Item item : items)
+            if (item instanceof ItemBaseMeta)
+                e.getRegistry().registerAll(item);
+            else
+                e.getRegistry().register(item);
     }
     
     public static void registerRenders(ModelRegistryEvent event) {
-        registerRender(itemWand);
-        registerRender(itemIngot);
-        registerRender(itemPlate);
-        registerRender(itemWandCap);
-        registerRender(itemWandRod);
-        registerRender(itemTRBucket);
-        registerRender(itemToast);
-        registerRender(itemWitherRing);
-        registerRender(itemLighter);
-        registerRender(itemShard);
-        
+        for (Item item : items)
+            registerRender(item);
     }
     
     private static void registerRender(Item item) {

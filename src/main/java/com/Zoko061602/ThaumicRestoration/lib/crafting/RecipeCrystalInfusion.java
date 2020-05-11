@@ -49,9 +49,9 @@ public class RecipeCrystalInfusion {
     }
     
     private void register() {
-        if (this.getAspect  () == null) return;
-        if (this.getInput   () == null) return;
-        if (this.getOutput  () == null) return;
+        if((this.getAspect  () == null)
+        || (this.getInput   () == null)
+        || (this.getOutput  () == null)) return;
         if (this.getResearch() == null) this.research="FIRSTSTEPS@1";
         recipes.add(this);
     }

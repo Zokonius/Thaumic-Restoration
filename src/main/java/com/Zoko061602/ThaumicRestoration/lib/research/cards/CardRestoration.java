@@ -25,12 +25,12 @@ public class CardRestoration extends TheorycraftCard {
     
     @Override
     public String getLocalizedName() {
-        return new TextComponentTranslation("card.restoration.name", new Object[0]).getUnformattedText();
+        return new TextComponentTranslation("card.restoration.name").getUnformattedText();
     }
     
     @Override
     public String getLocalizedText() {
-        return new TextComponentTranslation("card.restoration.text", new Object[0]).getUnformattedText();
+        return new TextComponentTranslation("card.restoration.text").getUnformattedText();
     }
     
 }

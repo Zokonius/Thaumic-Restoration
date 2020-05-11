@@ -14,21 +14,18 @@ public class TileStorageUnit extends TileThaumcraftInventory {
 
 	@Override
 	public boolean canInsertItem(int par1, ItemStack stack2, EnumFacing par3) {
-		if ((par1 != 0)
-		|| (stack2.getCount()+getSyncedStackInSlot(0).getCount()>Integer.MAX_VALUE))
+		if (par1 != 0)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int par1, ItemStack stack2){
+	public boolean isItemValidForSlot(int par1, ItemStack stack2) {
 		if (getSyncedStackInSlot(0).isEmpty())
 			return true;
 		if (getSyncedStackInSlot(0).getItem() != stack2.getItem())
 			return false;
-		if (getSyncedStackInSlot(0).getCount() + stack2.getCount() <= Integer.MAX_VALUE)
-			return true;
-	    return false;
+		return true; // ItemStack.getCount returns int; int + int is int, overflow cannot be detected.
 	}
 
 	@Override

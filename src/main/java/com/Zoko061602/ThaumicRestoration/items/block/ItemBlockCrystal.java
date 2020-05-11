@@ -28,7 +28,7 @@ public class ItemBlockCrystal extends ItemBlock {
     }
     
     @Override
-    public boolean placeBlockAt( ItemStack stack,  EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, @Nonnull IBlockState newState) {
+    public boolean placeBlockAt(ItemStack stack,  EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, @Nonnull IBlockState newState) {
         boolean placed = super.placeBlockAt(stack, player, world, pos, side, hitX, hitY, hitZ, newState);
         if (placed) {
             Aspect a = getType(stack);
