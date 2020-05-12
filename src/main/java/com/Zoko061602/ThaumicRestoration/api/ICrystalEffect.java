@@ -7,6 +7,8 @@ import net.minecraft.world.World;
 
 public interface ICrystalEffect {
 
+	public static int RANGE = 7;
+
     public abstract void performEffect(World world, BlockPos pos, TileCrystal tile);
 
 }

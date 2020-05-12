@@ -1,6 +1,7 @@
 package com.Zoko061602.ThaumicRestoration.crafting;
 
 import com.Zoko061602.ThaumicRestoration.api.RestorationAPI;
+import com.Zoko061602.ThaumicRestoration.lib.tiles.crystal.CrystalEffectPlantTick;
 import com.Zoko061602.ThaumicRestoration.lib.tiles.crystal.CrystalEffectPotion;
 
 import net.minecraft.init.MobEffects;
@@ -8,23 +9,21 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.lib.potions.PotionInfectiousVisExhaust;
 import thaumcraft.common.lib.potions.PotionWarpWard;
 
-public class CrystalTypes {
+public class TR_CrystalTypes {
 
     public static void registerCrystals() {
         RestorationAPI.registerCrystalEffect(Aspect.AIR, new CrystalEffectPotion(MobEffects.SPEED, 0));
-        RestorationAPI.registerCrystalEffect(Aspect.MOTION, new CrystalEffectPotion(MobEffects.SPEED, 1));
-
+        RestorationAPI.registerCrystalEffect(Aspect.FIRE, new CrystalEffectPotion(MobEffects.FIRE_RESISTANCE, 0));
+        RestorationAPI.registerCrystalEffect(Aspect.WATER, new CrystalEffectPotion(MobEffects.WATER_BREATHING, 0));
         RestorationAPI.registerCrystalEffect(Aspect.EARTH, new CrystalEffectPotion(MobEffects.RESISTANCE, 0));
-        RestorationAPI.registerCrystalEffect(Aspect.PROTECT, new CrystalEffectPotion(MobEffects.RESISTANCE, 1));
+  //	RestorationAPI.registerCrystalEffect(Aspect.ORDER, new CrystalEffectPotion(MobEffects.HASTE, 0));
+        RestorationAPI.registerCrystalEffect(Aspect.ENTROPY, new CrystalEffectPotion(MobEffects.HASTE, 0));
 
+        RestorationAPI.registerCrystalEffect(Aspect.MOTION, new CrystalEffectPotion(MobEffects.SPEED, 1));
+        RestorationAPI.registerCrystalEffect(Aspect.PROTECT, new CrystalEffectPotion(MobEffects.RESISTANCE, 1));
         RestorationAPI.registerCrystalEffect(Aspect.DARKNESS, new CrystalEffectPotion(MobEffects.BLINDNESS, 1));
         RestorationAPI.registerCrystalEffect(Aspect.LIGHT, new CrystalEffectPotion(MobEffects.NIGHT_VISION, 0));
-
         RestorationAPI.registerCrystalEffect(Aspect.LIFE, new CrystalEffectPotion(MobEffects.REGENERATION, 0));
-        RestorationAPI.registerCrystalEffect(Aspect.WATER, new CrystalEffectPotion(MobEffects.WATER_BREATHING, 0));
-
-        RestorationAPI.registerCrystalEffect(Aspect.FIRE, new CrystalEffectPotion(MobEffects.FIRE_RESISTANCE, 0));
-        RestorationAPI.registerCrystalEffect(Aspect.ENTROPY, new CrystalEffectPotion(MobEffects.HASTE, 0));
         RestorationAPI.registerCrystalEffect(Aspect.METAL, new CrystalEffectPotion(MobEffects.RESISTANCE, 0));
         RestorationAPI.registerCrystalEffect(Aspect.DEATH, new CrystalEffectPotion(MobEffects.WITHER, 0));
         RestorationAPI.registerCrystalEffect(Aspect.UNDEAD, new CrystalEffectPotion(MobEffects.POISON, 1));
@@ -34,7 +33,7 @@ public class CrystalTypes {
         RestorationAPI.registerCrystalEffect(Aspect.ENERGY, new CrystalEffectPotion(MobEffects.JUMP_BOOST, 0));
         RestorationAPI.registerCrystalEffect(Aspect.ELDRITCH, new CrystalEffectPotion(MobEffects.LEVITATION, 0));
         RestorationAPI.registerCrystalEffect(Aspect.FLIGHT, new CrystalEffectPotion(MobEffects.LEVITATION, 1));
-      //  RestorationAPI.registerCrystalEffect(Aspect.PLANT, new CrystalEffectPotion(MobEffects.LEVITATION, 0));
+        RestorationAPI.registerCrystalEffect(Aspect.PLANT, new CrystalEffectPlantTick(2));
         RestorationAPI.registerCrystalEffect(Aspect.TOOL, new CrystalEffectPotion(MobEffects.HASTE, 2));
         RestorationAPI.registerCrystalEffect(Aspect.SENSES, new CrystalEffectPotion(MobEffects.NAUSEA, 0));
         RestorationAPI.registerCrystalEffect(Aspect.TRAP, new CrystalEffectPotion(MobEffects.SLOWNESS, 0));

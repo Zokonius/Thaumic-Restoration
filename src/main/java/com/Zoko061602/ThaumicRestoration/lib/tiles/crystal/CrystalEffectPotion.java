@@ -12,7 +12,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CrystalEffectPotion implements ICrystalEffect {
+public class CrystalEffectPotion extends CrystalEffect {
 
     private Potion potion;
     private int amp;
@@ -25,7 +25,7 @@ public class CrystalEffectPotion implements ICrystalEffect {
 	@Override
 	public void performEffect(World world, BlockPos pos, TileCrystal tile) {
         PotionEffect effect = null;
-        List<EntityLivingBase> l = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(pos.getX()-7, pos.getY()-7, pos.getZ()-7, pos.getX()+7, pos.getY()+7, pos.getZ()+7));
+        List<EntityLivingBase> l = world.getEntitiesWithinAABB(EntityLivingBase.class, getAABBRange(pos));
         for (EntityLivingBase p : l){
             if (p.isPotionActive(potion))
                 effect = p.getActivePotionEffect(potion);

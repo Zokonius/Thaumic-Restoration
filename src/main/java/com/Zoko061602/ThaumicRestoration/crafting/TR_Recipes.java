@@ -44,7 +44,7 @@ public class TR_Recipes {
         addInfusionRecipes();
         addWandTriggers();
         TR_Golems.addGolems();
-        CrystalTypes.registerCrystals();
+        TR_CrystalTypes.registerCrystals();
     }
 
 
