@@ -4,7 +4,6 @@ import com.Zoko061602.ThaumicRestoration.compat.RestoredCompatModule;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_Aspects;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_OreDict;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_Research;
-import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.tile.TR_Tiles;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

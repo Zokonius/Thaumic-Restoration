@@ -1,9 +1,21 @@
 package com.Zoko061602.ThaumicRestoration.crafting;
 
+import static thaumcraft.api.golems.EnumGolemTrait.ARMORED;
+import static thaumcraft.api.golems.EnumGolemTrait.BLASTPROOF;
+import static thaumcraft.api.golems.EnumGolemTrait.BREAKER;
+import static thaumcraft.api.golems.EnumGolemTrait.BRUTAL;
+import static thaumcraft.api.golems.EnumGolemTrait.CLUMSY;
+import static thaumcraft.api.golems.EnumGolemTrait.DEFT;
+import static thaumcraft.api.golems.EnumGolemTrait.FIREPROOF;
+import static thaumcraft.api.golems.EnumGolemTrait.FLYER;
+import static thaumcraft.api.golems.EnumGolemTrait.HEAVY;
+import static thaumcraft.api.golems.EnumGolemTrait.LIGHT;
+import static thaumcraft.api.golems.EnumGolemTrait.REPAIR;
+import static thaumcraft.api.golems.EnumGolemTrait.SCOUT;
+
 import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
-import static thaumcraft.api.golems.EnumGolemTrait.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.blocks.BlocksTC;

@@ -6,8 +6,6 @@ import thaumcraft.api.research.ResearchEntry.EnumResearchMeta;
 import thaumcraft.api.research.ResearchStage;
 import thaumcraft.api.research.theorycraft.TheorycraftCard;
 import thaumcraft.api.research.theorycraft.TheorycraftManager;
-import thaumcraft.common.lib.research.theorycraft.CardAwareness;
-import thaumcraft.common.lib.research.theorycraft.CardFocus;
 
 public class ResearchHelper {
     

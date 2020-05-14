@@ -2,13 +2,11 @@ package com.Zoko061602.ThaumicRestoration.lib.tiles.crystal;
 
 import java.util.List;
 
-import com.Zoko061602.ThaumicRestoration.api.ICrystalEffect;
 import com.Zoko061602.ThaumicRestoration.tile.TileCrystal;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

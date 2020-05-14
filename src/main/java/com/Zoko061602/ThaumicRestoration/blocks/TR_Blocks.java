@@ -1,5 +1,7 @@
 package com.Zoko061602.ThaumicRestoration.blocks;
 
+import java.util.ArrayList;
+
 import com.Zoko061602.ThaumicRestoration.items.block.ItemBlockCrystal;
 
 import net.minecraft.block.Block;
@@ -10,8 +12,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
-
-import java.util.ArrayList;
 
 public class TR_Blocks {
 
@@ -24,7 +24,7 @@ public class TR_Blocks {
     public static BlockBase blockAdvRechargePed = new BlockAdvRechargePedestal();
     public static BlockBase blockCrystal = new BlockCrystal();
     public static BlockBase blockObsidian = new BlockObsidian();
-    public static BlockBase blockStorageUnit  = new BlockStorageUnit();
+//  public static BlockBase blockStorageUnit  = new BlockStorageUnit();
     public static BlockBase blockPavingAer = new BlockPavingAer();
 
     public static void registerBlocks(RegistryEvent.Register<Block> e) {
@@ -39,16 +39,16 @@ public class TR_Blocks {
 
     public static void registerRenders(ModelRegistryEvent e) {
         for (BlockBase b : BLOCKS)
-        	registerRender(b);
+    		registerRender(b);
     }
 
     private static void registerBlock(RegistryEvent.Register<Block> e, BlockBase b) {
 		e.getRegistry().registerAll(b);
     }
 
-    private static void registerItemBlock(RegistryEvent.Register<Item> e, BlockBase b) {
+	private static void registerItemBlock(RegistryEvent.Register<Item> e, BlockBase b) {
     	if(b instanceof BlockCrystal)
-    		e.getRegistry().register(new ItemBlockCrystal(blockCrystal).setRegistryName(blockCrystal.getRegistryName()));
+    		e.getRegistry().register(new ItemBlockCrystal());
     	else
     		e.getRegistry().registerAll(new ItemBlock(b).setRegistryName(b.getRegistryName()));
     }

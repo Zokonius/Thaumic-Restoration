@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import com.Zoko061602.ThaumicRestoration.main.TR_Tab;
 
-import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

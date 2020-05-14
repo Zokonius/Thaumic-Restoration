@@ -1,11 +1,11 @@
 package com.Zoko061602.ThaumicRestoration.client.render;
 
-import com.Zoko061602.ThaumicRestoration.tile.TileAdvRechargePedestal;
-import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
-
 import java.util.Random;
 
+import com.Zoko061602.ThaumicRestoration.tile.TileAdvRechargePedestal;
+import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
 import com.Zoko061602.ThaumicRestoration.util.IterUtil;
+
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

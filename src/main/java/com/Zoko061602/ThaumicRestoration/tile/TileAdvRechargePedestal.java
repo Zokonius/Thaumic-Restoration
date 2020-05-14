@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
 import com.Zoko061602.ThaumicRestoration.util.IterUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.items.RechargeHelper;

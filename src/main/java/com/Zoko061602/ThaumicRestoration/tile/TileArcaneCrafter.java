@@ -2,7 +2,6 @@ package com.Zoko061602.ThaumicRestoration.tile;
 
 import net.minecraft.item.ItemStack;
 import thaumcraft.common.tiles.TileThaumcraftInventory;
-import thaumcraft.common.tiles.crafting.TileArcaneWorkbench;
 
 public class TileArcaneCrafter extends TileThaumcraftInventory {
     

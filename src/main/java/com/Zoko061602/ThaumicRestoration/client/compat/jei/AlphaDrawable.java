@@ -1,10 +1,11 @@
 package com.Zoko061602.ThaumicRestoration.client.compat.jei;
 
+import org.lwjgl.opengl.GL11;
+
 import mezz.jei.api.gui.IDrawableStatic;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class AlphaDrawable implements IDrawableStatic {
     private final ResourceLocation resourceLocation;

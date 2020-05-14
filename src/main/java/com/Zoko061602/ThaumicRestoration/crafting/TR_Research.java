@@ -1,20 +1,21 @@
 package com.Zoko061602.ThaumicRestoration.crafting;
 
+import static thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType.OBSERVATION;
+import static thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType.THEORY;
+import static thaumcraft.api.research.ResearchEntry.EnumResearchMeta.HEX;
+import static thaumcraft.api.research.ResearchEntry.EnumResearchMeta.HIDDEN;
+import static thaumcraft.api.research.ResearchEntry.EnumResearchMeta.ROUND;
+
 import com.Zoko061602.ThaumicRestoration.blocks.TR_Blocks;
 import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.lib.research.ResearchHelper;
 import com.Zoko061602.ThaumicRestoration.lib.research.cards.CardRestoration;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
 
-import static thaumcraft.api.capabilities.IPlayerKnowledge.EnumKnowledgeType.*;
-import static thaumcraft.api.research.ResearchEntry.EnumResearchMeta.*;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;

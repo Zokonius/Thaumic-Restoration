@@ -17,26 +17,28 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
-    
+
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
     }
-    
+
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
         ColorHandler.init();
-        
+
         ClientRegistry.bindTileEntitySpecialRenderer(TileInfuser            .class, new TileInfuserRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileAdvRechargePedestal.class, new TileAdvRechargePedestalRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileStorageUnit        .class, new TileStorageUnitRenderer());
+
+
     }
-    
+
     @Override
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
-        MinecraftForge.EVENT_BUS.register(new RenderEventHandler()); 
+        MinecraftForge.EVENT_BUS.register(new RenderEventHandler());
     }
-    
+
 }
