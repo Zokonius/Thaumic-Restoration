@@ -8,16 +8,22 @@ import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectHelper;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
+import thaumcraft.api.casters.ICaster;
+import thaumcraft.api.casters.IInteractWithCaster;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.items.resources.ItemCrystalEssence;
 import thaumcraft.common.tiles.TileThaumcraftInventory;
 import thaumcraft.common.tiles.crafting.TilePedestal;
 
-public class TileInfuser extends TileThaumcraftInventory {
+public class TileInfuser extends TileThaumcraftInventory implements IInteractWithCaster {
 
     private float angle = 0;
     private int rounds = 0;
@@ -196,4 +202,16 @@ public class TileInfuser extends TileThaumcraftInventory {
     		syncSparkles(pos, color);
     }
 
+
+	@Override
+	public boolean onCasterRightClick(World world, ItemStack stack, EntityPlayer player, BlockPos pos, EnumFacing face, EnumHand hand) {
+		if(stack!= null && !stack.isEmpty() && stack.getItem() instanceof ICaster && ! isActive()) {
+			ICaster caster = (ICaster) stack.getItem();
+			if(caster.consumeVis(stack, player, 50F, true, true) && activate(player)) {
+				caster.consumeVis(stack, player, 50F, false, false);
+				return true;
+			}
+		}
+		return false;
+	}
 }

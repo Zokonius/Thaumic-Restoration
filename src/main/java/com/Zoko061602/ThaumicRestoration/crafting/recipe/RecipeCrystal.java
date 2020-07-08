@@ -1,4 +1,4 @@
-package com.Zoko061602.ThaumicRestoration.crafting;
+package com.Zoko061602.ThaumicRestoration.crafting.recipe;
 
 import com.Zoko061602.ThaumicRestoration.blocks.TR_Blocks;
 import com.Zoko061602.ThaumicRestoration.items.block.ItemBlockCrystal;

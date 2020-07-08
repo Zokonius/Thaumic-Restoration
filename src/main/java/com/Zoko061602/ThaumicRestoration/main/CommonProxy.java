@@ -1,6 +1,6 @@
 package com.Zoko061602.ThaumicRestoration.main;
 
-import com.Zoko061602.ThaumicRestoration.compat.RestoredCompatModule;
+import com.Zoko061602.ThaumicRestoration.compat.RestoredCompat;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_Aspects;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_OreDict;
 import com.Zoko061602.ThaumicRestoration.crafting.TR_Research;
@@ -15,23 +15,23 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
         TR_Tiles.initTiles();
-        RestoredCompatModule.loadPreInit(e);
+        RestoredCompat.loadPreInit(e);
     }
 
     public void init(FMLInitializationEvent e){
         TR_OreDict.addOreDict();
-        RestoredCompatModule.loadInit(e);
+        RestoredCompat.loadInit(e);
     }
 
     public void postInit(FMLPostInitializationEvent e) {
         TR_Aspects.addAspects();
         TR_Research.createHelps();
         TR_Research.createResearch();
-        RestoredCompatModule.loadPostInit(e);
+        RestoredCompat.loadPostInit(e);
     }
 
     public void loadComplete(FMLLoadCompleteEvent e) {
-        RestoredCompatModule.loadLoadComplete(e);
+        RestoredCompat.loadLoadComplete(e);
     }
 
 }

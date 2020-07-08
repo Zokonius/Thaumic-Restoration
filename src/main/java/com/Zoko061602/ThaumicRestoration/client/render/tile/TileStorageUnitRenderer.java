@@ -1,4 +1,4 @@
-package com.Zoko061602.ThaumicRestoration.client.render;
+package com.Zoko061602.ThaumicRestoration.client.render.tile;
 
 import org.lwjgl.opengl.GL11;
 

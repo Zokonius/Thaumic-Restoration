@@ -15,12 +15,9 @@ public class TR_Items {
 
 	public static ArrayList<Item> ITEMS = new ArrayList<>();
 
-    public static ItemBase itemWandCap = new ItemBase("item_wandcap");
-    public static ItemBase itemWandRod = new ItemBase("item_wandrod");
     public static ItemBase itemPrimalModulator = new ItemBase("item_primal_modulator");
     public static ItemBase itemIngot = new ItemBasePrimal("item_ingot");
     public static ItemBase itemPlate = new ItemBasePrimal("item_plate");
-    public static ItemBase itemWand = new ItemWand();
     public static ItemBase itemWitherRing = new ItemRingWither();
     public static ItemBase itemLighter = new ItemLighter();
     public static ItemBase itemShard = new ItemShard();
@@ -46,7 +43,7 @@ public class TR_Items {
         if (item instanceof ItemBaseMeta) {
             ItemBaseMeta it = (ItemBaseMeta)item;
             for (int i = 0; !(i == ((ItemBaseMeta)item).getVariants().length); i++)
-                ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(ThaumicRestoration.ModID + ":items/" + it.getBaseName(), it.getVariants()[i]));
+                ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(ThaumicRestoration.modID + ":items/" + it.getBaseName(), it.getVariants()[i]));
         }
         else
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(),"inventory"));

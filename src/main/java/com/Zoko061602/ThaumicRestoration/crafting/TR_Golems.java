@@ -58,7 +58,7 @@ public class TR_Golems {
     }
 
     private static GolemMaterial makeGolemMaterial(String name, String research, int color, int hp, int armor, int damage, ItemStack item, ItemStack core, EnumGolemTrait... traits){
-        ResourceLocation tex = new ResourceLocation(ThaumicRestoration.ModID, "textures/entity/golems/mat_" + name + ".png");
+        ResourceLocation tex = new ResourceLocation(ThaumicRestoration.modID, "textures/entity/golems/mat_" + name + ".png");
         return new GolemMaterial("tr_" + name, new String[]{research}, tex, color, hp, armor, damage, item, core, traits);
     }
 

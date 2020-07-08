@@ -8,15 +8,16 @@ import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid=ThaumicRestoration.ModID, name=ThaumicRestoration.ModName, version=ThaumicRestoration.Version, dependencies=ThaumicRestoration.Dependencies)
+@Mod(modid=ThaumicRestoration.modID, name=ThaumicRestoration.modName, version=ThaumicRestoration.version, dependencies=ThaumicRestoration.dependencies)
 public class ThaumicRestoration {
 
-    public static final String ModID = "thaumicrestoration";
-    public static final String ModName = "Thaumic Restoration";
-    public static final String Version = "1.4.0";
-    public static final String Dependencies = "required-after:thaumcraft;"+
+    public static final String modID = "thaumicrestoration";
+    public static final String modName = "Thaumic Restoration";
+    public static final String version = "1.5.0";
+    public static final String dependencies = "required-after:thaumcraft;"+
                                                 "after:jei;"+
                                                 "after:tconstruct;"+
+                                                "after:thaumicwands;"+
                                                 "after:crafttweaker";
 
 

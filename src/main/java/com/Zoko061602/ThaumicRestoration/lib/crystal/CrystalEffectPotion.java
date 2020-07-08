@@ -1,4 +1,4 @@
-package com.Zoko061602.ThaumicRestoration.lib.tiles.crystal;
+package com.Zoko061602.ThaumicRestoration.lib.crystal;
 
 import java.util.List;
 

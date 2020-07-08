@@ -1,4 +1,4 @@
-package com.Zoko061602.ThaumicRestoration.client.render;
+package com.Zoko061602.ThaumicRestoration.client.render.tile;
 
 import com.Zoko061602.ThaumicRestoration.client.model.ModelInfuser;
 import com.Zoko061602.ThaumicRestoration.main.ThaumicRestoration;
@@ -23,7 +23,7 @@ public class TileInfuserRenderer extends TileEntitySpecialRenderer<TileInfuser> 
     public void render(TileInfuser ped, double x, double y, double z, float partialTicks, int destroyStage, float alpha){
         super.render(ped, x, y, z, partialTicks, destroyStage, alpha);
 
-        bindTexture(new ResourceLocation(ThaumicRestoration.ModID,"textures/models/block_infuser.png"));
+        bindTexture(new ResourceLocation(ThaumicRestoration.modID,"textures/models/block_infuser.png"));
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(x, y, z);

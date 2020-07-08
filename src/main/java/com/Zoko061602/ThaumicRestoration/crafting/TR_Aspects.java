@@ -9,12 +9,12 @@ public class TR_Aspects {
     private static AspectEventProxy ap = new AspectEventProxy();
 
     public static void addAspects() {
-        addAspect("Aer"    , Aspect.AIR    , Aspect.LIGHT);
-        addAspect("Ignis"  , Aspect.FIRE   , Aspect.ENERGY);
+        addAspect("Aer"    , Aspect.AIR    , Aspect.MOTION);
+        addAspect("Ignis"  , Aspect.FIRE   , Aspect.BEAST);
         addAspect("Aqua"   , Aspect.WATER  , Aspect.COLD);
-        addAspect("Terra"  , Aspect.EARTH  , Aspect.PROTECT);
+        addAspect("Terra"  , Aspect.EARTH  , Aspect.DARKNESS);
         addAspect("Ordo"   , Aspect.ORDER  , Aspect.CRYSTAL);
-        addAspect("Perditio", Aspect.ENTROPY, Aspect.VOID);
+        addAspect("Perditio", Aspect.ENTROPY, Aspect.UNDEAD);
     }
 
     private static void addAspect(String oreDict, Aspect primary, Aspect secondary) {

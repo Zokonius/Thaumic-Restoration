@@ -1,4 +1,4 @@
-package com.Zoko061602.ThaumicRestoration.lib.tiles.crystal;
+package com.Zoko061602.ThaumicRestoration.lib.crystal;
 
 import com.Zoko061602.ThaumicRestoration.api.ICrystalEffect;
 

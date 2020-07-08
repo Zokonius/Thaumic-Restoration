@@ -1,0 +1,41 @@
+{
+  "forge_marker": 1,
+  "variants": {
+      "aer": {
+      "model": "forge:item-layer", "transform": "forge:default-item",
+       "textures": {
+          "layer0": "thaumicrestoration:items/wand_cap/item_wand_cap_0"
+        }
+      },
+        "ignis": {
+         "model": "forge:item-layer", "transform": "forge:default-item",
+         "textures": {
+          "layer0": "thaumicrestoration:items/wand_cap/item_wand_cap_1"
+        }
+      },
+        "aqua": {
+        "model": "forge:item-layer", "transform": "forge:default-item",
+        "textures": {
+          "layer0": "thaumicrestoration:items/wand_cap/item_wand_cap_2"
+        }
+      },
+        "terra": {
+        "model": "forge:item-layer", "transform": "forge:default-item",
+        "textures": {
+          "layer0": "thaumicrestoration:items/wand_cap/item_wand_cap_3"
+        }
+      },
+        "ordo": {
+        "model": "forge:item-layer", "transform": "forge:default-item",
+        "textures": {
+          "layer0": "thaumicrestoration:items/wand_cap/item_wand_cap_4"
+        }
+      },
+        "perditio": {
+        "model": "forge:item-layer", "transform": "forge:default-item",
+        "textures": {
+          "layer0": "thaumicrestoration:items/wand_cap/item_wand_cap_5"
+        }
+      }
+     }
+    }

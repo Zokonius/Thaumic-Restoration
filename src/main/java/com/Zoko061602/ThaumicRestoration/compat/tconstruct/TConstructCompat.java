@@ -1,7 +1,7 @@
 package com.Zoko061602.ThaumicRestoration.compat.tconstruct;
 
 import com.Zoko061602.ThaumicRestoration.blocks.BlockBaseFluid;
-import com.Zoko061602.ThaumicRestoration.compat.RestoredCompatModule;
+import com.Zoko061602.ThaumicRestoration.compat.RestoredCompat.IRestoredCompatModule;
 import com.Zoko061602.ThaumicRestoration.items.TR_Items;
 import com.Zoko061602.ThaumicRestoration.lib.FluidHelper;
 
@@ -22,7 +22,7 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.tools.TinkerTraits;
 
-public class TConstructCompat extends RestoredCompatModule {
+public class TConstructCompat implements IRestoredCompatModule {
 
     public static final TConMats aer      = new TConMats("aer"     , 0xEDEF59, "ThaumiumAer");
     public static final TConMats ignis    = new TConMats("ignis"   , 0xEE4B00, "ThaumiumIgnis");

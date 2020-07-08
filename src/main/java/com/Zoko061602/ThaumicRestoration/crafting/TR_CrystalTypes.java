@@ -1,8 +1,8 @@
 package com.Zoko061602.ThaumicRestoration.crafting;
 
 import com.Zoko061602.ThaumicRestoration.api.RestorationAPI;
-import com.Zoko061602.ThaumicRestoration.lib.tiles.crystal.CrystalEffectPlantTick;
-import com.Zoko061602.ThaumicRestoration.lib.tiles.crystal.CrystalEffectPotion;
+import com.Zoko061602.ThaumicRestoration.lib.crystal.CrystalEffectPlantTick;
+import com.Zoko061602.ThaumicRestoration.lib.crystal.CrystalEffectPotion;
 
 import net.minecraft.init.MobEffects;
 import thaumcraft.api.aspects.Aspect;

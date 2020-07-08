@@ -23,10 +23,11 @@ public class TileCrystal extends TileThaumcraft implements ITickable {
 
     @Override
     public void update() {
-        if ((!world.isBlockPowered(pos))
-        && (effect != null)) {
-            effect.performEffect(world, pos, this);
-        }
+    	if(!world.isRemote) {
+    		if ((!world.isBlockPowered(pos)) && (effect != null))
+    			effect.performEffect(world, pos, this);
+
+    	}
     }
 
     public Aspect getAspect() {

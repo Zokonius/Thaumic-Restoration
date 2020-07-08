@@ -1,6 +1,5 @@
 package com.Zoko061602.ThaumicRestoration.blocks;
 
-import com.Zoko061602.ThaumicRestoration.items.ItemWand;
 import com.Zoko061602.ThaumicRestoration.tile.TileInfuser;
 
 import net.minecraft.block.ITileEntityProvider;
@@ -17,6 +16,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import thaumcraft.api.casters.ICaster;
+import thaumcraft.api.casters.IInteractWithCaster;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.common.lib.utils.InventoryUtils;
 
@@ -72,19 +74,9 @@ public class BlockInfuser extends BlockBase implements ITileEntityProvider {
                 return true;
             }
 
-            if (!ped.getStackInSlot(0).isEmpty()) {
-                if (!player.inventory.getCurrentItem().isEmpty() &&
-                    player.inventory.getCurrentItem().getItem() instanceof ItemWand) {
-                    if (RechargeHelper.getCharge(player.inventory.getCurrentItem()) >= 50) {
-                        if (ped.activate(player))
-                            RechargeHelper.consumeCharge(player.inventory.getCurrentItem(), player, 50);
-                        return true;
-                    }
-                }
-                else {
+            if (!ped.getStackInSlot(0).isEmpty() && ! (player.getHeldItemMainhand().getItem() instanceof ICaster || player.getHeldItemOffhand().getItem() instanceof ICaster)) {
                     InventoryUtils.dropItemsAtEntity(world, pos, player);
                     world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 1.5F);
-                }
                 return true;
             }
         }

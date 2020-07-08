@@ -1,4 +1,4 @@
-package com.Zoko061602.ThaumicRestoration.lib.tiles.crystal;
+package com.Zoko061602.ThaumicRestoration.lib.crystal;
 
 import com.Zoko061602.ThaumicRestoration.tile.TileCrystal;
 import com.Zoko061602.ThaumicRestoration.util.BlockPosUtil;
@@ -17,15 +17,14 @@ public class CrystalEffectPlantTick extends CrystalEffect {
 
 	@Override
 	public void performEffect(World world, BlockPos pos, TileCrystal tile) {
-		for(int x=-RANGE; x!= RANGE;x++) {
+		for(int x=-RANGE; x!= RANGE;x++)
 			for(int z=-RANGE; z!= RANGE;z++) {
 				BlockPos p = BlockPosUtil.translateToBlockPos(pos, x, 0, z);
 				Block b = world.getBlockState(p).getBlock();
-				if(b != null && world.rand.nextInt(6)<amp) {
+				if(b != null && world.rand.nextInt(6)<amp)
 					b.updateTick(world, p, world.getBlockState(p), world.rand);
-				}
+
 			}
-		}
 
 	}
 
